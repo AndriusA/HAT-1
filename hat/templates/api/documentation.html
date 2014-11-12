@@ -1,0 +1,799 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href="{% static 'css/screen.css' %}" rel="stylesheet" type="text/css">
+        <title>API Documentation</title>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
+
+    </head>
+
+    <body>
+
+        <header class="top-heading" style="margin-bottom: 20px;">
+            <div class="row collapse">
+                <div class="medium-24 columns top-heading__center">
+                    <section>
+                        <i class="fa fa-2x fa-puzzle-piece"></i>
+                        <h1>API Documentation</h1>
+                    </section>
+                </div>
+            </div>
+        </header>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h2>Authentication</h2>
+
+                <p>Authenticating with the API is very simple. When calling an API method, just add a header called <code class="inline">Device-ID</code> to the HTTP request containing your unique device ID.</p>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h2>Post data</h2>
+
+                <p>To post data to the API, you must encapsulate everything as JSON in a POST field called <code class="inline">data</code>. An example request would be as follows</p>
+
+<pre style="margin-bottom: 12px; font-size: 10px;"><code>curl -H "Device-ID: x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0"  --data 'data={"string":"A string"}' http://hat.onespace.media/api/v1/sensor_data/</code></pre>
+
+                <p>The arguments required by certain methods must exist inside the JSON data that your device POSTs to the API, otherwise the API will throw an error.</p>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h2>Units</h2>
+
+                <p>This is a list of units that need to be provided along with sensor values.</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="100">ID</th>
+                            <th>Unit</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for unit in units %}
+                        <tr>
+                            <td>{{ unit.pk }}</td>
+                            <td>{{ unit.name }} ({{ unit.symbol }})</td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="2">There are currently no units to display.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h2>Data types</h2>
+
+                <p>This is a list of data types that need to be provided along with sensor values.</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="100">ID</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for type in data_types %}
+                        <tr>
+                            <td>{{ type.pk }}</td>
+                            <td>{{ type.name }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="2">There are currently no data types to display.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h2>Event types</h2>
+
+                <p>This is a list of event types, one of which needs to be provided when posting an event.</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="100">ID</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for type in event_types %}
+                        <tr>
+                            <td>{{ type.pk }}</td>
+                            <td>{{ type.name }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="2">There are currently no types to display.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h2>Event statuses</h2>
+
+                <p>This is a list of event statuses, one of which needs to be provided when posting an event.</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="100">ID</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for status in event_statuses %}
+                        <tr>
+                            <td>{{ status.0 }}</td>
+                            <td>{{ status.1 }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="2">There are currently no statuses to display.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h2>Event time types</h2>
+
+                <p>This is a list of event time types, one of which needs to be provided when posting an event.</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="100">ID</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for type in event_time_types %}
+                        <tr>
+                            <td>{{ type.0 }}</td>
+                            <td>{{ type.1 }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="2">There are currently no types to display.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h2>Location types</h2>
+
+                <p>This is a list of location types, one of which needs to be provided when posting a location.</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="100">ID</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for type in location_types %}
+                        <tr>
+                            <td>{{ type.pk }}</td>
+                            <td>{{ type.name }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="2">There are currently no types to display.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h2>Device methods</h2>
+
+                <p>Methods used by devices to interact with the HAT database.</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th>Methods</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>GET</strong> <a href="#/api/v1/sensors/">/api/v1/sensors/</a>
+                                <p>This method returns all sensors tied to your device.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>POST</strong> <a href="#/api/v1/sensor_data/">/api/v1/sensor_data/</a>
+                                <p>This method takes sensor data to be mapped to the database.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>POST</strong> <a href="#/api/v1/batch_sensor_data/">/api/v1/batch_sensor_data/</a>
+                                <p>This method takes an array of sensor data to be mapped to the database.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>POST</strong> <a href="#/api/v1/create_event/">/api/v1/create_event/</a>
+                                <p>This method takes event data from a service that handles events from third party services.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>POST</strong> <a href="#/api/v1/create_location/">/api/v1/create_location/</a>
+                                <p>This method takes event location data to be used when creating events.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>POST</strong> <a href="#/api/v1/create_person/">/api/v1/create_person/</a>
+                                <p>This method takes event person data to be used when creating events.</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h3 id="/api/v1/sensors/"><strong>GET</strong> /api/v1/sensors/</h3>
+
+                <p>This method returns all sensors with their IDs tied to your device.</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="170">Arguments</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td valign="top" colspan="2"><p>Method has no arguments</p></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Example request:</p>
+
+                <pre style="margin-bottom: 12px; font-size: 10px;"><code>curl -H "Device-ID: x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0" http://hat.onespace.media/api/v1/sensors/</code></pre>
+
+                <p>Example response</p>
+
+<pre style="margin-bottom: 0; font-size: 10px;"><code>{
+  "response" : "success",
+  "sensors" : [
+    {
+      "x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0" : "Toilet roll infrared distance sensor"
+    }
+  ]
+}</code></pre>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h3 id="/api/v1/sensor_data/"><strong>POST</strong> /api/v1/sensor_data/</h3>
+
+                <p>This method takes sensor data to be mapped to the database.</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="170">Arguments</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td valign="top"><p>id (string) <span class="text-error">*</span></p></td>
+                            <td><p>Long ID of a sensor tied to the authenticating device. This argument is required.</p></td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>timestamp (int)</p></td>
+                            <td><p>UTC unix timestamp of the sensor reading. Not providing this argument will set it to the current server time.</p></td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>value (string/array) <span class="text-error">*</span></p></td>
+                            <td><p>The value of the sensor reading. This argument is required. If an array is supplied, this method will insert multiple entries for the same sensor.</p></td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>unit (int) <span class="text-error">*</span></p></td>
+                            <td><p>The unit type of the value as an ID. Unit IDs can be seen at the top of this documentation. This argument is required.</p></td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>data_type (int) <span class="text-error">*</span></p></td>
+                            <td><p>The data type of the value as an ID. Data type IDs can be seen at the top of this documentation. This argument is required.</p></td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>description (string)</p></td>
+                            <td><p>A short description about the type of data being stored.</p></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Example request:</p>
+
+                <pre style="margin-bottom: 12px; font-size: 10px;"><code>curl -H "Device-ID: x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0"  --data 'data={"id":"x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0","timestamp":1410537485,"value":10,"unit":1,"data_type":1,"description":"A value"}' http://hat.onespace.media/api/v1/sensor_data/</code></pre>
+
+                <p>Example response:</p>
+
+<pre style="margin-bottom: 12px; font-size: 10px;"><code>{
+  "response" : "success",
+  "sensor_data_id" : 1
+}</code></pre>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h3 id="/api/v1/batch_sensor_data/"><strong>POST</strong> /api/v1/batch_sensor_data/</h3>
+
+                <p>This method takes an array of sensor data to be mapped to the database.</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="170">Arguments</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td valign="top"><p>sensor_data (array) <span class="text-error">*</span></p></td>
+                            <td>
+                                <p>An array of sensor data objects. This field is required.</p>
+                                <table class="small-24">
+                                    <thead>
+                                        <tr>
+                                            <th width="170">Arguments</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td valign="top"><p>id (string) <span class="text-error">*</span></p></td>
+                                            <td><p>Long ID of a sensor tied to the authenticating device. This argument is required.</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"><p>timestamp (int)</p></td>
+                                            <td><p>UTC unix timestamp of the sensor reading. Not providing this argument will set it to the current server time.</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"><p>value (string/array) <span class="text-error">*</span></p></td>
+                                            <td><p>The value of the sensor reading. This argument is required. If an array is supplied, this method will insert multiple entries for the same sensor.</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"><p>unit (int) <span class="text-error">*</span></p></td>
+                                            <td><p>The unit type of the value as an ID. Unit IDs can be seen at the top of this documentation. This argument is required.</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"><p>data_type (int) <span class="text-error">*</span></p></td>
+                                            <td><p>The data type of the value as an ID. Data type IDs can be seen at the top of this documentation. This argument is required.</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"><p>description (string)</p></td>
+                                            <td><p>A short description about the type of data being stored.</p></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Example request:</p>
+
+                <pre style="margin-bottom: 12px; font-size: 10px;"><code>curl -H "Device-ID: x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0"  --data 'data={"sensor_data":[{"id":"x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0","timestamp":1410537485,"value":10,"unit":1,"data_type":1,"description":"A value"}]}' http://hat.onespace.media/api/v1/sensor_data/</code></pre>
+
+                <p>Example response:</p>
+
+<pre style="margin-bottom: 12px; font-size: 10px;"><code>{
+  "response" : "success",
+  "sensor_data_id" : 1
+}</code></pre>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h3 id="/api/v1/create_event/"><strong>POST</strong> /api/v1/create_event/</h3>
+
+                <p>This method takes data from a service such as Facebook, and maps the relevant data to the database.</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="170">Arguments</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td valign="top"><p>name (string) <span class="text-error">*</span></p></td>
+                            <td>
+                                <p>The name of the event. This argument is required.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>description (string)</p></td>
+                            <td>
+                                <p>The description of the event.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>type (int) <span class="text-error">*</span></p></td>
+                            <td>
+                                <p>An ID of an event type. Event type IDs can be seen at the top of this documentation. This argument is required.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>status (int) <span class="text-error">*</span></p></td>
+                            <td>
+                                <p>An ID of an event status. Event status IDs can be seen at the top of this documentation. This argument is required.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>time_type (int) <span class="text-error">*</span></p></td>
+                            <td>
+                                <p>An ID of an event time type. Event time type IDs can be seen at the top of this documentation. This argument is required.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>start_timestamp (int) <span class="text-error">*</span></p></td>
+                            <td>
+                                <p>UTC unix timestamp of the event start time. This argument is required.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>end_timestamp (int) <span class="text-error">*</span></p></td>
+                            <td>
+                                <p>UTC unix timestamp of the event end time. This argument is required.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>sensor_data (array)</p></td>
+                            <td>
+                                <p>Array of sensor data IDs created using the sensor_data method.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>locations (array)</p></td>
+                            <td>
+                                <p>Array of location IDs created using the create_location method.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>people (array)</p></td>
+                            <td>
+                                <p>Array of people IDs created using the create_person method.</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Example request:</p>
+
+                <pre style="margin-bottom: 12px; font-size: 10px;"><code>curl -H "Device-ID: x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0"  --data 'data={"name":"An event","description":"An event","type":1,"status":1,"time_type":1,"start_timestamp":1410537066,"end_timestamp":1410537866,"sensor_data":[1],"locations":[1,2],"people":[1,2,3]}' http://hat.onespace.media/api/v1/create_event/</code></pre>
+
+                <p>Example response:</p>
+
+<pre style="margin-bottom: 12px; font-size: 10px;"><code>{
+  "response" : "success"
+}</code></pre>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h3 id="/api/v1/create_location/"><strong>POST</strong> /api/v1/create_location/</h3>
+
+                <p>Creates an event location and returns an ID that can be used in the create_event method.</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="170">Arguments</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td valign="top"><p>type (int) <span class="text-error">*</span></p></td>
+                            <td>
+                                <p>An ID of a location type. Location type IDs can be seen at the top of this documentation. This argument is required.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>name (string) <span class="text-error">*</span></p></td>
+                            <td>
+                                <p>The name of the location. This argument is required.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>desription (string)</p></td>
+                            <td>
+                                <p>The description of the location.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>address (object)</p></td>
+                            <td>
+                                <p>Address object containing the following arguments:</p>
+                                <table class="small-24">
+                                    <thead>
+                                        <tr>
+                                            <th width="170">Arguments</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td valign="top"><p>house_name (string)</p></td>
+                                            <td>
+                                                <p>Address house name.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"><p>address_1 (string)</p></td>
+                                            <td>
+                                                <p>Address line 1.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"><p>address_2 (string)</p></td>
+                                            <td>
+                                                <p>Address line 2.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"><p>town (string)</p></td>
+                                            <td>
+                                                <p>Address town.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"><p>county (string)</p></td>
+                                            <td>
+                                                <p>Address county.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top"><p>postal_code (string)</p></td>
+                                            <td>
+                                                <p>Address postal code.</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>longitude (float)</p></td>
+                            <td>
+                                <p>The longitude of the location.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>latitude (float)</p></td>
+                            <td>
+                                <p>The latitude of the location.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>height_from_sea_level (int)</p></td>
+                            <td>
+                                <p>The location's height from sea level (unknown unit).</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>indoor_information (string)</p></td>
+                            <td>
+                                <p>Indoor information?</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>orientation (string)</p></td>
+                            <td>
+                                <p>Orientation?</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Example request:</p>
+
+                <pre style="margin-bottom: 12px; font-size: 10px;"><code>curl -H "Device-ID: x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0"  --data 'data={"name":"A location","description":"A location","type":1,"address":{"house_name":"","address_1":"123 Fake Street","address_2":"","town":"Madeupington","county":"Fakeland","postal_code":"ABC 123"},"longitude":0.138938,"latitude":52.202977,"height_from_sea_level":0,"indoor_information":"","orientation":""}' http://hat.onespace.media/api/v1/create_location/</code></pre>
+
+                <p>Example response:</p>
+
+<pre style="margin-bottom: 12px; font-size: 10px;"><code>{
+  "location_id" : 1,
+  "response" : "success"
+}</code></pre>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h3 id="/api/v1/create_person/"><strong>POST</strong> /api/v1/create_person/</h3>
+
+                <p>Creates an event person and returns an ID that can be used in the create_event method. People are tied to the same user that owns the device sending data.</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="170">Arguments</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td valign="top"><p>first_name (string) <span class="text-error">*</span></p></td>
+                            <td>
+                                <p>The persons first name. This argument is required.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><p>last_name (string) <span class="text-error">*</span></p></td>
+                            <td>
+                                <p>The persons last name. This argument is required.</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Example request:</p>
+
+                <pre style="margin-bottom: 12px; font-size: 10px;"><code>curl -H "Device-ID: x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0"  --data 'data={"first_name":"Barry","last_name":"Scott"}' http://hat.onespace.media/api/v1/create_person/</code></pre>
+
+                <p>Example response:</p>
+
+<pre style="margin-bottom: 12px; font-size: 10px;"><code>{
+  "person_id" : 1,
+  "response" : "success"
+}</code></pre>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

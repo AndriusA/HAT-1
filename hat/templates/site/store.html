@@ -1,0 +1,218 @@
+{% extends base_template %}
+{% load assets %}
+
+{% block page_title_icon %}fa-shopping-cart{% endblock page_title_icon %}
+{% block page_title_text %}Store{% endblock page_title_text %}
+
+{% block top_title_content %}
+    <h2 class="top-title__heading left"><i class="fa fa-shopping-cart"></i> Store</h2>
+    <ul class="button-group filter-group radius right">
+        <li><a href="#" class="button filter active small">Store</a></li>
+        <li><a href="#" class="button filter small disabled">My library</a></li>
+        <li><a href="#" class="button filter small disabled">Payment settings</a></li>
+    </ul>
+{% endblock top_title_content %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="medium-12 columns">
+
+            <a class="button primary expand large icon-right disabled" href="#">
+                <span class="text">Get data</span>
+                <span class="icon"><i class="fa fa-chevron-circle-right"></i></span>
+            </a>
+
+            <a class="button primary expand large icon-right disabled" href="#">
+                <span class="text">Get device</span>
+                <span class="icon"><i class="fa fa-chevron-circle-right"></i></span>
+            </a>
+
+        </div>
+        <div class="medium-12 columns">
+            <section class="border-box">
+
+                <header class="single-line">
+                    <div class="medium-24 columns">
+                        <h4>Recently purchased</h4>
+                    </div>
+                </header>
+
+                <section>
+
+                    <section class="single-line">
+
+                        <div class="medium-20 columns">
+                            <p>Tesco Replenishment</p>
+                        </div>
+
+                        <div class="medium-4 columns text-right">
+                            <i class="fa fa-chevron-circle-right"></i>
+                        </div>
+
+                    </section>
+
+                    <section class="single-line disabled">
+
+                        <div class="medium-20 columns">
+                            <p>Vroom</p>
+                        </div>
+
+                        <div class="medium-4 columns text-right">
+                            <i class="fa fa-chevron-circle-right"></i>
+                        </div>
+
+                    </section>
+
+                </section>
+
+            </section>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box">
+
+                <header class="single-line">
+
+                    <div class="medium-21 columns">
+                        <h4>Sub heading</h4>
+                    </div>
+
+                    <div class="medium-3 left title-options disabled">
+                        <a href="#open">
+                            <span>Options</span>
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </a>
+                    </div>
+
+                </header>
+
+                <section>
+
+                    <div class="medium-24 columns">
+                        <div class="row row__no-padding-column">
+
+                            <div class="medium-6 columns">
+                                <ul class="no-bullet list--side">
+                                    <li class="active"><a href="#">Recommended</a></li>
+                                    <li><a href="#" class="disabled">Newest</a></li>
+                                    <li><a href="#" class="disabled">Trending</a></li>
+                                    <li><a href="#" class="disabled">Top selling</a> </li>
+                                    <li><a href="#" class="disabled">Top free</a></li>
+                                    <li class="disabled"><a href="#">Updates</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="medium-18 columns">
+                                <ul class="no-bullet list--block col2 bdl">
+
+                                    <li class="item" data-equalizer>
+                                        <a href="#">
+                                            <div class="small-6 columns text-center" data-equalizer-watch>
+                                                {% img "img/store/tesco.png" width="60" %}
+                                            </div>
+                                            <div class="small-14 columns" data-equalizer-watch>
+                                                <h4 class="title">Tesco Replenishment</h4>
+                                                <h6 class="sub-title">Tesco</h6>
+                                                <p>Free</p>
+                                            </div>
+                                            <div class="small-4 columns text-center icon-vertical" data-equalizer-watch>
+                                                <i class="fa fa-chevron-circle-right"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="item disabled" data-equalizer>
+                                        <a href="#">
+                                            <div class="small-6 columns text-center" data-equalizer-watch>
+                                                {% img "img/store/vroom.png" width="60" %}
+                                            </div>
+                                            <div class="small-14 columns" data-equalizer-watch>
+                                                <h4 class="title">Vroom</h4>
+                                                <h6 class="sub-title">VRM</h6>
+                                                <p>Free</p>
+                                            </div>
+                                            <div class="small-4 columns text-center icon-vertical" data-equalizer-watch>
+                                                <i class="fa fa-chevron-circle-right"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="item disabled" data-equalizer>
+                                        <a href="#">
+                                            <div class="small-6 columns text-center" data-equalizer-watch>
+                                                {% img "img/store/mystate.png" width="60" %}
+                                            </div>
+                                            <div class="small-14 columns" data-equalizer-watch>
+                                                <h4 class="title">MyState</h4>
+                                                <h6 class="sub-title">MyState</h6>
+                                                <p>Free</p>
+                                            </div>
+                                            <div class="small-4 columns text-center icon-vertical" data-equalizer-watch>
+                                                <i class="fa fa-chevron-circle-right"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="item disabled" data-equalizer>
+                                        <a href="#">
+                                            <div class="small-6 columns text-center" data-equalizer-watch>
+                                                {% img "img/store/fitbit.png" width="60" %}
+                                            </div>
+                                            <div class="small-14 columns" data-equalizer-watch>
+                                                <h4 class="title">Diet analyser</h4>
+                                                <h6 class="sub-title">Fitbit</h6>
+                                                <p>Free</p>
+                                            </div>
+                                            <div class="small-4 columns text-center icon-vertical" data-equalizer-watch>
+                                                <i class="fa fa-chevron-circle-right"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="item disabled" data-equalizer>
+                                        <a href="#">
+                                            <div class="small-6 columns text-center" data-equalizer-watch>
+                                                {% img "img/store/shareable.png" width="60" %}
+                                            </div>
+                                            <div class="small-14 columns" data-equalizer-watch>
+                                                <h4 class="title">Shareables</h4>
+                                                <h6 class="sub-title">Shareables</h6>
+                                                <p>Free</p>
+                                            </div>
+                                            <div class="small-4 columns text-center icon-vertical" data-equalizer-watch>
+                                                <i class="fa fa-chevron-circle-right"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="item disabled" data-equalizer>
+                                        <a href="#">
+                                            <div class="small-6 columns text-center" data-equalizer-watch>
+                                                {% img "img/store/monitor.png" width="60" %}
+                                            </div>
+                                            <div class="small-14 columns" data-equalizer-watch>
+                                                <h4 class="title">Montior</h4>
+                                                <h6 class="sub-title">Monitor</h6>
+                                                <p>Free</p>
+                                            </div>
+                                            <div class="small-4 columns text-center icon-vertical" data-equalizer-watch>
+                                                <i class="fa fa-chevron-circle-right"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+            </section>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends base_template %}
+{% load things %}
+
+{% block page_title_icon %}fa-globe{% endblock page_title_icon %}
+{% block page_title_text %}Locations{% endblock page_title_text %}
+
+{% block top_title_content %}
+    <h2 class="top-title__heading left"><i class="fa fa-globe"></i> {{ location }}</h2>
+    <ul class="button-group filter-group radius right">
+        <li><a href="{% url 'site:location' location.pk %}" class="button filter small active">Overview</a></li>
+        <li><a href="{% url 'site:location_activity' location.pk %}" class="button filter small">Activity</a></li>
+    </ul>
+{% endblock top_title_content %}
+
+{% block content %}
+    <div class="row">
+
+        <div class="medium-12 columns">
+
+            {% data_stream limit=10 location=location %}
+
+            <section>
+                <ul class="medium-block-grid-2">
+
+                    <li>
+                        <a class="button secondary icon-left medium-12 expand disabled" href="#">
+                            <span class="text"><i class="fa fa-download"></i> Things</span>
+                        </a>
+                    </li>
+
+                    <li class="medium-12 columns">
+                        <a class="button secondary icon-left medium-12 expand" href="{% url 'site:store' %}">
+                            <span class="text"><i class="fa fa-shopping-cart"></i> Widget store</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </section>
+
+        </div>
+
+        <div class="medium-12 columns">
+
+            {% stream_graph location=location %}
+
+        </div>
+
+    </div>
+{% endblock content %}

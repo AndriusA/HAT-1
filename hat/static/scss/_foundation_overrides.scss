@@ -1,0 +1,29 @@
+// Make side-nav links sit flush to the left edge like the side-nav .heading
+
+// Nicer <code> styling
+pre { margin-bottom: rem-calc(100); }
+pre code {
+    background: #FAFAFA;
+    display: block;
+    padding: 0.5em;
+
+    color: #333;
+}
+code {
+    background-color: #f8f8f8;
+    max-height: rem-calc(430);
+    overflow: auto;
+    padding: 0.11111rem 0.27778rem 0.05556rem;
+
+    border: 1px solid #dfdfdf;
+
+    color: #333;
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    font-weight: normal;
+
+    &.inline { color: #c25; }
+}
+
+h4 { font-weight: 700; }
+
+textarea { resize: vertical; }

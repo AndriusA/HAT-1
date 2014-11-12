@@ -1,0 +1,129 @@
+{% extends base_template %}
+{% load assets %}
+
+{% block wrapper_content %}
+
+    {# TODO: Get welcome-left buttons and widget library link sticky to the bottom #}
+    <div class="row collapse">
+
+        {# TODO: Speak to Dellar about a proper image and remove inline style... #}
+        <div class="medium-12 columns welcome-left p-global" data-equalizer-watch>
+            <div>
+                <h2>Welcome to your HAT</h2>
+                <h4>Tip of the day</h4>
+                <p>Did you know that you can create an event and store a set of data you can see over time?</p>
+            </div>
+
+            <ul class="medium-block-grid-2">
+                <li>
+                    <a class="button secondary icon icon-left expand" id="showMenu">
+                        <span class="text">
+                            <i class="fa fa-bars"></i> Menu
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="button secondary icon icon-left medium-12 expand" href="{% url 'site:my-profile' %}">
+                        <span class="text">
+                            <i class="fa fa-user"></i> My profile
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="button secondary icon icon-left medium-12 expand" href="{% url 'site:data' %}">
+                        <span class="text">
+                            <i class="fa fa-download"></i> My data
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="button secondary icon icon-left medium-12 expand" href="{% url 'site:store' %}">
+                        <span class="text">
+                            <i class="fa fa-shopping-cart"></i> Store
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="button secondary icon icon-left medium-12 expand" href="{% url 'site:events' %}">
+                        <span class="text">
+                            <i class="fa fa-calendar"></i> Events
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="button secondary icon icon-left medium-12 expand" href="{% url 'site:settings' %}">
+                        <span class="text">
+                            <i class="fa fa-cog"></i> Settings
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="medium-12 columns p-global" data-equalizer-watch>
+            <ul class="medium-block-grid-3 media-block-grid" data-equalizer>
+                <li>
+                    <div class="border-box media-item disabled">
+                        <a href="#">
+                            {% img "img/icon-vroom.png" width="351" %}
+                            <p class="icon-vertical">Vroom <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="border-box media-item disabled">
+                        <a href="#">
+                            {% img "img/icon-monitor.png" width="351" %}
+                            <p class="icon-vertical">Monitor <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="border-box media-item disabled">
+                        <a href="#">
+                            {% img "img/icon-mystate.png" width="351" %}
+                            <p class="icon-vertical">MyState <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="border-box media-item disabled">
+                        <a href="#">
+                            {% img "img/icon-sharbale.png" width="351" %}
+                            <p class="icon-vertical">Shareables <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="border-box media-item disabled">
+                        <a href="#">
+                            {% img "img/icon-ontime.png" width="351" %}
+                            <p class="icon-vertical">OnTime <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="border-box media-item disabled">
+                        <a href="#">
+                            {% img "img/icon-pinwidget.png" width="351" %}
+                            <p class="icon-vertical">Pin a widget <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <a class="button primary icon expand disabled" href="#">
+                <span class="text">My widget library <i class="fa fa-chevron-circle-right ml-20"></i></span>
+            </a>
+        </div>
+    </div>
+{% endblock wrapper_content %}

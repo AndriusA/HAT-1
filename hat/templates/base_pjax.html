@@ -1,0 +1,48 @@
+<title>{% block title %}{% endblock %}</title>
+{% block wrapper_content %}
+
+    <header class="top-heading" data-equalizer>
+
+        <div class="medium-4 columns top-heading__left top-heading__left--content" data-equalizer-watch>
+            <a onclick="window.history.back();">
+                <span>
+                    <i class="fa fa-chevron-circle-left"></i>
+                    <span>Back</span>
+                </span>
+            </a>
+        </div>
+
+        <div class="medium-16 columns top-heading__center" data-equalizer-watch>
+            <section>
+                <i class="fa fa-2x {% block page_title_icon %}fa-download{% endblock page_title_icon %}"></i>
+                <h1>{% block page_title_text %}Block page_title_icon, page_title_text{% endblock page_title_text %}</h1>
+            </section>
+        </div>
+
+        <div class="medium-4 columns top-heading__right top-heading__right--content" data-equalizer-watch>
+            <a class="no-pjax" id="showMenu">
+                <span>
+                    <i class="fa fa-bars"></i>
+                    <span>Menu</span>
+                </span>
+            </a>
+        </div>
+
+    </header>
+
+    {% block top_title %}
+    <header class="top-title">
+        <div class="medium-24 columns">
+            {% block top_title_content %}
+                <h2 class="left"><i class="fa fa-download"></i> Add an empty top_title block to remove this or top_title_content to change the text/buttons</h2>
+                <a class="button small filter right" href="#">You probably don't want me either</a>
+            {% endblock top_title_content %}
+        </div>
+    </header>
+    {% endblock top_title %}
+
+    {% block content %}
+
+    {% endblock content %}
+
+{% endblock %}

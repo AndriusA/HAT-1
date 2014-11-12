@@ -1,0 +1,74 @@
+{% load markdown_deux_tags %}
+
+<h4 id="inactive-data-list">User profile</h4>
+<hr>
+<section class="border-box--full user-profile">
+
+    <div class="medium-3 columns columns--reset user-profile__image">
+        <img alt="#" src="http://placehold.it/125x125">
+    </div>
+
+    <div class="medium-21 columns user-profile__content">
+        <h4>John Stevens</h4>
+        <div class="row">
+            <div class="medium-10 columns">
+                <ul class="no-bullet">
+                    <li class="user-profile__item">
+                        <strong>Date of birth:</strong> 15/03/1970
+                    </li>
+                    <li class="user-profile__item">
+                        <strong>Email address:</strong> J.stevens@gmail.com
+                    </li>
+                </ul>
+            </div>
+            <div class="medium-14 columns">
+                <ul class="no-bullet">
+                    <li class="user-profile__item">
+                        <strong>Gender:</strong> Male
+                    </li>
+                    <li class="user-profile__item">
+                        <strong>John's last activity:</strong> At 09:14.53 Today in Bathroom 1
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</section>
+<hr>
+{% markdown STYLE %}
+    <section class="border-box--full user-profile">
+
+        <div class="medium-3 columns columns--reset user-profile__image">
+            <img alt="#" src="http://placehold.it/125x125">
+        </div>
+
+        <div class="medium-21 columns user-profile__content">
+            <h4>John Stevens</h4>
+            <div class="row">
+                <div class="medium-10 columns">
+                    <ul class="no-bullet">
+                        <li class="user-profile__item">
+                            <strong>Date of birth:</strong> 15/03/1970
+                        </li>
+                        <li class="user-profile__item">
+                            <strong>Email address:</strong> J.stevens@gmail.com
+                        </li>
+                    </ul>
+                </div>
+                <div class="medium-14 columns">
+                    <ul class="no-bullet">
+                        <li class="user-profile__item">
+                            <strong>Gender:</strong> Male
+                        </li>
+                        <li class="user-profile__item">
+                            <strong>John's last activity:</strong> At 09:14.53 Today in Bathroom 1
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </section>
+{% endmarkdown %}
+<hr>

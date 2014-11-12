@@ -1,0 +1,504 @@
+{
+"result": [
+{
+"name": "United States Dollar", 
+"id": "/en/us", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Australian dollar", 
+"id": "/en/australian_dollar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "UK \u00a3", 
+"id": "/en/uk", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Canadian dollar", 
+"id": "/en/canadian_dollar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Mexican peso", 
+"id": "/en/mexican_peso", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Euro", 
+"id": "/en/euro", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Indian rupee", 
+"id": "/en/indian_rupee", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Peseta", 
+"id": "/en/spanish_peseta", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Japanese yen", 
+"id": "/en/japanese_yen", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Indonesian rupiah", 
+"id": "/en/indonesian_rupiah", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Swedish krona", 
+"id": "/en/swedish_krona", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Singapore dollar", 
+"id": "/en/singapore_dollar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Thai baht", 
+"id": "/en/thai_baht", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Danish krone", 
+"id": "/en/danish_krone", 
+"type": "/finance/currency"
+}, 
+{
+"name": "French franc", 
+"id": "/en/french_franc", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Deutsche Mark", 
+"id": "/en/german_mark", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Chinese yuan", 
+"id": "/en/chinese_yuan", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Norwegian krone", 
+"id": "/en/norwegian_krone", 
+"type": "/finance/currency"
+}, 
+{
+"name": "German Reichsmark", 
+"id": "/en/german_reichsmark", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Philippine peso", 
+"id": "/en/philippine_peso", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Russian ruble", 
+"id": "/en/russian_ruble", 
+"type": "/finance/currency"
+}, 
+{
+"name": "New Zealand dollar", 
+"id": "/en/new_zealand_dollar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Italian lira", 
+"id": "/en/italian_lira", 
+"type": "/finance/currency"
+}, 
+{
+"name": "South African rand", 
+"id": "/en/south_african_rand", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Lesotho loti", 
+"id": "/en/lesotho_loti", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Eritrean nakfa", 
+"id": "/en/eritrean_nakfa", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Liberty Dollar", 
+"id": "/en/liberty_dollar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Djiboutian franc", 
+"id": "/en/djiboutian_franc", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Comorian franc", 
+"id": "/en/comorian_franc", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Cambodian riel", 
+"id": "/en/cambodian_riel", 
+"type": "/finance/currency"
+}, 
+{
+"name": "South Korean won", 
+"id": "/en/south_korean_won", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Bermudian dollar", 
+"id": "/en/bermuda_dollar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Paraguayan guaran\u00ed", 
+"id": "/en/paraguayan_guarani", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Turkmenistan manat", 
+"id": "/en/turkmenistani_manat", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Moldovan leu", 
+"id": "/en/moldovan_leu", 
+"type": "/finance/currency"
+}, 
+{
+"name": "North Korean won", 
+"id": "/en/north_korean_won", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Egyptian pound", 
+"id": "/en/egyptian_pound", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Jordanian dinar", 
+"id": "/en/jordanian_dinar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Newfoundland dollar", 
+"id": "/en/newfoundland_dollar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Bahamian dollar", 
+"id": "/en/bahamian_dollar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Ukrainian hryvnia", 
+"id": "/en/ukrainian_hryvnia", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Georgian lari", 
+"id": "/en/georgian_lari", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Burmese kyat", 
+"id": "/en/myanma_kyat", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Burundian franc", 
+"id": "/en/burundian_franc", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Algerian dinar", 
+"id": "/en/algerian_dinar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Israeli new shekel", 
+"id": "/en/israeli_new_sheqel", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Rhodesian pound", 
+"id": "/en/rhodesian_pound", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Portuguese escudo", 
+"id": "/en/portuguese_escudo", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Polish z\u0142oty", 
+"id": "/en/polish_zloty", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Hungarian korona", 
+"id": "/en/hungarian_korona", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Czech koruna", 
+"id": "/en/czech_koruna", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Tanzanian shilling", 
+"id": "/en/tanzanian_shilling", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Sierra Leonean leone", 
+"id": "/en/sierra_leonean_leone", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Irish pound", 
+"id": "/en/irish_pound", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Papua New Guinean kina", 
+"id": "/en/papua_new_guinean_kina", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Nepalese rupee", 
+"id": "/en/nepalese_rupee", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Aruban florin", 
+"id": "/en/aruban_florin", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Mozambican metical", 
+"id": "/en/mozambican_metical", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Guinean franc", 
+"id": "/en/guinean_franc", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Liberian dollar", 
+"id": "/en/liberian_dollar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Macedonian denar", 
+"id": "/en/macedonian_denar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Albanian lek", 
+"id": "/en/albanian_lek", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Cape Verdean escudo", 
+"id": "/en/cape_verdean_escudo", 
+"type": "/finance/currency"
+}, 
+{
+"name": "East German mark", 
+"id": "/en/east_german_mark", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Tajikistani ruble", 
+"id": "/en/tajikistani_ruble", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Serbian dinar", 
+"id": "/en/serbian_dinar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Botswana pula", 
+"id": "/en/botswana_pula", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Yemeni rial", 
+"id": "/en/yemeni_rial", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Samoan t\u0101l\u0101", 
+"id": "/en/samoan_tala", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Qatari riyal", 
+"id": "/en/qatari_riyal", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Solomon Islands dollar", 
+"id": "/en/solomon_islands_dollar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Slovenian tolar", 
+"id": "/en/slovenian_tolar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Croatian kuna", 
+"id": "/en/croatian_kuna", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Netherlands Antillean guilder", 
+"id": "/en/netherlands_antillean_gulden", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Uzbekistani som", 
+"id": "/en/uzbekistani_som", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Jamaican dollar", 
+"id": "/en/jamaican_dollar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Hungarian peng\u0151", 
+"id": "/en/hungarian_pengo", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Macanese pataca", 
+"id": "/en/macanese_pataca", 
+"type": "/finance/currency"
+}, 
+{
+"name": "East Caribbean dollar", 
+"id": "/en/east_caribbean_dollar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Bolivian boliviano", 
+"id": "/en/bolivian_boliviano", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Luxembourgish franc", 
+"id": "/en/luxembourgish_franc", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Tuvaluan dollar", 
+"id": "/en/tuvaluan_dollar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Croatian dinar", 
+"id": "/en/croatian_dinar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Swiss franc", 
+"id": "/en/swiss_franc", 
+"type": "/finance/currency"
+}, 
+{
+"name": "South Korean hwan", 
+"id": "/en/south_korean_hwan", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Ugandan shilling", 
+"id": "/en/ugandan_shilling", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Seychellois rupee", 
+"id": "/en/seychelles_rupee", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Iranian rial", 
+"id": "/en/iranian_rial", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Kenyan shilling", 
+"id": "/en/kenyan_shilling", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Brunei dollar", 
+"id": "/en/brunei_dollar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Honduran lempira", 
+"id": "/en/honduran_lempira", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Somali shilling", 
+"id": "/en/somali_shilling", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Romanian leu", 
+"id": "/en/romanian_leu", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Kuwaiti dinar", 
+"id": "/en/kuwaiti_dinar", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Mongolian t\u00f6gr\u00f6g", 
+"id": "/en/mongolian_tugrug", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Falkland Islands pound", 
+"id": "/en/falkland_islands_pound", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Ukrainian karbovanets", 
+"id": "/en/ukrainian_karbovanets", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Afghan afghani", 
+"id": "/en/afghan_afghani", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Cypriot pound", 
+"id": "/en/cypriot_pound", 
+"type": "/finance/currency"
+}, 
+{
+"name": "Austrian schilling", 
+"id": "/en/austrian_schilling", 
+"type": "/finance/currency"
+}
+]
+}

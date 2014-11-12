@@ -1,0 +1,52 @@
+.single-line {
+    @extend .clearfix;
+    @include headings {
+        margin: 0;
+    }
+    * {
+        // Make the lines 60px high
+        line-height: rem-calc(60);
+        vertical-align: top;
+    }
+    p {
+        // CSS Ellipsis on lines that break their container
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .icon--no-padding {
+        // Remove the > * padding so we can align the icons closer to the text
+        padding: 0;
+        i { line-height: rem-calc(60); }
+    }
+    .title-options {
+        @extend .clearfix;
+        border-left: $border-styling;
+        text-align: center;
+        a,
+        a i {
+            color: $primary-color;
+        }
+        a {
+            @extend .clearfix;
+            display: block;
+        }
+        i {
+            float: right;
+            // Margin right to emulate global gutter3
+            margin-right: $column-gutter/2;
+        }
+    }
+}
+.single-line + * {
+    // Add a border for when single lines are stacked
+    border-top: $border-styling;
+}
+
+.border-box {
+    .heading-bdb {
+        margin: 0;
+        border-bottom: $border-styling;
+        line-height: rem-calc(54);
+    }
+}

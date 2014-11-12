@@ -1,0 +1,31 @@
+{% extends base_template %}
+{% load things %}
+
+{% block page_title_icon %}fa-clock-o{% endblock page_title_icon %}
+{% block page_title_text %}Time{% endblock page_title_text %}
+
+{% block top_title_content %}
+    <h2 class="top-title__heading left"><i class="fa fa-clock-o"></i> Today</h2>
+    {# TODO: Fix the filter border button with a disabled class #}
+    <a class="button small filter right" href="/time/filter">Filter</a>
+    <a class="button small right mr-20 disabled" href="{% url 'site:create' %}">Create an event</a>
+{% endblock top_title_content %}
+
+{% block content %}
+    <div class="row">
+        <div class="medium-12 columns">
+
+            {% data_stream limit=8 %}
+
+        </div>
+        <div class="medium-12 columns">
+
+            {% for location in device_locaitions %}
+
+                {% stream_graph location=location.location %}
+
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock content %}

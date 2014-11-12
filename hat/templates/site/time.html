@@ -1,0 +1,20 @@
+{% extends base_template %}
+
+{% block page_title_icon %}fa-clock-o{% endblock page_title_icon %}
+{% block page_title_text %}Time{% endblock page_title_text %}
+
+{% block top_title_content %}
+    <h2 class="top-title__heading left"><i class="fa fa-clock-o"></i> Today</h2>
+    <a class="button small filter right" href="#">Filter</a>
+{% endblock top_title_content %}
+
+{% block content %}
+    <div class="row">
+        <div class="medium-12 columns">
+            {% include "site/includes/left-12.html" %}
+        </div>
+        <div class="medium-12 columns">
+            {% include "site/includes/right-12.html" %}
+        </div>
+    </div>
+{% endblock content %}

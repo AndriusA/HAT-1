@@ -1,0 +1,115 @@
+{% load markdown_deux_tags %}
+
+<h4 id="inactive-data-list">Buttons</h4>
+<hr>
+<div class="row">
+
+    <section class="medium-12 columns">
+
+        <section>
+
+            <div>
+                <a class="button icon medium-12" href="#">
+                    <span class="icon--left"><i class="fa fa-cog"></i></span>
+                    <span class="icon--left__text">Button w/ icon</span>
+                </a>
+                <a class="button secondary icon medium-12" href="#">
+                    <span class="icon--left"><i class="fa fa-cog"></i></span>
+                    <span class="icon--left__text">Button w/ icon</span>
+                </a>
+                <a class="button disabled secondary icon medium-12" href="#">
+                    <span class="icon--left"><i class="fa fa-cog"></i></span>
+                    <span class="icon--left__text">Button w/ icon disabled</span>
+                </a>
+            </div>
+
+            <ul class="button-group">
+                <li>
+                    <a class="button secondary icon" href="#">
+                        <span class="icon--left"><i class="fa fa-calendar"></i></span>
+                        <span class="icon--left__text">Button w/ icon</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="button secondary icon" href="#">
+                        <span class="icon--left"><i class="fa fa-cog"></i></span>
+                        <span class="icon--left__text">Button w/ icon</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="button secondary icon" href="#">
+                        <span class="icon--left"><i class="fa fa-share-square-o"></i></span>
+                        <span class="icon--left__text">Button w/ icon</span>
+                    </a>
+                </li>
+            </ul>
+
+            <p>Some text with an <a href="#">Link</a></p>
+
+        </section>
+
+    </section>
+
+</div>
+<hr>
+{% markdown STYLE %}
+    <section>
+
+        <div>
+            <a class="button" href="#">Button <i class="fa fa-chevron-circle-right"></i></a>
+        </div>
+
+        <div>
+            <a class="button icon secondary" href="#">Secondary button <i class="fa fa-chevron-circle-right icon--right"></i></a><br/>
+            <a class="button icon alert" href="#">Alert button <i class="fa fa-chevron-circle-right icon--right"></i></a>
+            <a class="button icon alert disabled" href="#">Alert disabled button <i class="fa fa-chevron-circle-right icon--right"></i></a><br/>
+            <a class="button icon success" href="#">Success button <i class="fa fa-chevron-circle-right icon--right"></i></a>
+            <a class="button icon success disabled" href="#">Success disabled button <i class="fa fa-chevron-circle-right icon--right"></i></a>
+        </div>
+
+        <div>
+            <a class="button icon full" href="#">Medium button full <i class="fa fa-chevron-circle-right icon--right"></i></a>
+            <a class="button icon full disabled" href="#">Medium button disabled full <i class="fa fa-chevron-circle-right icon--right"></i></a>
+        </div>
+
+        <div>
+            <a class="button icon medium-12" href="#">
+                <span class="icon--left"><i class="fa fa-cog"></i></span>
+                <span class="icon--left__text">Button w/ icon</span>
+            </a>
+            <a class="button secondary icon medium-12" href="#">
+                <span class="icon--left"><i class="fa fa-cog"></i></span>
+                <span class="icon--left__text">Button w/ icon</span>
+            </a>
+            <a class="button disabled secondary icon medium-12" href="#">
+                <span class="icon--left"><i class="fa fa-cog"></i></span>
+                <span class="icon--left__text">Button w/ icon disabled</span>
+            </a>
+        </div>
+
+        <ul class="button-group">
+            <li>
+                <a class="button secondary icon" href="#">
+                    <span class="icon--left"><i class="fa fa-cog"></i></span>
+                    <span class="icon--left__text">Button w/ icon</span>
+                </a>
+            </li>
+            <li>
+                <a class="button secondary icon" href="#">
+                    <span class="icon--left"><i class="fa fa-cog"></i></span>
+                    <span class="icon--left__text">Button w/ icon</span>
+                </a>
+            </li>
+            <li>
+                <a class="button secondary icon" href="#">
+                    <span class="icon--left"><i class="fa fa-cog"></i></span>
+                    <span class="icon--left__text">Button w/ icon</span>
+                </a>
+            </li>
+        </ul>
+
+        <p>Some text with an <a href="#">Link</a></p>
+
+    </section>
+{% endmarkdown %}
+<hr>

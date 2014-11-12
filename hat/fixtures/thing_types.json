@@ -1,0 +1,24 @@
+[
+{
+    "pk": 1,
+    "model": "things.thingtype",
+    "fields": {
+        "parent_node": 0,
+        "date_created": "2014-09-02T14:27:43.470Z",
+        "last_updated": "2014-09-02T14:27:43.470Z",
+        "name": "Smart Dispenser",
+        "description": "Contains and senses the depletion of one consumer good e.g. kitchen roll, toilet paper, soap."
+    }
+},
+{
+    "pk": 2,
+    "model": "things.thingtype",
+    "fields": {
+        "parent_node": 0,
+        "date_created": "2014-09-03T13:22:15.974Z",
+        "last_updated": "2014-09-03T13:22:15.974Z",
+        "name": "Smart Cabinet",
+        "description": "A cabinet that is able to sense its own contents"
+    }
+}
+]

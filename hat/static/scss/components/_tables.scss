@@ -1,0 +1,23 @@
+// Specific styling for tables in an border-box
+.border-box table {
+    border: none;
+
+    thead tr th,
+    tfoot tr th,
+    tfoot tr td,
+    tbody tr th,
+    tbody tr td,
+    tr td {
+        // Match the global gutter
+        padding: $column-gutter/2;
+        vertical-align: top;
+    }
+    th + td {
+        // Only put a border if the th is on the left and td on the right
+        border-left: $border-styling;
+    }
+    tr + tr {
+        // Done this way so we don't need to remove the bdb on the last child
+        border-top: $border-styling;
+    }
+}

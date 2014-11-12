@@ -1,0 +1,504 @@
+{
+"result": [
+{
+"name": "Cree",
+"id": "/en/cree",
+"type": "/people/ethnicity"
+},
+{
+"name": "Inuit",
+"id": "/en/inuit",
+"type": "/people/ethnicity"
+},
+{
+"name": "Algonquin people",
+"id": "/en/algonquin",
+"type": "/people/ethnicity"
+},
+{
+"name": "Tlingit",
+"id": "/en/tlingit",
+"type": "/people/ethnicity"
+},
+{
+"name": "Dene",
+"id": "/en/dene",
+"type": "/people/ethnicity"
+},
+{
+"name": "Syilx",
+"id": "/en/okanagan_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Blackfoot Confederacy",
+"id": "/en/blackfoot",
+"type": "/people/ethnicity"
+},
+{
+"name": "Anishinaabe",
+"id": "/en/anishinaabe",
+"type": "/people/ethnicity"
+},
+{
+"name": "Mississaugas",
+"id": "/en/mississaugas",
+"type": "/people/ethnicity"
+},
+{
+"name": "Iroquois",
+"id": "/en/iroquois",
+"type": "/people/ethnicity"
+},
+{
+"name": "Nakoda",
+"id": "/wikipedia/de_id/1590329",
+"type": "/people/ethnicity"
+},
+{
+"name": "Assiniboine",
+"id": "/en/assiniboine",
+"type": "/people/ethnicity"
+},
+{
+"name": "M\u00e9tis people",
+"id": "/en/metis_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Yolngu",
+"id": "/en/yolngu",
+"type": "/people/ethnicity"
+},
+{
+"name": "Yamatji",
+"id": "/en/yamatji",
+"type": "/people/ethnicity"
+},
+{
+"name": "M\u0101ori people",
+"id": "/en/maori",
+"type": "/people/ethnicity"
+},
+{
+"name": "Mohawk people",
+"id": "/en/mohawk_nation",
+"type": "/people/ethnicity"
+},
+{
+"name": "Eora",
+"id": "/en/eora",
+"type": "/people/ethnicity"
+},
+{
+"name": "Wurundjeri",
+"id": "/en/wurundjeri",
+"type": "/people/ethnicity"
+},
+{
+"name": "Pitjantjatjara",
+"id": "/en/pitjantjatjara",
+"type": "/people/ethnicity"
+},
+{
+"name": "Warlpiri",
+"id": "/en/warlpiri",
+"type": "/people/ethnicity"
+},
+{
+"name": "Ainu people",
+"id": "/en/ainu_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Aleut",
+"id": "/en/aleut",
+"type": "/people/ethnicity"
+},
+{
+"name": "Inuvialuit",
+"id": "/en/inuvialuit",
+"type": "/people/ethnicity"
+},
+{
+"name": "Inupiat",
+"id": "/en/inupiat",
+"type": "/people/ethnicity"
+},
+{
+"name": "Yupik peoples",
+"id": "/en/yupik",
+"type": "/people/ethnicity"
+},
+{
+"name": "Slavey people",
+"id": "/en/slavey",
+"type": "/people/ethnicity"
+},
+{
+"name": "Djagaraga",
+"id": "/en/djagaraga",
+"type": "/people/ethnicity"
+},
+{
+"name": "Guugu Yimithirr",
+"id": "/en/guugu_yimithirr_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Gorualgal",
+"id": "/en/gorualgal",
+"type": "/people/ethnicity"
+},
+{
+"name": "Paiwan people",
+"id": "/en/paiwan",
+"type": "/people/ethnicity"
+},
+{
+"name": "Koara",
+"id": "/en/koara",
+"type": "/people/ethnicity"
+},
+{
+"name": "Anglo-Australian",
+"id": "/en/anglo_australian",
+"type": "/people/ethnicity"
+},
+{
+"name": "Zhuang people",
+"id": "/en/zhuang",
+"type": "/people/ethnicity"
+},
+{
+"name": "Uyghur people",
+"id": "/en/uyghur_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Tibetan people",
+"id": "/en/tibetan_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Hui people",
+"id": "/en/hui_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Mongols in China",
+"id": "/en/ethnic_mongols_in_china",
+"type": "/people/ethnicity"
+},
+{
+"name": "Bouyei people",
+"id": "/en/buyei",
+"type": "/people/ethnicity"
+},
+{
+"name": "Hani people",
+"id": "/en/hani_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Salar people",
+"id": "/en/salar",
+"type": "/people/ethnicity"
+},
+{
+"name": "She people",
+"id": "/en/she_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Oroqen people",
+"id": "/en/oroqen",
+"type": "/people/ethnicity"
+},
+{
+"name": "Bai people",
+"id": "/en/bai",
+"type": "/people/ethnicity"
+},
+{
+"name": "Qiang people",
+"id": "/en/qiang",
+"type": "/people/ethnicity"
+},
+{
+"name": "Maonan people",
+"id": "/en/maonan",
+"type": "/people/ethnicity"
+},
+{
+"name": "Dong people",
+"id": "/en/dong_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Nu people",
+"id": "/en/nu_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Lahu people",
+"id": "/en/lahu",
+"type": "/people/ethnicity"
+},
+{
+"name": "Sui people",
+"id": "/en/shui",
+"type": "/people/ethnicity"
+},
+{
+"name": "Yugur",
+"id": "/en/yugur",
+"type": "/people/ethnicity"
+},
+{
+"name": "Daur people",
+"id": "/en/daur",
+"type": "/people/ethnicity"
+},
+{
+"name": "Tujia people",
+"id": "/en/tujia",
+"type": "/people/ethnicity"
+},
+{
+"name": "Xibe people",
+"id": "/en/xibe",
+"type": "/people/ethnicity"
+},
+{
+"name": "Wa people",
+"id": "/en/va_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Manchu people",
+"id": "/en/manchu",
+"type": "/people/ethnicity"
+},
+{
+"name": "Yao people",
+"id": "/en/yao_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Li people",
+"id": "/en/li_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Monguor people",
+"id": "/en/tu_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Tajik people",
+"id": "/en/tajiks",
+"type": "/people/ethnicity"
+},
+{
+"name": "Koreans in China",
+"id": "/en/ethnic_koreans_in_china",
+"type": "/people/ethnicity"
+},
+{
+"name": "Dongxiangs",
+"id": "/en/dongxiang_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Blang people",
+"id": "/en/blang",
+"type": "/people/ethnicity"
+},
+{
+"name": "Bonans",
+"id": "/en/bonan",
+"type": "/people/ethnicity"
+},
+{
+"name": "Evenks",
+"id": "/en/evenks",
+"type": "/people/ethnicity"
+},
+{
+"name": "Kazakhs",
+"id": "/en/kazakhs",
+"type": "/people/ethnicity"
+},
+{
+"name": "Lisu people",
+"id": "/en/lisu",
+"type": "/people/ethnicity"
+},
+{
+"name": "Gelao people",
+"id": "/en/gelao",
+"type": "/people/ethnicity"
+},
+{
+"name": "Derung people",
+"id": "/en/derung",
+"type": "/people/ethnicity"
+},
+{
+"name": "Pumi people",
+"id": "/en/pumi",
+"type": "/people/ethnicity"
+},
+{
+"name": "Miao people",
+"id": "/en/miao_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Dai people",
+"id": "/en/dai_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Nakhi people",
+"id": "/en/nakhi",
+"type": "/people/ethnicity"
+},
+{
+"name": "Mulao people",
+"id": "/en/mulao",
+"type": "/people/ethnicity"
+},
+{
+"name": "Yi people",
+"id": "/en/yi_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Kyrgyz people",
+"id": "/en/kyrgyz",
+"type": "/people/ethnicity"
+},
+{
+"name": "Jingpo people",
+"id": "/en/jingpo",
+"type": "/people/ethnicity"
+},
+{
+"name": "First Nations",
+"id": "/en/first_nations",
+"type": "/people/ethnicity"
+},
+{
+"name": "Acadians",
+"id": "/en/acadian",
+"type": "/people/ethnicity"
+},
+{
+"name": "African American",
+"id": "/en/african_american",
+"type": "/people/ethnicity"
+},
+{
+"name": "English American",
+"id": "/en/english_americans",
+"type": "/people/ethnicity"
+},
+{
+"name": "Pacific Islander",
+"id": "/en/pacific_islander",
+"type": "/people/ethnicity"
+},
+{
+"name": "Chicano",
+"id": "/en/chicano",
+"type": "/people/ethnicity"
+},
+{
+"name": "Korean American",
+"id": "/en/korean_american",
+"type": "/people/ethnicity"
+},
+{
+"name": "Irish American",
+"id": "/en/irish_american",
+"type": "/people/ethnicity"
+},
+{
+"name": "Irish people",
+"id": "/en/irish_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Japanese American",
+"id": "/en/japanese_american",
+"type": "/people/ethnicity"
+},
+{
+"name": "Italian American",
+"id": "/en/italian_american",
+"type": "/people/ethnicity"
+},
+{
+"name": "Asian American",
+"id": "/en/asian_american",
+"type": "/people/ethnicity"
+},
+{
+"name": "Chinese American",
+"id": "/en/chinese_american",
+"type": "/people/ethnicity"
+},
+{
+"name": "Vietnamese American",
+"id": "/en/vietnamese_american",
+"type": "/people/ethnicity"
+},
+{
+"name": "Filipino American",
+"id": "/en/filipino_american",
+"type": "/people/ethnicity"
+},
+{
+"name": "Indian American",
+"id": "/en/indian_american",
+"type": "/people/ethnicity"
+},
+{
+"name": "Koori",
+"id": "/en/koori",
+"type": "/people/ethnicity"
+},
+{
+"name": "Indigenous Australians",
+"id": "/en/indigenous_australians",
+"type": "/people/ethnicity"
+},
+{
+"name": "Afro-Trinidadian and Tobagonian",
+"id": "/en/afro-trinidadian_people",
+"type": "/people/ethnicity"
+},
+{
+"name": "Javanese people",
+"id": "/en/javanese",
+"type": "/people/ethnicity"
+},
+{
+"name": "Indigenous peoples of the Americas",
+"id": "/en/indigenous_peoples_of_the_americas",
+"type": "/people/ethnicity"
+},
+{
+"name": "Sioux",
+"id": "/en/sioux",
+"type": "/people/ethnicity"
+},
+{
+"name": "Ojibwe",
+"id": "/en/ojibwa",
+"type": "/people/ethnicity"
+}
+]
+}

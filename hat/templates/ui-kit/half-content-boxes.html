@@ -1,0 +1,63 @@
+{% load markdown_deux_tags %}
+
+<h4 id="inactive-data-list">Half heading</h4>
+<hr>
+<div class="row">
+
+    <section class="medium-12 columns">
+
+        <header class="border-box">
+
+            <div class="sub-heading__title-container">
+
+                <div class="medium-24 columns clearfix">
+                    <h4 class="sub-heading__title left">Sub heading</h4>
+                </div>
+
+            </div>
+
+        </header>
+
+    </section>
+
+</div>
+<hr>
+{% markdown STYLE %}
+    <header class="single-line">
+
+        <div class="sub-heading__title-container">
+
+            <div class="medium-24 columns clearfix">
+                <h4 class="sub-heading__title">Subtitle</h4>
+            </div>
+
+        </div>
+
+    </header>
+{% endmarkdown %}
+<hr>
+
+<h4 id="inactive-data-list">Half content</h4>
+<hr>
+<div class="row">
+
+    <section class="medium-12 columns">
+
+        <section class="border-box--padding">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+
+        </section>
+
+    </section>
+
+</div>
+<hr>
+{% markdown STYLE %}
+    <section class="border-box--full no-heading">
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+
+    </section>
+{% endmarkdown %}
+<hr>

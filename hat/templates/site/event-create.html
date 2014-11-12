@@ -1,0 +1,489 @@
+{% extends base_template %}
+
+{% block page_title_icon %}fa-calendar{% endblock page_title_icon %}
+{% block page_title_text %}Events{% endblock page_title_text %}
+
+{% block top_title_content %}
+    <h2 class="top-title__heading left"><i class="fa fa-calendar"></i> Create a new event</h2>
+{% endblock top_title_content %}
+
+{% block content %}
+<form class="event_creation_form" method="post">{% csrf_token %}
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box list--arrows tab-set-header">
+                <ul class="container">
+                    <li class="item tab-1" data-tab="1"><a>Select time frame</a></li>
+                    <li class="item disabled tab-2" data-tab="2"><a>Select parameters</a></li>
+                    <li class="item disabled tab-3" data-tab="3"><a>Summary</a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div class="tab-set">
+
+        <div class="row tab tab-1" data-tab="1">
+
+            <div class="medium-12 columns">
+                <section class="border-box">
+
+                    <header class="single-line">
+                        <div class="medium-24 columns">
+                            <h4>Event name</h4>
+                        </div>
+                    </header>
+
+                    <section>
+                        <fieldset>
+                            <legend class="medium-24 left">What would you like to call your event?</legend>
+                            <div class="medium-14">
+                                <input type="text" placeholder="Event name" name="event_name">
+                            </div>
+                        </fieldset>
+                    </section>
+
+                </section>
+
+                <section class="border-box p-global">
+                    <h4>Stuck for ideas?</h4>
+                    <p>Stuck for ideas? Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </section>
+            </div>
+
+            <div class="medium-12 columns">
+                <section class="border-box">
+
+                    <header class="single-line">
+                        <div class="medium-24 columns">
+                            <h4>Between what time?</h4>
+                        </div>
+                    </header>
+
+                    <section>
+
+                        <fieldset>
+                            <div class="row">
+
+                                <div class="medium-24 columns">
+                                    <label>Start time</label>
+                                </div>
+
+                                <div class="medium-8 columns">
+                                    <label>
+                                        <select name="start_time_hour">
+                                        {% for hour in hours %}
+                                            <option value="{{ hour|stringformat:'02d' }}" {% if start_date|date:"h" == hour|stringformat:'02d' %}selected="selected"{% endif %}>{{ hour|stringformat:'02d' }}</option>
+                                        {% endfor %}
+                                        </select>
+                                    </label>
+                                </div>
+
+                                <div class="medium-8 columns">
+                                    <select name="start_time_minute">
+                                        <option value="00" {% if start_date|date:"i" == "00" %}selected="selected"{% endif %}>00</option>
+                                        <option value="15" {% if start_date|date:"i" == "15" %}selected="selected"{% endif %}>15</option>
+                                        <option value="30" {% if start_date|date:"i" == "30" %}selected="selected"{% endif %}>30</option>
+                                        <option value="45" {% if start_date|date:"i" == "45" %}selected="selected"{% endif %}>45</option>
+                                    </select>
+                                </div>
+
+                                <div class="medium-8 columns">
+                                    <select name="start_time_suffix">
+                                        <option value="AM" {% if start_date|date:"A" == "AM" %}selected="selected"{% endif %}>AM</option>
+                                        <option value="PM" {% if start_date|date:"A" == "PM" %}selected="selected"{% endif %}>PM</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <div class="row">
+
+                                <div class="medium-24 columns">
+                                    <label>End time</label>
+                                </div>
+
+                                <div class="medium-8 columns">
+                                    <label>
+                                        <select name="end_time_hour">
+                                        {% for hour in hours %}
+                                            <option value="{{ hour|stringformat:'02d' }}" {% if start_date|date:"h" == hour|stringformat:'02d' %}selected="selected"{% endif %}>{{ hour|stringformat:'02d' }}</option>
+                                        {% endfor %}
+                                        </select>
+                                    </label>
+                                </div>
+
+                                <div class="medium-8 columns">
+                                    <select name="end_time_minute">
+                                        <option value="00" {% if start_date|date:"i" == "00" %}selected="selected"{% endif %}>00</option>
+                                        <option value="15" {% if start_date|date:"i" == "15" %}selected="selected"{% endif %}>15</option>
+                                        <option value="30" {% if start_date|date:"i" == "30" %}selected="selected"{% endif %}>30</option>
+                                        <option value="45" {% if start_date|date:"i" == "45" %}selected="selected"{% endif %}>45</option>
+                                    </select>
+                                </div>
+
+                                <div class="medium-8 columns">
+                                    <select name="end_time_suffix">
+                                        <option value="AM" {% if start_date|date:"A" == "AM" %}selected="selected"{% endif %}>AM</option>
+                                        <option value="PM" {% if start_date|date:"A" == "PM" %}selected="selected"{% endif %}>PM</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </fieldset>
+
+                        <h4 class="medium-24 columns heading-bdb">On what date?</h4>
+
+                        <fieldset>
+                            <div class="row">
+
+                                <div class="medium-24 columns">
+                                    <label>Start date</label>
+                                </div>
+
+                                <div class="medium-8 columns">
+                                    <label>
+                                        <select name="start_date_day">
+                                            {% for day in days %}
+                                                <option value="{{ day|stringformat:'02d' }}" {% if start_date|date:"d" == day|stringformat:'02d'  %}selected="selected"{% endif %}>{{ day|stringformat:'02d' }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </label>
+                                </div>
+
+                                <div class="medium-8 columns">
+                                    <select name="start_date_month">
+                                        {% for month in months %}
+                                            <option value="{{ month|date:"m" }}" {% if start_date|date:"m" == month|date:'m'  %}selected="selected"{% endif %}>{{ month|date:"F" }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="medium-8 columns">
+                                    <select name="start_date_year">
+                                        {% for year in years %}
+                                            <option value="{{ year }}" {% if start_date|date:"Y" == year|stringformat:'4d' %}selected="selected"{% endif %}>{{ year }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                            </div>
+                        </fieldset>
+
+                    </section>
+
+                </section>
+
+            </div>
+
+        </div>
+
+        <div class="row tab tab-2 hide" data-tab="2">
+
+            <div class="medium-24 columns">
+                <section class="border-box">
+
+                    <header class="single-line">
+                        <div class="medium-24 columns">
+                            <h4>Select locations from below</h4>
+                        </div>
+                    </header>
+
+                    <section>
+
+                        <ul class="list--inline-block locations">
+
+                            {% for location in locations %}
+                            <li class="item" data-location-id="{{ location.pk }}">
+                                <a href="#">
+                                    <span>
+                                        <p>{{ location }}</p>
+                                        <i class="fa fa-plus-circle"></i>
+                                        <i class="fa fa-check-circle"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            {% endfor %}
+
+                        </ul>
+
+                    </section>
+
+                    <input type="hidden" name="locations" value="">
+
+                </section>
+                <section class="border-box">
+
+                    <header class="single-line">
+                        <div class="medium-24 columns">
+                            <h4>Select devices from below</h4>
+                        </div>
+                    </header>
+
+                    <section>
+
+                        <ul class="list--inline-block devices">
+
+                            {% for device in devices %}
+                            <li class="item" data-device-id="{{ device.pk }}">
+                                <a href="#">
+                                    <span>
+                                        <p>{{ device }}</p>
+                                        <i class="fa fa-plus-circle"></i>
+                                        <i class="fa fa-check-circle"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            {% endfor %}
+
+                        </ul>
+
+                    </section>
+
+                    <input type="hidden" name="devices" value="">
+
+                </section>
+                <section class="border-box">
+
+                    <header class="single-line">
+                        <div class="medium-24 columns">
+                            <h4>Select events from below</h4>
+                        </div>
+                    </header>
+
+                    <section>
+
+                        <ul class="list--inline-block events">
+
+                            {% for event in events %}
+                            <li class="item" data-event-id="{{ event.pk }}">
+                                <a href="#">
+                                    <span>
+                                        <p>{{ event }}</p>
+                                        <i class="fa fa-plus-circle"></i>
+                                        <i class="fa fa-check-circle"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            {% endfor %}
+
+                        </ul>
+
+                    </section>
+
+                    <input type="hidden" name="events" value="">
+
+                </section>
+            </div>
+
+        </div>
+
+        <div class="row tab tab-3 hide summary-content" data-tab="3">
+
+        </div>
+
+
+        <div class="row">
+            <div class="medium-24 columns tab-controls">
+
+                <section class="border-box p-global">
+                    <a class="button small mb-0 tab-previous hide">Previous step</a>
+                    <a class="button small mb-0 tab-next hide">Next step</a>
+                    <input type="submit" class="button small mb-0 tab-finish hide" value="Finish">
+                </section>
+
+            </div>
+        </div>
+
+    </div>
+</form>
+{% endblock content %}
+
+{% block additional_js %}
+<script>
+
+var locations = [];
+var devices = [];
+var events = [];
+
+$(function(){
+
+    // Bind click on active tab buttons
+    $(document).on('click', '.tab-set-header .item:not(.disabled)', function(event){
+
+        // Get the tab number
+        var tab = $(this).data('tab');
+
+        $('.tab-set .tab').addClass('hide')
+        $('.tab-set .tab-' + $(this).data('tab')).removeClass('hide');
+
+        // Control visibility
+        control_visibility()
+        control_tab_header()
+
+        generate_summary()
+
+        // Prevent default
+        event.preventDefault()
+
+    })
+
+    // Bind click on next button
+    $('.tab-controls .tab-next, .tab-controls .tab-previous').bind('click', function(event){
+
+        // Get the current tab
+        var current_tab = $('.tab-set .tab:not(.hide)')
+
+        // Get tab next to this one
+        if($(this).hasClass('tab-next')){
+            var next_tab = current_tab.next('.tab')
+        }else{
+            var next_tab = current_tab.prev('.tab')
+        }
+
+        if(next_tab.length){
+            // Hide the current tab
+            current_tab.addClass('hide')
+
+            // Show the next class
+            next_tab.removeClass('hide')
+
+            // Control visibility
+            control_visibility()
+            control_tab_header()
+
+            generate_summary()
+        }
+
+        // Prevent default
+        event.preventDefault()
+
+    })
+
+    control_visibility()
+    control_tab_header()
+
+    // Bind click on location tiles
+    $('.locations .item').bind('click', function(event){
+
+        // Add location to locations
+        var location = parseInt($(this).data('location-id'))
+
+        if(locations.indexOf(location) == -1){
+            locations.push(location)
+            $(this).addClass('active');
+
+        }else{
+            locations.splice(locations.indexOf(location), 1)
+            $(this).removeClass('active');
+        }
+
+        $('input[name=locations]').val(locations.join(','))
+        generate_summary()
+
+        // Prevent event default
+        event.preventDefault()
+
+    })
+
+    // Bind click on device tiles
+    $('.devices .item').bind('click', function(event){
+
+        // Add device to devices
+        var device = parseInt($(this).data('device-id'))
+
+        if(devices.indexOf(device) == -1){
+            devices.push(device)
+            $(this).addClass('active');
+
+        }else{
+            devices.splice(devices.indexOf(device), 1)
+            $(this).removeClass('active');
+        }
+
+        $('input[name=devices]').val(devices.join(','))
+        generate_summary()
+
+        // Prevent event default
+        event.preventDefault()
+
+    })
+
+    $('.events .item').bind('click', function(event){
+
+        // Add event to devices
+        var an_event = parseInt($(this).data('event-id'))
+
+        if(events.indexOf(an_event) == -1){
+            events.push(an_event)
+            $(this).addClass('active');
+
+        }else{
+            events.splice(events.indexOf(an_event), 1)
+            $(this).removeClass('active');
+        }
+
+        $('input[name=events]').val(events.join(','))
+        generate_summary()
+
+        // Prevent event default
+        event.preventDefault()
+
+    })
+
+    // Bind all input changes to update summary
+    $('input, select').bind('change', function(){
+        generate_summary()
+    })
+
+})
+
+function control_visibility(){
+
+    //  Get the current tab
+    var current_tab = $('.tab-set .tab:not(.hide)')
+    var tabs = $('.tab-set .tab')
+    var first_tab = $('.tab-set .tab').first()
+    var last_tab = $('.tab-set .tab').last()
+
+    if(current_tab[0] == first_tab[0]){
+        $('.tab-controls .tab-previous').addClass('hide')
+    }else{
+        $('.tab-controls .tab-previous').removeClass('hide')
+    }
+
+    if(current_tab[0] == last_tab[0]){
+        $('.tab-controls .tab-next').addClass('hide')
+        $('.tab-controls .tab-finish').removeClass('hide')
+    }else{
+        $('.tab-controls .tab-next').removeClass('hide')
+        $('.tab-controls .tab-finish').addClass('hide')
+    }
+
+}
+
+function control_tab_header(){
+
+    //  Get the current tab
+    var current_tab = $('.tab-set .tab:not(.hide)')
+
+    // Enable tab header
+    $('.tab-set-header .tab-' + current_tab.data('tab')).removeClass('disabled');
+
+}
+
+function generate_summary(){
+
+    // Send form data to summary ajax page
+    $.post('/events/summary', $('.event_creation_form').serialize(), function(data){
+
+        $('.summary-content').html(data);
+    })
+
+
+}
+
+</script>
+{% endblock %}

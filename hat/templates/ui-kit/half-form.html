@@ -1,0 +1,133 @@
+{% load markdown_deux_tags %}
+
+<h4 id="inactive-data-list">Half form</h4>
+<hr>
+<div class="row">
+
+    <section class="medium-12 columns">
+
+        <section class="border-box--full--padding">
+
+            <div class="row">
+
+                <div class="medium-12 columns">
+                    <label>First Name</label>
+                    <input type="text" placeholder="First Name">
+                </div>
+
+                <div class="medium-12 columns">
+                    <label>Last Name</label>
+                    <input type="text" placeholder="Last Name">
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="medium-24 columns">
+                    <label>Date of birth</label>
+                </div>
+
+                <div class="medium-8 columns">
+                    <label>
+                        <select>
+                            <option value="husker">Husker</option>
+                            <option value="starbuck">Starbuck</option>
+                            <option value="hotdog">Hot Dog</option>
+                            <option value="apollo">Apollo</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="medium-8 columns">
+                    <select>
+                        <option value="husker">Husker</option>
+                        <option value="starbuck">Starbuck</option>
+                        <option value="hotdog">Hot Dog</option>
+                        <option value="apollo">Apollo</option>
+                    </select>
+                </div>
+
+                <div class="medium-8 columns">
+                    <select>
+                        <option value="husker">Husker</option>
+                        <option value="starbuck">Starbuck</option>
+                        <option value="hotdog">Hot Dog</option>
+                        <option value="apollo">Apollo</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="medium-24 columns">
+                    <label>Radio button</label>
+                </div>
+
+                <div class="medium-12 columns">
+                    <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Unselected</label>
+                </div>
+
+                <div class="medium-12 columns">
+                    <input type="radio" name="pokemon" value="Blue" id="pokemonBlue" checked><label for="pokemonBlue">Selected</label>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="medium-24 columns">
+
+                    <label>Check these out</label>
+                    <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
+                    <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="medium-24 columns">
+
+                    <label>Text message</label>
+                    <textarea></textarea>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+    <section class="medium-12 columns">
+
+
+
+    </section>
+
+</div>
+<hr>
+{% markdown STYLE %}
+    <section class="content-container--no-heading border-box--full border-box--disabled" data-equalizer>
+
+        <div class="medium-22 columns" data-equalizer-watch>
+            <img alt="" class="left mr-15" src="http://placehold.it/100x100">
+            <h4>Monitor</h4>
+            <h6 class="subheading">Monitor</h6>
+            <dl>
+                <dt>Categories:</dt>
+                <dd>Big data</dd>
+                <dd>Analytics group</dd>
+            </dl>
+        </div>
+
+        <div class="medium-2 columns">
+            <i class="fa fa-chevron-circle-right"></i>
+        </div>
+
+    </section>
+{% endmarkdown %}
+<hr>

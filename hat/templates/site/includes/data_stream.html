@@ -1,0 +1,163 @@
+{% load cache things %}
+
+{% if sensor_data %}
+
+    <section class="border-box">
+
+        <header class="single-line">
+            <div class="medium-24 columns">
+                <h4>Actions</h4>
+            </div>
+        </header>
+
+        <section>
+
+            {% for data in sensor_data.object_list %}
+
+                {% cache 500 "sensor_data" data.pk %}
+
+                    {# Toilet roll #}
+                    {% if data.thing.pk == 1 %}
+
+                        {# Grammage #}
+                        {% if data.type.pk == 1 %}
+
+                            <section class="single-line">
+
+                                <div class="medium-24 columns">
+                                    <p>Toilet roll holder has recorded {{ data.unit }} as {{ data.value|fix_value }} at {{ data.date_created|date:"H:i:s \o\n \t\h\e dS \o\f F, Y" }}</p>
+                                </div>
+
+                            </section>
+
+                        {% endif %}
+
+                    {# Beauty Box #}
+                    {% elif data.thing.pk == 7 %}
+
+                        {# Grammage #}
+                        {% if data.type.pk == 7 %}
+
+                            <section class="single-line">
+
+                                <div class="medium-24 columns">
+                                    <p>Beauty box recorded the weight of its contents as {{ data.value|fix_value }} ({{ data.unit }}) at {{ data.date_created|date:"H:i:s \o\n \t\h\e dS \o\f F, Y" }}</p>
+                                </div>
+
+                            </section>
+
+                        {# Barcode #}
+                        {% elif data.type.pk == 5 %}
+
+                            <section class="single-line">
+
+                                <div class="medium-24 columns">
+                                    <p>Beauty box scanned a product barcode ({{ data.value|fix_value }}) at {{ data.date_created|date:"H:i:s \o\n \t\h\e dS \o\f F, Y" }}</p>
+                                </div>
+
+                            </section>
+
+                        {% endif %}
+
+                    {# Fibaro #}
+                    {% elif data.thing.pk == 6 %}
+
+                        {# Motion #}
+                        {% if data.type.pk == 10 %}
+
+                            <section class="single-line">
+
+                                <div class="medium-24 columns">
+                                    <p>Motion detected by <a href="{% url 'site:my-profile' %}">{{ data.thing.user.first_name }} {{ data.thing.user.last_name }}</a> at {{ data.date_created|date:"H:i:s \o\n \t\h\e dS \o\f F, Y" }}</p>
+                                </div>
+
+                            </section>
+
+                        {# Temp #}
+                        {% elif data.type.pk == 11 %}
+
+                            <section class="single-line">
+
+                                <div class="medium-24 columns">
+                                    <p>Temperature was recorded as {{ data.value|fix_value }} ({{ data.unit }}) at {{ data.date_created|date:"H:i:s \o\n \t\h\e dS \o\f F, Y" }}</p>
+                                </div>
+
+                            </section>
+
+                        {# Light #}
+                        {% elif data.type.pk == 12 %}
+
+                            <section class="single-line">
+
+                                <div class="medium-24 columns">
+                                    <p>Light was recorded as {{ data.value|fix_value }} ({{ data.unit }}) at {{ data.date_created|date:"H:i:s \o\n \t\h\e dS \o\f F, Y" }}</p>
+                                </div>
+
+                            </section>
+
+                        {# Door state #}
+                        {% elif data.type.pk == 8 %}
+
+                            <section class="single-line">
+
+                                <div class="medium-24 columns">
+                                    <p><a href="{% url 'site:my-profile' %}">{{ data.thing.user.first_name }} {{ data.thing.user.last_name }}</a> has {% if data.value|fix_value == "0" or data.value|fix_value == 0 %}closed{% else %}opened{% endif %} a door at {{ data.date_created|date:"H:i:s \o\n \t\h\e dS \o\f F, Y" }}</p>
+                                </div>
+
+                            </section>
+
+                        {% endif %}
+
+                    {% endif %}
+
+                {% endcache %}
+
+            {% endfor %}
+
+        </section>
+
+    </section>
+
+    {% if paginate %}
+    <section>
+        <ul class="medium-block-grid-3">
+            <li>
+                {% if sensor_data.has_previous %}
+                    <a class="button secondary icon-left medium-8 expand" href="{{ base_url }}{{ sensor_data.previous_page_number }}">
+                {% else %}
+                    <a class="button secondary icon-left medium-8 expand disabled" href="">
+                {% endif %}
+                    <span class="text"><i class="fa fa-chevron-left"></i> Previous</span>
+                </a>
+            </li>
+            <li>
+                <div class="border-box p-global text-center pagination-digits">
+
+                    {% for page in sensor_data.pages %}
+                        {% if page %}
+                            {% ifequal page sensor_data.number %}
+                                <span class="current page">{{ page }}</span>
+                            {% else %}
+                                <a href="{{ base_url }}{{ page }}/" class="page">{{ page }}</a>
+                            {% endifequal %}
+                        {% else %}
+                            ...
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+            </li>
+            <li>
+                {% if sensor_data.has_next %}
+                    <a class="button secondary icon-left medium-8 expand" href="{{ base_url }}{{ sensor_data.next_page_number }}">
+                {% else %}
+                    <a class="button secondary icon-left medium-8 expand disabled" href="">
+                {% endif %}
+                    <span class="text">Next<i class="fa fa-chevron-right"></i></span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    {% endif %}
+
+{% endif %}

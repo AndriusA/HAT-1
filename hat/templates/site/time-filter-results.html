@@ -1,0 +1,21 @@
+{% extends base_template %}
+{% load things %}
+
+{% block page_title_icon %}fa-clock-o{% endblock page_title_icon %}
+{% block page_title_text %}Time{% endblock page_title_text %}
+
+{% block top_title_content %}
+    <h2 class="top-title__heading left"><i class="fa fa-clock-o"></i> {{ start_date }} to {{ end_date }}</h2>
+{% endblock top_title_content %}
+
+{% block content %}
+    <div class="row">
+        <div class="medium-24 columns">
+
+            {% url 'site:time_filter_results' start_stamp end_stamp as base_url %}
+            {% data_stream start_date=start_date end_date=end_date page=page base_url=base_url %}
+
+        </div>
+
+    </div>
+{% endblock content %}

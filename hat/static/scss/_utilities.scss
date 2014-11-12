@@ -1,0 +1,148 @@
+// Placeholders
+%padding-top-bot {
+    padding-top:    $column-gutter/2;
+    padding-bottom: $column-gutter/2;
+}
+
+// Variables
+$icon-margin: $column-gutter/2;
+$border-styling: 1px solid #e1e1e1;
+
+// Border
+.bdr { border-right: $border-styling; }
+.bdl { border-left:  $border-styling; }
+
+// Fonts
+.fw-b { font-weight: 700; }
+
+// Form
+label {
+    margin-bottom: rem-calc(5);
+
+    color: $primary-color;
+    font-size: rem-calc(12);
+}
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+    @include box-shadow(none);
+    @include border-radius($global-radius);
+
+    background-color: #fff;
+    border: $border-styling;
+    font-size: rem-calc(14);
+}
+
+input[type="radio"] {
+    display: none;
+
+    &:checked + label {
+        background: $secondary-color;
+
+        border: 1px solid $secondary-color;
+
+        color: #fff;
+    }
+
+    & + label {
+        @include border-radius($global-radius);
+
+        display: block;
+        margin: 0 0 1rem 0;
+
+        border: $border-styling;
+
+        color: $primary-color;
+        line-height: rem-calc(34);
+        text-align: center;
+    }
+    & + .icon {
+        padding-left: rem-calc(45);
+
+        position: relative;
+
+        i {
+            position: absolute;
+                top: 50%; margin-top: rem-calc(-6);
+                left: $column-gutter/2;
+        }
+    }
+}
+input[type="checkbox"] {
+    @include appearance(none);
+    @include border-radius($global-radius);
+
+    height: $column-gutter/2; width: $column-gutter/2;
+    outline: 0;
+
+    border: $border-styling;
+
+    position: relative;
+
+    &:checked:after {
+        display: block;
+
+        color: $secondary-color;
+        content: "\f00c";
+        font-family: FontAwesome;
+        font-size: rem-calc(14);
+        position: absolute;
+        left: rem-calc(2);
+        top: rem-calc(2);
+    }
+
+    & + label { vertical-align: top; }
+}
+textarea { min-height: rem-calc(125); }
+
+// Margin
+.mt-20 { margin-top    : $column-gutter/2; }
+.mr-20 { margin-right  : $column-gutter/2; }
+.ml-20 { margin-left   : $column-gutter/2; }
+.mb-20 { margin-bottom : $column-gutter/2; }
+.mb-0  { margin-bottom : 0               ; }
+
+// Padding
+.p-global   { padding        : $column-gutter/2 !important; }
+.ptb-global { padding-top    : $column-gutter/2 !important; padding-bottom : $column-gutter/2 !important; }
+.plr-global { padding-right  : $column-gutter/2 !important; padding-left   : $column-gutter/2 !important; }
+.pt-global  { padding-top    : $column-gutter/2 !important; }
+.pb-global  { padding-bottom : $column-gutter/2 !important; }
+
+// Foundation
+.row__no-padding-column > div { padding: 0; }
+.columns--reset { padding: 0 !important; }
+
+.icon-vertical:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+}
+
+.d-b { display: block !important; }
+
+// Mixins
+@mixin headings {
+    h1, h2, h3,
+    h4, h5, h6 {
+        @content;
+    }
+}
+
+.hide {
+    display: none !important;
+}

@@ -1,0 +1,111 @@
+{% extends base_template %}
+
+{% block page_title_text %}Data{% endblock page_title_text %}
+
+{% block top_title %}{% endblock top_title %}
+
+{% block content %}
+    <div class="row mt-20">
+        <div class="medium-24 columns">
+
+            <section class="border-box">
+
+                <section class="single-line disabled">
+
+                    <div class="medium-3 columns">
+                        <h4>My data</h4>
+                    </div>
+
+                    <div class="medium-19 columns">
+                        <p>Connected with 201 data feeds</p>
+                    </div>
+
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+
+                </section>
+
+                <section class="single-line">
+
+                    <div class="medium-3 columns">
+                        <h4>My devices</h4>
+                    </div>
+
+                    <div class="medium-19 columns">
+                        <p>Connected to {{ device_count }} device{{ device_count|pluralize }}</p>
+                    </div>
+
+                    <div class="medium-2 columns text-right">
+                        <a href="{% url 'site:devices' %}"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+
+                </section>
+
+                <section class="single-line">
+
+                    <div class="medium-3 columns">
+                        <h4>Other HATs</h4>
+                    </div>
+
+                    <div class="medium-19 columns">
+                        <p>Connected to 4 other HATs</p>
+                    </div>
+
+                    <div class="medium-2 columns text-right">
+                        <a href="/connected"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+
+                </section>
+
+                <section class="single-line disabled">
+
+                    <div class="medium-3 columns">
+                        <h4>3rd party data</h4>
+                    </div>
+
+                    <div class="medium-19 columns">
+                        <p>Connected to 105 data feeds</p>
+                    </div>
+
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+
+                </section>
+
+            </section>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="medium-24 columns">
+            <ul class="medium-block-grid-4">
+                <li>
+                    <a class="button secondary icon icon-left medium-12 expand disabled" href="#">
+                        <span class="text"><i class="fa fa-download"></i> Get data</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="button secondary icon icon-left medium-12 expand disabled" href="#">
+                        <span class="text"><i class="fa fa-download"></i> Get device</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="button secondary icon icon-left medium-12 expand disabled" href="#">
+                        <span class="text"><i class="fa fa-download"></i> Connect to other HAT users</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="button secondary icon icon-left medium-12 expand disabled" href="#">
+                        <span class="text"><i class="fa fa-download"></i> Connect with 3rd party data then you can do this, multi line :D</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock content %}

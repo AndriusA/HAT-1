@@ -1,0 +1,298 @@
+{% extends base_template %}
+
+{% block page_title_icon %}fa-calendar{% endblock page_title_icon %}
+{% block page_title_text %}Events{% endblock page_title_text %}
+
+{% block top_title_content %}
+    <h2 class="top-title__heading left"><i class="fa fa-calendar"></i> Create a new event</h2>
+{% endblock top_title_content %}
+
+{% block content %}
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box list--arrows">
+                <ul class="container">
+                    <li class="item"><a href="{% url 'site:create' %}">Select time frame</a></li>
+                    <li class="item"><a href="{% url 'site:step' %}">Select parameters</a></li>
+                    <li class="item disabled"><a href="#3">Data permissions</a></li>
+                    <li class="item disabled"><a href="#4">Create event</a></li>
+                    <li class="item disabled"><a href="#3">Data permissions</a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="medium-24 columns">
+            <section class="border-box">
+
+                <header class="single-line">
+                    <div class="medium-24 columns">
+                        <h4>Select locations from below</h4>
+                    </div>
+                </header>
+
+                <section>
+
+                    <ul class="list--inline-block">
+
+                        <li class="item active">
+                            <a href="#">
+                                <span>
+                                    <p>Hallway</p>
+                                    <i class="fa fa-check-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item">
+                            <a href="#">
+                                <span>
+                                    <p>Living Room</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item">
+                            <a href="#">
+                                <span>
+                                    <p>Dining Room</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item">
+                            <a href="#">
+                                <span>
+                                    <p>Kitchen</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item active">
+                            <a href="#">
+                                <span>
+                                    <p>Utility Room</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item active">
+                            <a href="#">
+                                <span>
+                                    <p>Bathroom 2</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <ul class="list--inline-block">
+
+                        <li class="item">
+                            <a href="#">
+                                <span>
+                                    <p>Hallway</p>
+                                    <i class="fa fa-check-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item">
+                            <a href="#">
+                                <span>
+                                    <p>Living Room</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item active">
+                            <a href="#">
+                                <span>
+                                    <p>Dining Room</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item">
+                            <a href="#">
+                                <span>
+                                    <p>Kitchen</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item">
+                            <a href="#">
+                                <span>
+                                    <p>Utility Room</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item">
+                            <a href="#">
+                                <span>
+                                    <p>Bathroom 2</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </section>
+
+            </section>
+            <section class="border-box">
+
+                <header class="single-line">
+                    <div class="medium-24 columns">
+                        <h4>Select devices from below</h4>
+                    </div>
+                </header>
+
+                <section>
+
+                    <ul class="list--inline-block">
+
+                        <li class="item active">
+                            <a href="#">
+                                <span>
+                                    <p>Device</p>
+                                    <i class="fa fa-check-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item active">
+                            <a href="#">
+                                <span>
+                                    <p>Device</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item">
+                            <a href="#">
+                                <span>
+                                    <p>Device</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item">
+                            <a href="#">
+                                <span>
+                                    <p>Device</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item active">
+                            <a href="#">
+                                <span>
+                                    <p>Device</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item active">
+                            <a href="#">
+                                <span>
+                                    <p>Device</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <ul class="list--inline-block">
+
+                        <li class="item active">
+                            <a href="#">
+                                <span>
+                                    <p>Device</p>
+                                    <i class="fa fa-check-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item">
+                            <a href="#">
+                                <span>
+                                    <p>Device</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item active">
+                            <a href="#">
+                                <span>
+                                    <p>Device</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item">
+                            <a href="#">
+                                <span>
+                                    <p>Device</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item">
+                            <a href="#">
+                                <span>
+                                    <p>Device</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="item">
+                            <a href="#">
+                                <span>
+                                    <p>Device</p>
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </section>
+
+            </section>
+        </div>
+
+        <div class="medium-24 columns">
+
+            <section class="border-box p-global">
+                <a class="button small mb-0" href="{% url 'site:step' %}">Next step</a>
+            </section>
+
+        </div>
+
+    </div>
+{% endblock content %}
+

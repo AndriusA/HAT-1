@@ -1,0 +1,69 @@
+// 'login'
+.login {
+    background:
+        url('/static/img/hill-center.png') bottom center no-repeat,
+        url('/static/img/hill-left.png')   bottom left   no-repeat,
+        url('/static/img/hill-right.png')  bottom right  no-repeat,
+        $primary-color;
+
+    height: 100%;
+}
+.login-container {
+    $btn-height: rem-calc(70);
+
+    @include box-shadow(0 10px 25px rgba(0, 0, 0, 0.5));
+
+    background: #fff;
+    height: rem-calc(290); width: rem-calc(341);
+    padding: $column-gutter/2;
+    padding-bottom: $column-gutter/2 + $btn-height;
+
+    @include border-radius(rem-calc(0 0 10 10));
+
+    position: absolute;
+        top: 50%;
+            margin-top: rem-calc(-145); // Pulls the .login-container up half of it's height so it sits center
+        left: 50%;
+            margin-left: rem-calc(-170); // Pulls the .login-container left half of it's width so it sits center
+    
+    &:before {
+        content: '';
+        background: url('/static/img/login-head.png') no-repeat;
+        display: block;
+        height: rem-calc(155); width: rem-calc(341);
+        position: absolute;
+            top: rem-calc(-150);
+            left: 0;
+    }
+
+    button[type="submit"] {
+        @include background-image(linear-gradient(to bottom, $secondary-color, #f23a68));
+        @include border-radius(rem-calc(0 0 10 10));
+
+        height: $btn-height; width: 100%;
+        position: absolute;
+            top: calc(100% - #{$btn-height});
+            left: 0;
+
+        i {
+            margin-left: rem-calc(10);
+        }
+    }
+}
+
+// 'site:welcome'
+.welcome-left {
+    background: url('/static/img/welcome-left.png') no-repeat #18bc9a;
+    color: #fff;
+
+    h1, h2, h3,
+    h4, h5, h6 {
+        color: #fff;
+    }
+    p {
+        color: #acb6c2;
+    }
+    li .button {
+        margin: 0;
+    }
+}

@@ -1,0 +1,18 @@
+// Border box
+.border-box {
+    @extend .clearfix;
+
+    background: #fff;
+    border: $border-styling;
+    margin-bottom: $column-gutter/2;
+    position: relative;
+
+    // Typography
+    p {
+        font-size: 12px;
+        margin: 0;
+    }
+    strong {
+        color: $header-font-color;
+    }
+}

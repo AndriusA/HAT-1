@@ -1,0 +1,42 @@
+[
+{
+    "pk": 1,
+    "model": "things.thing",
+    "fields": {
+        "supplier_id": null,
+        "last_updated": "2014-09-02T14:27:46.418Z",
+        "name": "Toilet Roll Holder",
+        "point_of_purchase_id": null,
+        "ip_address": "0.0.0.0",
+        "brand": "ECA for Hub of All Things project",
+        "purchase_date": "2014-09-02",
+        "value_creation_practice_type": null,
+        "date_created": "2014-09-02T14:27:46.417Z",
+        "device_id": "efc6dec8-347c-4b60-947e-3965714e3611",
+        "type": 1,
+        "source_thing": null,
+        "description": "",
+        "user": 1
+    }
+},
+{
+    "pk": 2,
+    "model": "things.thing",
+    "fields": {
+        "supplier_id": null,
+        "last_updated": "2014-09-03T13:23:47.604Z",
+        "name": "Beauty Box",
+        "point_of_purchase_id": null,
+        "ip_address": "0.0.0.0",
+        "brand": "Prototype",
+        "purchase_date": "2014-09-03",
+        "value_creation_practice_type": null,
+        "date_created": "2014-09-03T13:23:47.604Z",
+        "device_id": "774422ce-fe36-4386-b583-cfb483f29d14",
+        "type": 2,
+        "source_thing": null,
+        "description": "Box for grooming products, containing weight sensor and barcode scanner",
+        "user": 1
+    }
+}
+]

@@ -1,0 +1,104 @@
+/* Headers
+* Header 1 (PSD #1), Header 2 (PSD #2)
+* --------------------------
+* This is pretty dirtily done to make sure that the i.fa and span are always
+* vertically aligned together
+* -------------------------- */
+
+.top-heading {
+    $top-heading-height: rem-calc(68);
+
+    @extend .clearfix;
+    background: $primary-color;
+    color: #fff;
+    text-align: center;
+
+    section,
+    a > span,
+    a > span i,
+    a > span span,
+    a > span h1 {
+        display: inline-block;
+    }
+    section,
+    a > span {
+        @extend .clearfix;
+
+        vertical-align: top;
+
+        i,
+        span,
+        h1 {
+            float: left;
+
+            line-height: $top-heading-height;
+        }
+    }
+    h1 {
+        color: #fff;
+        margin: 0;
+    }
+    i {
+        margin-right: $icon-margin;
+    }
+
+    [class*="--content"] {
+        text-align: center;
+
+        &:not([class*="left"]) {
+            background: $primary-color-darker;
+            border-left: 1px solid $primary-color-darker;
+        }
+        &:not([class*="right"]) {
+            border-right: 1px solid $primary-color-darker;
+        }
+
+        i { font-size: 1rem; }
+        a,
+        a i { color: #fff; }
+        a {
+            display: block;
+            margin: 0 rem-calc(-20);
+        }
+    }
+}
+
+/* Sub titles
+* Sub heading blank (PSD #3), Sub heading button (PSD #4) & Sub heading
+* buttons (PSD #5)
+* -------------------------- */
+
+.top-title {
+    $top-title-height: rem-calc(74);
+
+    background: #fff;
+    border-top: $border-styling;
+    border-bottom: $border-styling;
+    height: $top-title-height;
+    margin-bottom: $column-gutter/2;
+
+
+    .top-title__heading {
+        line-height: $top-title-height;
+        margin: 0;
+    }
+    .button {
+        $btn-line-height: rem-calc(38);
+
+        margin-top:    calc((#{$top-title-height} - #{$btn-line-height} - 4px) / 2);
+        margin-bottom: calc((#{$top-title-height} - #{$btn-line-height} - 4px) / 2);
+        padding: rem-calc(0 40);
+
+        font-size: rem-calc(14);
+        line-height: $btn-line-height;
+    }
+
+    i {
+        margin-right: $column-gutter/2;
+
+        font-size: rem-calc(30);
+    }
+}
+.top-heading + .top-title {
+    border-top: 0;
+}

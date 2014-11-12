@@ -1,0 +1,19 @@
+{
+"result": [
+{
+"id": "/en/female", 
+"type": "/people/gender", 
+"name": "Female"
+}, 
+{
+"id": "/en/male", 
+"type": "/people/gender", 
+"name": "Male"
+}, 
+{
+"id": "/m/04j3vhk", 
+"type": "/people/gender", 
+"name": "Other"
+}
+]
+}

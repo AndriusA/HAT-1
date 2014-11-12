@@ -1,0 +1,90 @@
+{% load markdown_deux_tags %}
+
+<h4 id="inactive-data-list">Widget categories</h4>
+<hr>
+<section class="sub-heading border-box--full">
+
+    <header class="sub-heading__title-container">
+
+        <div class="medium-21 columns">
+            <h4 class="sub-heading__title">Sub heading</h4>
+        </div>
+
+        <div class="medium-3 left sub-heading__title-options">
+            <a href="#open">
+                <section>
+                    <span>Options</span>
+                    <i class="fa fa-chevron-circle-up"></i>
+                </section>
+            </a>
+        </div>
+
+    </header>
+
+    <section class="sub-heading__content-container--no-padding">
+
+        <div class="medium-24 columns sub-heading__content
+        sub-heading__content--no-padding
+        widget__container">
+
+            <div class="row row__no-padding-column">
+
+                <div class="medium-6 columns">
+                    <ul class="no-bullet list--side--filter">
+                        <li class="active"><a href="#">Recommended</a></li>
+                        <li><a href="#">Newest</a></li>
+                        <li><a href="#">Trending</a></li>
+                        <li><a href="#">Top selling</a></li>
+                        <li><a href="#">Top free</a></li>
+                        <li class="disabled"><a href="#">Updates</a></li>
+                    </ul>
+                </div>
+
+                <div class="medium-18 columns">
+                    <ul class="no-bullet list--block__item-container">
+                        {% for i in "12345" %}
+                        <li class="list--block__item">
+                            <a href="#">
+                                <div class="small-6 columns text-center">
+                                    <img src="http://placehold.it/60x60">
+                                </div>
+                                <div class="small-14 columns">
+                                    <h4 class="title">Tesco Replenishment</h4>
+                                    <h6 class="sub-title">Tesco</h6>
+                                    <p>Free</p>
+                                </div>
+                                <div class="small-4 columns text-center">
+                                    <i class="fa fa-chevron-circle-right"></i>
+                                </div>
+                            </a>
+                        </li>
+                        {% endfor %}
+                        <li class="list--block__item--disabled">
+                            <a href="#">
+                                <div class="small-6 columns text-center">
+                                    <img src="http://placehold.it/60x60">
+                                </div>
+                                <div class="small-14 columns">
+                                    <h4 class="title">Tesco Replenishment</h4>
+                                    <h6 class="sub-title">Tesco</h6>
+                                    <p>Free</p>
+                                </div>
+                                <div class="small-4 columns text-center">
+                                    <i class="fa fa-chevron-circle-right"></i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+<hr>
+{% markdown STYLE %}
+{% endmarkdown %}
+<hr>

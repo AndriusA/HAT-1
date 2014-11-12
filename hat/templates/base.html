@@ -1,0 +1,115 @@
+{% load assets static %}
+
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        {# <meta name="keywords" content="{% block meta_keywords %}{% meta_keywords %}{% endblock %}"> #}
+        <meta name="description" content="{% block meta_description %}{% endblock meta_description %}">
+        <meta name="robots" content="{% block meta_robots %}{% endblock meta_robots %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+        <title>{% block title %}{% endblock title %}</title>
+
+        <link rel="shortcut icon" href="/static/img/favicon.png" />
+        <link rel="apple-touch-icon" href="/static/img/homescreen.png">
+
+        {% stylesheet %}
+
+        {% script %}
+
+        <script>
+        $(function(){
+            $(document).foundation();
+        });
+        </script>
+
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+
+        <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body class="{% block body_class %}{% endblock body_class %}">
+        {% block body_child %}
+        <div id="perspective" class="perspective effect-moveleft">
+            <div class="site-container" data-equalizer>
+                <div class="wrapper">
+                    {% block wrapper_content %}
+                        <header class="top-heading" data-equalizer>
+
+                            <div class="medium-4 columns top-heading__left top-heading__left--content" data-equalizer-watch>
+                                <a onclick="window.history.back();">
+                                    <span>
+                                        <i class="fa fa-chevron-circle-left"></i>
+                                        <span>Back</span>
+                                    </span>
+                                </a>
+                            </div>
+
+                            <div class="medium-16 columns top-heading__center" data-equalizer-watch>
+                                <section>
+                                    <i class="fa fa-2x {% block page_title_icon %}fa-download{% endblock page_title_icon %}"></i>
+                                    <h1>{% block page_title_text %}Block page_title_icon, page_title_text{% endblock page_title_text %}</h1>
+                                </section>
+                            </div>
+
+                            <div class="medium-4 columns top-heading__right top-heading__right--content" data-equalizer-watch>
+                                <a class="no-pjax" id="showMenu">
+                                    <span>
+                                        <i class="fa fa-bars"></i>
+                                        <span>Menu</span>
+                                    </span>
+                                </a>
+                            </div>
+
+                        </header>
+
+                        {% block top_title %}
+                        <header class="top-title">
+                            <div class="medium-24 columns">
+                                {% block top_title_content %}
+                                    <h2 class="left top-title__heading"><i class="fa fa-download"></i> Add an empty top_title block to remove this or top_title_content to change the text/buttons</h2>
+                                    <a class="button small filter right" href="#">You probably don't want me either</a>
+                                {% endblock top_title_content %}
+                            </div>
+                        </header>
+                        {% endblock top_title %}
+
+                        {% block content %}
+
+                        {% endblock content %}
+                    {% endblock wrapper_content %}
+                </div>
+            </div>
+
+            <nav class="outer-nav right vertical">
+                <ul class="no-bullet left">
+                    <li><a href="{% url 'site:welcome' %}" class="pjax-fade"> <i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="{% url 'site:my-profile' %}" class="pjax-fade"> <i class="fa fa-user"></i> My profile</a></li>
+                    <li><a href="{% url 'site:locations' %}" class="pjax-fade"> <i class="fa fa-globe"></i> Locations</a></li>
+                    <li><a href="{% url 'site:data' %}" class="pjax-fade"> <i class="fa fa-upload"></i> Data</a></li>
+                    <li><a href="{% url 'site:connected' %}" class="pjax-fade"> <i class="fa fa-users"></i> Connected HATs</a></li>
+                </ul>
+                <ul class="no-bullet right">
+                    <li><a href="{% url 'site:time' %}" class="pjax-fade"> <i class="fa fa-clock-o"></i> Time</a></li>
+                    <li><a href="{% url 'site:events' %}" class="pjax-fade"> <i class="fa fa-calendar"></i> Events</a></li>
+                    <li><a href="{% url 'site:store' %}" class="pjax-fade"> <i class="fa fa-shopping-cart"></i> Store</a></li>
+                    <li><a href="{% url 'site:settings' %}" class="pjax-fade"> <i class="fa fa-cog"></i> Settings</a></li>
+                    <li><a href="{% url 'logout' %}" class="pjax-fade"> <i class="fa fa-sign-in"></i> Logout</a></li>
+                </ul>
+            </nav>
+
+        </div>
+        {% endblock body_child %}
+
+        {% block additional_js %}{% endblock %}
+
+    </body>
+
+</html>

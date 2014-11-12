@@ -1,0 +1,67 @@
+{% extends base_template %}
+{% load assets things %}
+
+{% block page_title_text %}My Profile{% endblock page_title_text %}
+{% block page_title_icon %}fa-user{% endblock page_title_icon %}
+
+{% block top_title_content %}
+
+    <h2 class="top-title__heading left"><i class="fa fa-user"></i> {{ user.first_name }} {{ user.last_name }}</h2>
+
+{% endblock top_title_content %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box">
+               {% get_img "img/people/irene.png" width="125" as thumbnail %}
+               <img src="{{thumbnail.url}}" width="{{thumbnail.width}}" height="{{thumbnail.height}}" class="left">
+
+                <div class="row">
+
+                    <div class="medium-8 columns ptb-global">
+                        <ul class="no-bullet">
+                            <li class="user-profile__item">
+                                <strong>Date of birth:</strong> TBC
+                            </li>
+                            <li class="user-profile__item">
+                                <strong>Email address:</strong> <a href="#">{{ user.email }}</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="medium-8 columns end ptb-global">
+                        <ul class="no-bullet">
+                            <li class="user-profile__item">
+                                <strong>Gender:</strong> TBC
+                            </li>
+                            <li class="user-profile__item">
+                                <strong>{{ user.first_name }}'s last activity:</strong> At 09:14.53 <a href="{% url 'site:events' %}">Today</a> in <a href="#">Bathroom 1</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="medium-12 columns">
+
+            {% data_stream limit=8 %}
+
+        </div>
+        <div class="medium-12 columns">
+
+            {% for location in device_locaitions %}
+
+                {% stream_graph location=location.location %}
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endblock content %}
