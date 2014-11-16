@@ -71,6 +71,15 @@ class Person(CreateUpdateMixin):
         max_length=100,
     )
 
+    user_GUID = models.UUIDField(
+        auto_add=False,
+        primary_key=False,
+    )
+
+    last_name = models.CharField(
+        max_digits=100,
+    )
+
     date_of_birth = models.DateField(
         blank=True,
         null=True,
