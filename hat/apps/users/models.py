@@ -1,3 +1,4 @@
+from django_extensions.db.fields import UUIDField
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -71,13 +72,8 @@ class Person(CreateUpdateMixin):
         max_length=100,
     )
 
-    user_GUID = models.UUIDField(
-        auto_add=False,
-        primary_key=False,
-    )
+    user_GUID = UUIDField(
 
-    last_name = models.CharField(
-        max_digits=100,
     )
 
     date_of_birth = models.DateField(
