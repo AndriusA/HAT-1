@@ -44,6 +44,14 @@ class AffiliateService(CreateUpdateMixin):
     )
 
 
+class Recipient(CreateUpdateMixin, NameDescMixin):
+
+    # FK to person, all users tied to a person
+    user_GUID = UUIDField(
+
+    )
+
+
 class Person(CreateUpdateMixin):
 
     # FK to person, all users tied to a person
@@ -238,6 +246,29 @@ class PersonToPersonCrossRef(CreateUpdateMixin):
 
     class Meta:
         verbose_name_plural = u'Relationships'
+
+
+class PersonDirectDebitCrossRef(CreateUpdateMixin):
+
+    #FK to Person Class
+    person = models.ForeignKey(
+        Person
+    )
+
+     #FK to DirectDebit class
+    DirectDebit = models.ForeignKey(
+        'events.DirectDebit'
+    )
+
+    relationship_type = models.ForeignKey(
+        'PersonDirectDebitRelationshipType',
+        blank=True,
+        null=True,
+    )
+
+
+class PersonDirectDebitRelationshipType(CreateUpdateMixin, NameDescMixin):
+    pass
 
 
 class PersonToPersonRelationshipType(CreateUpdateMixin, NameDescMixin):
