@@ -69,6 +69,42 @@ class Event(CreateUpdateMixin, NameDescMixin):
     )
 
 
+# DirectDebit class, defines the data direct debit
+# created from a user defined event
+
+class DirectDebit(CreateUpdateMixin, NameDescMixin):
+
+    sell_rent = models.BooleanField(
+        default=False
+        )
+
+    price = models.DecimalField(
+        max_digits=10,
+        decimal_places=2
+        )
+
+    event_time_type = models.PositiveIntegerField(
+        max_length=1,
+        choices=EVENT_TIME_TYPES
+    )
+
+    contract_start_date = models.DateTimeField(
+        blank=False,
+        null=False,
+        default=lambda: datetime.now()
+    )
+
+    contract_end_date = models.DateTimeField(
+        blank=False,
+        null=False,
+        default=lambda: datetime.now()
+    )
+
+    rolling = models.BooleanField(
+        default=False,
+    )
+
+
 # EventType class, determines the type of the event
 # Could potentially be populated via 'choices' depending on requirement
 class EventType(CreateUpdateMixin, NameDescMixin):
