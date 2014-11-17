@@ -105,6 +105,56 @@ class DirectDebit(CreateUpdateMixin, NameDescMixin):
     )
 
 
+#Direct debit and recipient cross relationship class
+class DirectDebitRecipientCrossRef(CreateUpdateMixin):
+
+    #FK to DirectDebit Class
+    DirectDebit = models.ForeignKey(
+        DirectDebit
+    )
+
+     #FK to Recipient class
+    Recipient = models.ForeignKey(
+        'users.Recipient'
+    )
+    #FK Direct Debit recipient rel type
+    relationship_type = models.ForeignKey(
+        'DDRecipientRelationshipType',
+        blank=True,
+        null=True,
+    )
+
+
+#DirectDebit Recipient Rel type
+class DDRecipientRelationshipType(CreateUpdateMixin, NameDescMixin):
+    pass
+
+
+#Direct debit and recipient cross relationship class
+class DirectDebitEventCrossRef(CreateUpdateMixin):
+
+    #FK to DirectDebit Class
+    DirectDebit = models.ForeignKey(
+        DirectDebit
+    )
+
+    #FK to Event class
+    Event = models.ForeignKey(
+        'events.Event'
+    )
+
+    relationship_type = models.ForeignKey(
+        'DirectDebitEventRelationshipType',
+        blank=True,
+        null=True,
+    )
+
+
+#EventType class determines the relationship between direct debit and event
+class DirectDebitEventRelationshipType(CreateUpdateMixin, NameDescMixin):
+    pass
+
+
 # EventType class, determines the type of the event
 # Could potentially be populated via 'choices' depending on requirement
 class EventType(CreateUpdateMixin, NameDescMixin):
