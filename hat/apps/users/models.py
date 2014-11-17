@@ -46,8 +46,8 @@ class AffiliateService(CreateUpdateMixin):
 
 class Recipient(CreateUpdateMixin, NameDescMixin):
 
-    # FK to person, all users tied to a person
-    user_GUID = UUIDField(
+    # Reciepient Identifier number
+    recipient_UUID = UUIDField(
 
     )
 

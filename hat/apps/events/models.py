@@ -72,7 +72,7 @@ class Event(CreateUpdateMixin, NameDescMixin):
 # DirectDebit class, defines the data direct debit
 # created from a user defined event
 
-class DirectDebit(CreateUpdateMixin, NameDescMixin):
+class DataDebit(CreateUpdateMixin, NameDescMixin):
 
     sell_rent = models.BooleanField(
         default=False
@@ -106,18 +106,18 @@ class DirectDebit(CreateUpdateMixin, NameDescMixin):
 
 
 #Direct debit and recipient cross relationship class
-class DirectDebitRecipientCrossRef(CreateUpdateMixin):
+class DataDebitRecipientCrossRef(CreateUpdateMixin):
 
     #FK to DirectDebit Class
-    DirectDebit = models.ForeignKey(
-        DirectDebit
+    DataDebit = models.ForeignKey(
+        DataDebit
     )
 
      #FK to Recipient class
     Recipient = models.ForeignKey(
         'users.Recipient'
     )
-    #FK Direct Debit recipient rel type
+    #FK Data Debit recipient rel type
     relationship_type = models.ForeignKey(
         'DDRecipientRelationshipType',
         blank=True,
@@ -125,17 +125,17 @@ class DirectDebitRecipientCrossRef(CreateUpdateMixin):
     )
 
 
-#DirectDebit Recipient Rel type
+#DataDebit Recipient Rel type
 class DDRecipientRelationshipType(CreateUpdateMixin, NameDescMixin):
     pass
 
 
 #Direct debit and recipient cross relationship class
-class DirectDebitEventCrossRef(CreateUpdateMixin):
+class DataDebitEventCrossRef(CreateUpdateMixin):
 
     #FK to DirectDebit Class
-    DirectDebit = models.ForeignKey(
-        DirectDebit
+    DataDebit = models.ForeignKey(
+        DataDebit
     )
 
     #FK to Event class
@@ -144,14 +144,14 @@ class DirectDebitEventCrossRef(CreateUpdateMixin):
     )
 
     relationship_type = models.ForeignKey(
-        'DirectDebitEventRelationshipType',
+        'DataDebitEventRelationshipType',
         blank=True,
         null=True,
     )
 
 
 #EventType class determines the relationship between direct debit and event
-class DirectDebitEventRelationshipType(CreateUpdateMixin, NameDescMixin):
+class DataDebitEventRelationshipType(CreateUpdateMixin, NameDescMixin):
     pass
 
 

@@ -9,6 +9,7 @@ from ..locations.models import Location, LocationType
 from ..users.models import Person
 from django_extensions.db.fields import UUIDField
 from ..users.models import Recipient
+from ..events.models import 
 
 from datetime import datetime
 
@@ -34,8 +35,8 @@ class ApiException(Exception):
     pass
 
 
-# Api authentication mixin
-class ApiAuthenticationMixin(View):
+# Api authentication INBOUND mixin
+class ApiAuthenticationMixinInbound(View):
 
     required_fields = []
 
@@ -138,7 +139,110 @@ class ApiAuthenticationMixin(View):
         self.response_data[key] = value
 
 
-class SensorsView(ApiAuthenticationMixin):
+# Api authentication OUTBOUND mixin
+class ApiAuthenticationMixinOutbound(View):
+
+    required_fields = []
+
+    def __init__(self, **kwargs):
+        # Set blank response data
+        self.response_data = {
+            'response': '',
+            'errors': []
+        }
+
+        self.post_data = None
+
+        self.device = None
+
+    # Disable CSRF and run auth check
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+
+        # Manually parse post for devices that do not support headers
+        self.request.POST = QueryDict(request.body)
+
+        # Auth check
+        if not self.check_auth(request):
+            return self.response(request, *args, **kwargs)
+
+        # Data check
+        if request.META['REQUEST_METHOD'] == 'POST':
+            if 'data' not in request.POST:
+                self.add_error('Data field is missing from POST.')
+                return self.response(request, *args, **kwargs)
+            else:
+                try:
+                    self.post_data = json.loads(request.POST.get("data"))
+                except Exception:
+                    self.add_error('Json decode error'.format(
+                        ', '.join(self.required_fields)
+                    ))
+                    return self.response(request, *args, **kwargs)
+
+        # Validation check
+        for field in self.required_fields:
+            if field not in self.post_data:
+                self.add_error('One or more required fields are missing. Fields required are: {}.'.format(
+                    ', '.join(self.required_fields)
+                ))
+                return self.response(request, *args, **kwargs)
+
+        return super(ApiAuthenticationMixin, self).dispatch(request, *args, **kwargs)
+
+    # Check to see if the requested method actually exists, a device is being used, and is allowed to use the
+    # requested method
+    def check_auth(self, request):
+
+        # Make sure we have the device ID header
+        recipient = request.META.get('HTTP_RECIPIENT_UUID', None)
+        if not recipient:
+            if not request.POST.get("recipient_UUID", None):
+                self.add_error('Device authentication missing.')
+                return False
+            else:
+                recipient = request.POST.get("recipient_UUID", None)
+
+        try:
+            self.recipient = Recipient.objects.get(recipient_UUID=Recipient)
+        except Exception:
+            self.add_error('Device not found with the ID of "{}".'.format(
+                device
+            ))
+            return False
+
+        return True
+
+    # Api json response
+    def response(self, request, *args, **kwargs):
+
+        # Set the response result based on errors
+        if not self.has_errors():
+            self.response_data['response'] = 'success'
+            self.response_data.pop("errors", None)
+        else:
+            self.response_data['response'] = 'error'
+
+        # Return json response
+        return HttpResponse(json.dumps(self.response_data), content_type="application/json")
+
+    def http_method_not_allowed(self, request, *args, **kwargs):
+        self.add_error('Not implemented')
+        return self.response(request, *args, **kwargs)
+
+    # Check to see if the current request has any errors
+    def has_errors(self):
+        return len(self.response_data['errors']) > 0
+
+    # Add an error to the respose
+    def add_error(self, error):
+        self.response_data['errors'].append(error)
+
+    # Add data to the response
+    def add_data(self, key, value):
+        self.response_data[key] = value
+
+class SensorsView(ApiAuthenticationMixinOutbound):
 
     def get(self, request, *args, **kwargs):
 
@@ -151,8 +255,20 @@ class SensorsView(ApiAuthenticationMixin):
         # Call the super post, this does the error checking
         return super(SensorsView, self).response(request, *args, **kwargs)
 
+class DataDebitView(ApiAuthenticationMixinOutbound):
 
-class SensorDataView(ApiAuthenticationMixin):
+    def get(self, request, *args, **kwargs):
+
+        # Get data debit
+        datadebit = DataDebitEventCrossRef.objects.filter(datadebit=self.events)
+
+        # Set sensors
+        self.add_data('datadebit', [{datadebit_ref.datadebit.datadebit_id: datadebit_ref.datadebit.name} for datadebit_ref in datadebit])
+
+        # Call the super post, this does the error checking
+        return super(DirectDebitView, self).response(request, *args, **kwargs)
+
+class SensorDataView(ApiAuthenticationMixinInbound):
 
     required_fields = ['id', 'value', 'unit', 'data_type']
 
@@ -222,7 +338,7 @@ class SensorDataView(ApiAuthenticationMixin):
         return super(SensorDataView, self).response(request, *args, **kwargs)
 
 
-class BatchSensorDataView(ApiAuthenticationMixin):
+class BatchSensorDataView(ApiAuthenticationMixinInbound):
 
     required_fields = ['sensor_data']
 
@@ -304,7 +420,7 @@ class BatchSensorDataView(ApiAuthenticationMixin):
         return super(BatchSensorDataView, self).response(request, *args, **kwargs)
 
 
-class CreateEventView(ApiAuthenticationMixin):
+class CreateEventView(ApiAuthenticationMixinInbound):
 
     required_fields = ['name', 'type', 'status', 'time_type', 'start_timestamp', 'end_timestamp']
 
@@ -426,7 +542,7 @@ class CreateEventView(ApiAuthenticationMixin):
         return super(CreateEventView, self).response(request, *args, **kwargs)
 
 
-class CreateLocationView(ApiAuthenticationMixin):
+class CreateLocationView(ApiAuthenticationMixinInbound):
 
     required_fields = ['name', 'type']
 
@@ -503,7 +619,7 @@ class CreateLocationView(ApiAuthenticationMixin):
         return super(CreateLocationView, self).response(request, *args, **kwargs)
 
 
-class CreateRecipientView(ApiAuthenticationMixin):
+class CreateRecipientView(ApiAuthenticationMixinInbound):
 
     required_fields = ['user_GUID', 'name']
 
@@ -538,7 +654,7 @@ class CreateRecipientView(ApiAuthenticationMixin):
         return super(CreateRecipentView, self).response(request, *args, **kwargs)
 
 
-class CreatePersonView(ApiAuthenticationMixin):
+class CreatePersonView(ApiAuthenticationMixinInbound):
 
     required_fields = ['first_name', 'last_name']
 
