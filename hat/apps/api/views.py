@@ -7,6 +7,8 @@ from ..things.models import Thing, ThingSensorCrossRef, SensorDataType, SensorDa
 from ..events.models import EVENT_STATUS_CODES, EVENT_TIME_TYPES, Event, EventType, EventPersonCrossRef, EventLocationCrossRef, EventSensorDataCrossRef
 from ..locations.models import Location, LocationType
 from ..users.models import Person
+from django_extensions.db.fields import UUIDField
+from ..users.models import Recipient
 
 from datetime import datetime
 
@@ -501,6 +503,41 @@ class CreateLocationView(ApiAuthenticationMixin):
         return super(CreateLocationView, self).response(request, *args, **kwargs)
 
 
+class CreateRecipientView(ApiAuthenticationMixin):
+
+    required_fields = ['user_GUID', 'name']
+
+    def post(self, request, *args, **kwargs):
+
+        # Main try catch, this allows me to be more specific with errors
+        try:
+
+            # Get persons first name and last name
+            user_GUID = self.post_data.get('user_GUID', '')
+            name = self.post_data.get('name', '')
+
+            # Add and save the person
+            recipient, recipient_created = Recipient.objects.get_or_create(
+                name=name,
+                user_GUID=user_GUID,
+                defaults={
+                    'date_created': datetime.now()
+                }
+            )
+            recipient.save()
+
+            # Return the person ID
+            self.add_data('recipient_id', recipient.pk)
+
+        except ApiException as error:
+
+            # Get error string
+            error_string = str(error) if str(error) != "" else "Unknown error has occured."
+            self.add_error(error_string)
+
+        return super(CreateRecipentView, self).response(request, *args, **kwargs)
+
+
 class CreatePersonView(ApiAuthenticationMixin):
 
     required_fields = ['first_name', 'last_name']
@@ -535,4 +572,6 @@ class CreatePersonView(ApiAuthenticationMixin):
             self.add_error(error_string)
 
         return super(CreatePersonView, self).response(request, *args, **kwargs)
+
+
 
