@@ -13,3 +13,4 @@ psycopg2==2.5.3
 raven==5.0.0
 six==1.7.3
 wsgiref==0.1.2
+django-google-charts==1.1
