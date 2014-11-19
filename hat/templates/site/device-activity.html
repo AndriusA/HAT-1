@@ -14,7 +14,7 @@
 
 {% block content %}
     <div class="row">
-        <div class="medium-24 columns">
+        <div class="medium-6-right columns.medium-uncentered.opposite">
 
             {% url 'site:activity' device.pk as base_url %}
             {% data_stream device=device page=page base_url=base_url %}

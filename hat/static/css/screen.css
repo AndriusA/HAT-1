@@ -4168,6 +4168,13 @@ select {
     width: 25%;
   }
 
+   /* line 172, ../scss/foundation/foundation/components/_grid.scss */
+  .medium-6-right {
+    width: 25%;
+    float: right;
+  }
+
+
   /* line 172, ../scss/foundation/foundation/components/_grid.scss */
   .medium-7 {
     width: 29.16667%;
