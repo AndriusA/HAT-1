@@ -127,7 +127,7 @@ INSTALLED_APPS = (
     "markdown_deux",
     "optimizations",
     "pure_pagination",
-
+    
 
     "hat.apps.events",
     "hat.apps.locations",
@@ -137,9 +137,11 @@ INSTALLED_APPS = (
     "hat.apps.organisations",
     "hat.apps.site",
     "hat.apps.api",
-
+    "gcharts",
 )
 
+GOOGLECHARTS_API = '1.1'
+GOOGLECHARTS_PACKAGES = ["corechart", "gauge", "geochart", "table", "treemap"]
 
 # Additional static file locations.
 

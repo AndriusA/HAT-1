@@ -4196,6 +4196,12 @@ select {
   }
 
   /* line 172, ../scss/foundation/foundation/components/_grid.scss */
+  .medium-10-right {
+    width: 41.66667%;
+    float: right;
+  }
+
+  /* line 172, ../scss/foundation/foundation/components/_grid.scss */
   .medium-11 {
     width: 45.83333%;
   }
@@ -7192,7 +7198,6 @@ ul.pagination li {
 
 /* line 131, ../scss/foundation/foundation/components/_tables.scss */
 table {
-  background: #FFFFFF;
   margin-bottom: 1.25rem;
   border: solid 1px #DDDDDD;
   table-layout: auto;

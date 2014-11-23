@@ -36,8 +36,14 @@
                             <div class="medium-3 text-center columns image" data-equalizer-watch>
 
                                 {% if device.pk == 6 %}
-                                    {% img "img/fibaro.jpg" width="100" %}
-                                {% else %}
+                                    {% img "img/fibaro.png" width="100" %}
+                                {% elif device.pk == 3 %}
+                                    {% img "img/fb_icon.png" width="100" %}
+                                    {% elif device.pk == 5 %}
+                                    {% img "img/Outlook_Calendar_logo.png" width="100" %}
+                                    {% elif device.pk == 4 %}
+                                    {% img "img/gcal_icon.png" width="100" %}
+                                    {% else %}
                                     {% img "img/icon-pinwidget.png" width="100" %}
                                 {% endif %}
                             </div>
@@ -47,7 +53,7 @@
                                 <div class="row">
 
                                     <div class="medium-8 columns">
-                                        <p><strong>Brand:</strong> </p>
+                                        <p><strong>Brand:</strong> {{ device.brand }}</p>
                                     </div>
 
                                     <div class="medium-8 columns">

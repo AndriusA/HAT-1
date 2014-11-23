@@ -19,7 +19,7 @@
 
                 <div class="medium-3 text-center columns image" data-equalizer-watch>
                     {% if device.pk == 6 %}
-                        {% img "img/fibaro.jpg" width="100" %}
+                        {% img "img/fibaro.png" width="100" %}
                     {% else %}
                         {% img "img/icon-pinwidget.png" width="100" %}
                     {% endif %}
@@ -39,7 +39,8 @@
                         </div>
 
                         <div class="medium-8 columns">
-                            <p><strong>Location:</strong> {% if device.location %}<a href="{% url 'site:location' device.location.location.pk %}">{{ device.location.location }}</a>{% else %}Bathroom{% endif %}</p>
+                        <p><strong>Location:</strong> {% if device.location %}<a href="{% url 'site:location' device.location.location.pk %}">{{ device.location.location }}</a>{% else %}-{% endif %}</p>
+                            
                         </div>
 
                     </div>
