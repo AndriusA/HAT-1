@@ -33,7 +33,9 @@
 
                 <h2>Authentication</h2>
 
-                <p>Authenticating with the API is very simple. When calling an API method, just add a header called <code class="inline">Device-ID</code> to the HTTP request containing your unique device ID.</p>
+                <p>Inbound authentication with the API is very simple. When calling an API method, just add a header called <code class="inline">Device-ID</code> to the HTTP request containing your unique device ID.</p>
+
+                <p>Outbound authentication with the API is very simple. When calling an API method, just add a header called <code class="inline">Sensor-ID</code> to the HTTP request containing your unique sensor ID.</p>
 
                 <hr>
 
@@ -297,6 +299,42 @@
                                 <p>This method returns all sensors tied to your device.</p>
                             </td>
                         </tr>
+                         <tr>
+                            <td>
+                                <strong>GET</strong> <a href="#/api/v1/DataDebit/">/api/v1/DataDebit/</a>
+                                <p>This method returns a data debit.</p>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                                <strong>GET</strong> <a href="#/api/v1/SensorData/">/api/v1/SensorData/</a>
+                                <p>This method returns all sensor data for a sensor</p>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                                <strong>GET</strong> <a href="#/api/v1/Location/">/api/v1/Location/</a>
+                                <p>This method returns all sensors tied to your device.</p>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                                <strong>GET</strong> <a href="#/api/v1/Person/">/api/v1/Person/</a>
+                                <p>This method returns all sensors tied to your device.</p>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                                <strong>GET</strong> <a href="#/api/v1/Events/">/api/v1/Events/</a>
+                                <p>This method returns all sensors tied to your device.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>POST</strong> <a href="#/api/v1/create_recipient/">/api/v1/create_recipient/</a>
+                                <p>This method takes recipient data when creating a data debit</p>
+                            </td>
+                        </tr>
                         <tr>
                             <td>
                                 <strong>POST</strong> <a href="#/api/v1/sensor_data/">/api/v1/sensor_data/</a>
@@ -361,6 +399,265 @@
                 <p>Example request:</p>
 
                 <pre style="margin-bottom: 12px; font-size: 10px;"><code>curl -H "Device-ID: x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0" http://hat.onespace.media/api/v1/sensors/</code></pre>
+
+                <p>Example response</p>
+
+                <pre style="margin-bottom: 0; font-size: 10px;"><code>{
+                    "response" : "success",
+                    "sensors" : [
+                    {
+                          "x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0" : "Toilet roll infrared distance sensor"
+                    }
+                        ]
+                    }</code></pre>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h3 id="/api/v1/sensors/"><strong>GET</strong> /api/v1/DataDebit/</h3>
+
+                <p>This method returns a Data Debit</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="170">Arguments</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td valign="top" colspan="2"><p>Method has no arguments</p></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Example request:</p>
+
+                <pre style="margin-bottom: 12px; font-size: 10px;"><code>curl -H "Device-ID: x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0" http://hat.onespace.media/api/v1/DataDebit/</code></pre>
+
+                <p>Example response</p>
+
+<pre style="margin-bottom: 0; font-size: 10px;"><code>{
+  "response" : "success",
+  "sensors" : [
+    {
+      "x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0" : "Toilet roll infrared distance sensor"
+    }
+  ]
+}</code></pre>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+                <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h3 id="/api/v1/SensorData/"><strong>GET</strong> /api/v1/SensorData/</h3>
+
+                <p>This method returns Sensor Data of an Event</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="170">Arguments</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td valign="top" colspan="2"><p>Method has no arguments</p></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Example request:</p>
+
+                <pre style="margin-bottom: 12px; font-size: 10px;"><code>curl -H "Device-ID: x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0" http://hat.onespace.media/api/v1/DataDebit/</code></pre>
+
+                <p>Example response</p>
+
+<pre style="margin-bottom: 0; font-size: 10px;"><code>{
+  "response" : "success",
+  "sensors" : [
+    {
+      "x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0" : "Toilet roll infrared distance sensor"
+    }
+  ]
+}</code></pre>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+    <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h3 id="/api/v1/Location/"><strong>GET</strong> /api/v1/Location/</h3>
+
+                <p>This method returns a Location of an Event</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="170">Arguments</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td valign="top" colspan="2"><p>Method has no arguments</p></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Example request:</p>
+
+                <pre style="margin-bottom: 12px; font-size: 10px;"><code>curl -H "Device-ID: x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0" http://hat.onespace.media/api/v1/DataDebit/</code></pre>
+
+                <p>Example response</p>
+
+<pre style="margin-bottom: 0; font-size: 10px;"><code>{
+  "response" : "success",
+  "sensors" : [
+    {
+      "x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0" : "Toilet roll infrared distance sensor"
+    }
+  ]
+}</code></pre>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h3 id="/api/v1/Person/"><strong>GET</strong> /api/v1/Person/</h3>
+
+                <p>This method returns a Person of an Event</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="170">Arguments</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td valign="top" colspan="2"><p>Method has no arguments</p></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Example request:</p>
+
+                <pre style="margin-bottom: 12px; font-size: 10px;"><code>curl -H "Device-ID: x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0" http://hat.onespace.media/api/v1/DataDebit/</code></pre>
+
+                <p>Example response</p>
+
+<pre style="margin-bottom: 0; font-size: 10px;"><code>{
+  "response" : "success",
+  "sensors" : [
+    {
+      "x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0" : "Toilet roll infrared distance sensor"
+    }
+  ]
+}</code></pre>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h3 id="/api/v1/Event/"><strong>GET</strong> /api/v1/Event/</h3>
+
+                <p>This method returns an Event tied to a Data Debit</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="170">Arguments</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td valign="top" colspan="2"><p>Method has no arguments</p></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Example request:</p>
+
+                <pre style="margin-bottom: 12px; font-size: 10px;"><code>curl -H "Device-ID: x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0" http://hat.onespace.media/api/v1/DataDebit/</code></pre>
+
+                <p>Example response</p>
+
+<pre style="margin-bottom: 0; font-size: 10px;"><code>{
+  "response" : "success",
+  "sensors" : [
+    {
+      "x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0" : "Toilet roll infrared distance sensor"
+    }
+  ]
+}</code></pre>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+
+                <div class="row">
+
+            <div class="small-12 columns small-centered">
+
+                <h3 id="/api/v1/create_recipient/"><strong>POST</strong> /api/v1/create_recipient/</h3>
+
+                <p>This method returns all sensors with their IDs tied to your device.</p>
+
+                <table class="small-24">
+                    <thead>
+                        <tr>
+                            <th width="170">Arguments</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td valign="top" colspan="2"><p>Method has no arguments</p></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Example request:</p>
+
+                <pre style="margin-bottom: 12px; font-size: 10px;"><code>curl -H "Device-ID: x0x0x0x0-x0x0-x0x0-x0x0-x0x0x0x0x0x0" http://hat.onespace.media/api/v1/create_recipient/</code></pre>
 
                 <p>Example response</p>
 

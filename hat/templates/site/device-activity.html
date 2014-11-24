@@ -7,16 +7,31 @@
           
         var data_temp = google.visualization.arrayToDataTable([
           ['Label', 'Value'],
-          ['temp', 21]
+          ['temp 1', 21]
         ]);
           
-          var data_illumines = google.visualization.arrayToDataTable([
+        var data_illumines = google.visualization.arrayToDataTable([
           ['Label', 'Value'],
-          ['illumines', 9]
+          ['illumines1', 9]
+        ]);
+
+        var data_temp2 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['temp 2', 20]
+        ]);
+          
+        var data_illumines2 = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['illumines 2', 215]
+        ]);
+
+        var data_product = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['ml', 500]
         ]);
           
         var optionstemp = {
-          width: 125, height: 125,
+          width: 175, height: 175,
           greenFrom: 18, greenTo: 23,
           minorTicks: 5,
           min:10,
@@ -24,12 +39,37 @@
           title: 'Current Temperature'
         };
           
-          var optionsillumines = {
-          width: 125, height: 125,
+        var optionsillumines = {
+          width: 175, height: 175,
           minorTicks: 50,
           min:1,
           max:1000,
           title: 'Current light level'
+        };
+
+        var optionstemp2 = {
+          width: 175, height: 175,
+          greenFrom: 18, greenTo: 23,
+          minorTicks: 5,
+          min:10,
+          max:30,
+          title: 'Current Temperature'
+        };
+          
+        var optionsillumines2 = {
+          width: 175, height: 175,
+          minorTicks: 50,
+          min:1,
+          max:1000,
+          title: 'Current light level'
+        };
+
+        var optionsproduct = {
+          width: 175, height: 175,
+          minorTicks: 50,
+          min:1,
+          max:1000,
+          title: 'Current weight of product'
         };
           
           
@@ -50,28 +90,64 @@
           data_illumines.setValue(0, 1, 21 + Math.round(1 * Math.random()));
           chartillumines.draw(data_illumines, optionsillumines);
         }, 10000);
+
+        var charttemp2 = new google.visualization.Gauge(document.getElementById('charttemp2_div'));
+
+        charttemp2.draw(data_temp2, optionstemp2);
+
+        setInterval(function() {
+          data_temp2.setValue(0, 1, 20 + Math.round(1 * Math.random()));
+          charttemp2.draw(data_temp2, optionstemp2);
+        }, 10000);
           
-          
-           
-      
+          var chartillumines2 = new google.visualization.Gauge(document.getElementById('chartillumines2_div'));
+
+        chartillumines2.draw(data_illumines2, optionsillumines2);
+
+        setInterval(function() {
+          data_illumines2.setValue(0, 1, 215 + Math.round(1 * Math.random()));
+          chartillumines2.draw(data_illumines2, optionsillumines2);
+        }, 10000);
+
+        var chart = new google.visualization.Gauge(document.getElementById('chartillumines3_div'));
+
+        chart.draw(data_product, optionsproduct);
+
+        setInterval(function() {
+          data_product.setValue(0, 1, 215 + Math.round(1 * Math.random()));
+          chart.draw(data_product, optionsproduct);
+        }, 10000);
         
       }
   </script>
-  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
+          google.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
         
-          ['Day', 'Temperature'],
-          ['Mon', 19],
-          ['Tues', 21],
-          ['Wed',21],
-          ['Thurs',18],
-          ['Fri',18],
-          ['Sat',17],
-          ['Sun', 19],
+          ['Day', 'Temperature', 'Temperature2'],
+          ['Mon', 22, 21],
+          ['Tues', 21, 21],
+          ['Wed',21, 20],
+          ['Thurs',19, 21],
+          ['Fri',19, 20],
+          ['Sat',20, 22],
+          ['Sun', 19, 21],
+
+        ]);
+
+        var databeautybox = google.visualization.arrayToDataTable([
+        
+          ['Day', 'Remaining'],
+          ['Mon', 525],
+          ['Tues', 523],
+          ['Wed',521],
+          ['Thurs',520],
+          ['Fri',518],
+          ['Sat',517],
+          ['Sun', 515],
 
         ]);
 
@@ -81,9 +157,19 @@
           title: 'Temperature over previous week',
         };
 
-        var chart = new google.visualization.LineChart(document.getElementById('chart_div2'));
+        var optionsbeautybox = {
+          title: 'Beauty Box',
+          curveType: 'function',
+          title: 'Use of product in beauty box',
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div1'));
 
         chart.draw(data, options);
+          
+           var chart2 = new google.visualization.LineChart(document.getElementById('chart_div2'));
+
+        chart2.draw(databeautybox, optionsbeautybox);
       }
     </script>
   </head>
@@ -106,17 +192,45 @@
         {% url 'site:activity' device.pk as base_url %}
             {% data_stream device=device page=page base_url=base_url %}
         </div>
-        <div class="medium-11 columns" style="margin-left: 12%; height:175px;">
-        Live Data:
-            <div id="charttemp_div" style="position: absolute; margin-left:175px;"></div>
-            <div id="chartillumines_div" style="position: absolute; margin-left:350px;"></div>
+
+        {% if device.pk == 6 %}
+        <div class="medium-11 columns" style="margin-left: 5%; height:175px;">
+        Live Data Fibaro:
+         
+            <div id="charttemp_div" style="position: absolute; margin-left:0px;">Room 1</div>
+            <div id="chartillumines_div" style="position: absolute; margin-left:200px;">Room 1</div>
+            <div id="charttemp2_div" style="position: absolute; margin-left:400px;">Room 1</div>
+            <div id="chartillumines2_div" style="position: absolute; margin-left:600px;">Room 1</div>
+
+
         </div>
             
-            <div class="medium-12 columns" id="chart_div2"style=" width: 900px; height: 500px; margin-left: 5%; margin-top: 5%;">
-            </div>
+        <div class="medium-12 columns" id="chart_div1" style="position: absolute; width: 900px; height: 500px; margin-left: 5%; margin-top: 15%;"></div>
             
-        <div></div>
-    </div>
+            
+        
+            {% elif device.pk == 7 %}
+            <div class="medium-11 columns" style="margin-left: 5%; height:175px;">
+        Live Data Beauty Box:
+            <div id="charttemp_div" style="position: absolute; margin-left:0px;">Room 1</div>
+            <div id="chartillumines_div" style="position: absolute; margin-left:0px;">Room 1</div>
+            <div id="charttemp2_div" style="position: absolute; margin-left:0px;">Room 1</div>
+            <div id="chartillumines2_div" style="position: absolute; margin-left:0px;">Room 1</div>
+            <div id="chartillumines3_div" style="position: absolute; margin-left:0px;">Room 1</div>
+            
+
+
+        </div>
+            <div class="medium-12 columns" id="chart_div1" style="position: absolute; width: 900px; height: 500px; margin-left: 5%; margin-top:15%;"></div>
+            <div class="medium-12 columns" id="chart_div2" style="position: absolute; width: 900px; height: 500px; margin-left: 5%; margin-top:15%;"></div>
+        
+            
+            
+            {% else %}
+
+            {% endif %}
+        
+        </div>
 
 {% endblock content %}
 </body>
