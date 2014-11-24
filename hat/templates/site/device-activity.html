@@ -1,8 +1,96 @@
+<head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["gauge"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+          
+        var data_temp = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['temp', 21]
+        ]);
+          
+          var data_illumines = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['illumines', 9]
+        ]);
+          
+        var optionstemp = {
+          width: 125, height: 125,
+          greenFrom: 18, greenTo: 23,
+          minorTicks: 5,
+          min:10,
+          max:30,
+          title: 'Current Temperature'
+        };
+          
+          var optionsillumines = {
+          width: 125, height: 125,
+          minorTicks: 50,
+          min:1,
+          max:1000,
+          title: 'Current light level'
+        };
+          
+          
+        var charttemp = new google.visualization.Gauge(document.getElementById('charttemp_div'));
+
+        charttemp.draw(data_temp, optionstemp);
+
+        setInterval(function() {
+          data_temp.setValue(0, 1, 21 + Math.round(1 * Math.random()));
+          charttemp.draw(data_temp, optionstemp);
+        }, 10000);
+          
+          var chartillumines = new google.visualization.Gauge(document.getElementById('chartillumines_div'));
+
+        chartillumines.draw(data_illumines, optionsillumines);
+
+        setInterval(function() {
+          data_illumines.setValue(0, 1, 21 + Math.round(1 * Math.random()));
+          chartillumines.draw(data_illumines, optionsillumines);
+        }, 10000);
+          
+          
+           
+      
+        
+      }
+  </script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+        
+          ['Day', 'Temperature'],
+          ['Mon', 19],
+          ['Tues', 21],
+          ['Wed',21],
+          ['Thurs',18],
+          ['Fri',18],
+          ['Sat',17],
+          ['Sun', 19],
+
+        ]);
+
+        var options = {
+          title: 'Fibaro Sensor',
+          curveType: 'function',
+          title: 'Temperature over previous week',
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div2'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
 {% extends base_template %}
 {% load things %}
-
 {% block page_title_text %}Data{% endblock page_title_text %}
-
+<body>
 {% block top_title_content %}
     <h2 class="top-title__heading left"><i class="fa fa-download"></i> {{ device.name }}</h2>
     <ul class="button-group filter-group radius right">
@@ -15,10 +103,21 @@
 {% block content %}
     <div class="row">
         <div class="medium-6-right columns.medium-uncentered.opposite">
-
-            {% url 'site:activity' device.pk as base_url %}
+        {% url 'site:activity' device.pk as base_url %}
             {% data_stream device=device page=page base_url=base_url %}
-
         </div>
+        <div class="medium-11 columns" style="margin-left: 12%; height:175px;">
+        Live Data:
+            <div id="charttemp_div" style="position: absolute; margin-left:175px;"></div>
+            <div id="chartillumines_div" style="position: absolute; margin-left:350px;"></div>
+        </div>
+            
+            <div class="medium-12 columns" id="chart_div2"style=" width: 900px; height: 500px; margin-left: 5%; margin-top: 5%;">
+            </div>
+            
+        <div></div>
     </div>
+
 {% endblock content %}
+</body>
+</html>
