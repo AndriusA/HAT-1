@@ -23,8 +23,9 @@ class Migration(SchemaMigration):
             ('supplier_id', self.gf('django.db.models.fields.PositiveIntegerField')(null=True, blank=True)),
             ('value_creation_practice_type', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='related_value_event', null=True, to=orm['things.ValueCreationEvent'])),
             ('source_thing', self.gf('django.db.models.fields.PositiveIntegerField')(max_length=5, null=True, blank=True)),
-            ('device_id', self.gf('django.db.models.fields.CharField')(default='d2b19635-d83b-45f2-b336-411e0a5dfb54', max_length=36)),
+            ('device_id', self.gf('django.db.models.fields.CharField')(default='5c96b88b-10f2-4573-a533-960e15b22d19', max_length=36)),
             ('ip_address', self.gf('django.db.models.fields.GenericIPAddressField')(max_length=39)),
+            ('is_service', self.gf('django.db.models.fields.BooleanField')(default=False)),
         ))
         db.send_create_signal(u'things', ['Thing'])
 
@@ -143,7 +144,7 @@ class Migration(SchemaMigration):
             ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('manufacturer', self.gf('django.db.models.fields.CharField')(max_length=45, null=True, blank=True)),
-            ('sensor_id', self.gf('django.db.models.fields.CharField')(default='fb13d06e-ffcc-4682-973b-4ff9edd69c8b', max_length=36)),
+            ('sensor_id', self.gf('django.db.models.fields.CharField')(default='0db4df5b-ae51-4185-81a5-099f33403a47', max_length=36)),
         ))
         db.send_create_signal(u'things', ['Sensor'])
 
@@ -383,7 +384,7 @@ class Migration(SchemaMigration):
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'manufacturer': ('django.db.models.fields.CharField', [], {'max_length': '45', 'null': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'sensor_id': ('django.db.models.fields.CharField', [], {'default': "'d8f826d4-9cf2-408d-8ff3-bd93d3b4e6bb'", 'max_length': '36'})
+            'sensor_id': ('django.db.models.fields.CharField', [], {'default': "'8e3018fd-29f7-4100-bc1d-7d0ba627346d'", 'max_length': '36'})
         },
         u'things.sensordata': {
             'Meta': {'ordering': "['-date_created']", 'object_name': 'SensorData'},
@@ -410,9 +411,10 @@ class Migration(SchemaMigration):
             'brand': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'device_id': ('django.db.models.fields.CharField', [], {'default': "'34d712c0-121f-4da4-ba73-95733e201ad0'", 'max_length': '36'}),
+            'device_id': ('django.db.models.fields.CharField', [], {'default': "'01c396f6-6624-4a26-b244-72a8fa6831d4'", 'max_length': '36'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'ip_address': ('django.db.models.fields.GenericIPAddressField', [], {'max_length': '39'}),
+            'is_service': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'point_of_purchase_id': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True', 'blank': 'True'}),
@@ -540,7 +542,8 @@ class Migration(SchemaMigration):
             'prefix': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['system.Prefix']", 'null': 'True', 'blank': 'True'}),
             'related_organisations': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'person_related_organisations'", 'null': 'True', 'to': u"orm['organisations.Organisation']"}),
             'religion': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['system.Religion']", 'null': 'True', 'blank': 'True'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'related_user_ac'", 'to': u"orm['auth.User']"})
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'related_user_ac'", 'to': u"orm['auth.User']"}),
+            'user_GUID': ('django.db.models.fields.CharField', [], {'max_length': '36', 'blank': 'True'})
         },
         u'users.personaddress': {
             'Meta': {'object_name': 'PersonAddress'},

@@ -1,5 +1,8 @@
 from django.conf.urls import patterns, url, include
-from views import ApiDocumentation, SensorsView, SensorDataView, BatchSensorDataView, CreateEventView, CreateLocationView, CreatePersonView, CreateRecipientView
+from views import ApiDocumentation, SensorsView, SensorDataView, BatchSensorDataView, CreateEventView, CreateLocationView, CreatePersonView
+from views import GetSensorDataView
+from views import GetSensorDescriptionView
+#, CreateRecipientView
 
 urlpatterns = patterns('',
     url(r'^$', ApiDocumentation.as_view()),
@@ -9,5 +12,7 @@ urlpatterns = patterns('',
     url(r'^create_event/$', CreateEventView.as_view()),
     url(r'^create_location/$', CreateLocationView.as_view()),
     url(r'^create_person/$', CreatePersonView.as_view()),
-    url(r'^create_recipient/$', CreateRecipientView.as_view()),
+    # url(r'^create_recipient/$', CreateRecipientView.as_view()),
+    url(r'^get_sensor_description/$', GetSensorDescriptionView.as_view()),
+    url(r'^get_sensor_data/$', GetSensorDataView.as_view()),
 )

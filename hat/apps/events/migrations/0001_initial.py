@@ -18,8 +18,8 @@ class Migration(SchemaMigration):
             ('type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['events.EventType'], max_length=45)),
             ('status', self.gf('django.db.models.fields.PositiveIntegerField')(max_length=1)),
             ('event_time_type', self.gf('django.db.models.fields.PositiveIntegerField')(max_length=1)),
-            ('start_time', self.gf('django.db.models.fields.TimeField')()),
-            ('end_time', self.gf('django.db.models.fields.TimeField')()),
+            ('start_date', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2014, 11, 21, 0, 0))),
+            ('end_date', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2014, 11, 21, 0, 0))),
             ('recurrence_interval', self.gf('django.db.models.fields.PositiveIntegerField')(max_length=100, null=True, blank=True)),
             ('confirmation', self.gf('django.db.models.fields.BooleanField')(default=False)),
         ))
@@ -42,7 +42,7 @@ class Migration(SchemaMigration):
             ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('event_one', self.gf('django.db.models.fields.related.ForeignKey')(related_name='ev_one', to=orm['events.Event'])),
             ('event_two', self.gf('django.db.models.fields.related.ForeignKey')(related_name='ev_two', to=orm['events.Event'])),
-            ('relationship_type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['events.EventToEventRelationshipType'])),
+            ('relationship_type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['events.EventToEventRelationshipType'], null=True, blank=True)),
             ('relationship_description', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
         ))
         db.send_create_signal(u'events', ['EventToEventCrossRef'])
@@ -121,6 +121,64 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'events', ['EventPersonRelationshipType'])
 
+        # Adding model 'DataDebit'
+        db.create_table(u'events_datadebit', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
+            ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+            ('sell_rent', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('price', self.gf('django.db.models.fields.DecimalField')(max_digits=10, decimal_places=2)),
+            ('event_time_type', self.gf('django.db.models.fields.PositiveIntegerField')(max_length=1)),
+            ('contract_start_date', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2014, 11, 21, 0, 0))),
+            ('contract_end_date', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2014, 11, 21, 0, 0))),
+            ('rolling', self.gf('django.db.models.fields.BooleanField')(default=False)),
+        ))
+        db.send_create_signal(u'events', ['DataDebit'])
+
+        # Adding model 'DataDebitRecipientCrossRef'
+        db.create_table(u'events_datadebitrecipientcrossref', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
+            ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
+            ('DataDebit', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['events.DataDebit'])),
+            ('Recipient', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['users.Recipient'])),
+            ('relationship_type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['events.DataDebitRecipientRelationshipType'], null=True, blank=True)),
+        ))
+        db.send_create_signal(u'events', ['DataDebitRecipientCrossRef'])
+
+        # Adding model 'DataDebitRecipientRelationshipType'
+        db.create_table(u'events_datadebitrecipientrelationshiptype', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
+            ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+        ))
+        db.send_create_signal(u'events', ['DataDebitRecipientRelationshipType'])
+
+        # Adding model 'DataDebitEventCrossRef'
+        db.create_table(u'events_datadebiteventcrossref', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
+            ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
+            ('DataDebit', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['events.DataDebit'])),
+            ('Event', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['events.Event'])),
+            ('relationship_type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['events.DataDebitEventRelationshipType'], null=True, blank=True)),
+        ))
+        db.send_create_signal(u'events', ['DataDebitEventCrossRef'])
+
+        # Adding model 'DataDebitEventRelationshipType'
+        db.create_table(u'events_datadebiteventrelationshiptype', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
+            ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+        ))
+        db.send_create_signal(u'events', ['DataDebitEventRelationshipType'])
+
 
     def backwards(self, orm):
         # Deleting model 'Event'
@@ -152,6 +210,21 @@ class Migration(SchemaMigration):
 
         # Deleting model 'EventPersonRelationshipType'
         db.delete_table(u'events_eventpersonrelationshiptype')
+
+        # Deleting model 'DataDebit'
+        db.delete_table(u'events_datadebit')
+
+        # Deleting model 'DataDebitRecipientCrossRef'
+        db.delete_table(u'events_datadebitrecipientcrossref')
+
+        # Deleting model 'DataDebitRecipientRelationshipType'
+        db.delete_table(u'events_datadebitrecipientrelationshiptype')
+
+        # Deleting model 'DataDebitEventCrossRef'
+        db.delete_table(u'events_datadebiteventcrossref')
+
+        # Deleting model 'DataDebitEventRelationshipType'
+        db.delete_table(u'events_datadebiteventrelationshiptype')
 
 
     models = {
@@ -191,18 +264,66 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
+        u'events.datadebit': {
+            'Meta': {'object_name': 'DataDebit'},
+            'contract_end_date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2014, 11, 21, 0, 0)'}),
+            'contract_start_date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2014, 11, 21, 0, 0)'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
+            'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'event_time_type': ('django.db.models.fields.PositiveIntegerField', [], {'max_length': '1'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
+            'price': ('django.db.models.fields.DecimalField', [], {'max_digits': '10', 'decimal_places': '2'}),
+            'rolling': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'sell_rent': ('django.db.models.fields.BooleanField', [], {'default': 'False'})
+        },
+        u'events.datadebiteventcrossref': {
+            'DataDebit': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['events.DataDebit']"}),
+            'Event': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['events.Event']"}),
+            'Meta': {'object_name': 'DataDebitEventCrossRef'},
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'relationship_type': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['events.DataDebitEventRelationshipType']", 'null': 'True', 'blank': 'True'})
+        },
+        u'events.datadebiteventrelationshiptype': {
+            'Meta': {'object_name': 'DataDebitEventRelationshipType'},
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
+            'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
+        },
+        u'events.datadebitrecipientcrossref': {
+            'DataDebit': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['events.DataDebit']"}),
+            'Meta': {'object_name': 'DataDebitRecipientCrossRef'},
+            'Recipient': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['users.Recipient']"}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'relationship_type': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['events.DataDebitRecipientRelationshipType']", 'null': 'True', 'blank': 'True'})
+        },
+        u'events.datadebitrecipientrelationshiptype': {
+            'Meta': {'object_name': 'DataDebitRecipientRelationshipType'},
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
+            'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
+        },
         u'events.event': {
             'Meta': {'object_name': 'Event'},
             'confirmation': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'end_time': ('django.db.models.fields.TimeField', [], {}),
+            'end_date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2014, 11, 21, 0, 0)'}),
             'event_time_type': ('django.db.models.fields.PositiveIntegerField', [], {'max_length': '1'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'recurrence_interval': ('django.db.models.fields.PositiveIntegerField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'start_time': ('django.db.models.fields.TimeField', [], {}),
+            'start_date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2014, 11, 21, 0, 0)'}),
             'status': ('django.db.models.fields.PositiveIntegerField', [], {'max_length': '1'}),
             'type': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['events.EventType']", 'max_length': '45'})
         },
@@ -266,7 +387,7 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'relationship_description': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'relationship_type': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['events.EventToEventRelationshipType']"})
+            'relationship_type': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['events.EventToEventRelationshipType']", 'null': 'True', 'blank': 'True'})
         },
         u'events.eventtoeventrelationshiptype': {
             'Meta': {'object_name': 'EventToEventRelationshipType'},
@@ -298,7 +419,7 @@ class Migration(SchemaMigration):
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'latitude': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '25', 'decimal_places': '5', 'blank': 'True'}),
             'longitude': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '25', 'decimal_places': '5', 'blank': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '45'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '512'}),
             'number': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'orientation': ('django.db.models.fields.CharField', [], {'max_length': '256', 'null': 'True', 'blank': 'True'}),
             'postal_code': ('django.db.models.fields.CharField', [], {'max_length': '15', 'null': 'True', 'blank': 'True'}),
@@ -402,7 +523,7 @@ class Migration(SchemaMigration):
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'manufacturer': ('django.db.models.fields.CharField', [], {'max_length': '45', 'null': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'sensor_id': ('django.db.models.fields.CharField', [], {'default': "'004ea2a9-45de-49b6-b262-864324161848'", 'max_length': '36'})
+            'sensor_id': ('django.db.models.fields.CharField', [], {'default': "'85103e15-3d8e-4898-85df-e2e8f06c49da'", 'max_length': '36'})
         },
         u'things.sensordata': {
             'Meta': {'ordering': "['-date_created']", 'object_name': 'SensorData'},
@@ -445,7 +566,8 @@ class Migration(SchemaMigration):
             'prefix': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['system.Prefix']", 'null': 'True', 'blank': 'True'}),
             'related_organisations': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'person_related_organisations'", 'null': 'True', 'to': u"orm['organisations.Organisation']"}),
             'religion': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['system.Religion']", 'null': 'True', 'blank': 'True'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'related_user_ac'", 'to': u"orm['auth.User']"})
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'related_user_ac'", 'to': u"orm['auth.User']"}),
+            'user_GUID': ('django.db.models.fields.CharField', [], {'max_length': '36', 'blank': 'True'})
         },
         u'users.personaddress': {
             'Meta': {'object_name': 'PersonAddress'},
@@ -459,6 +581,15 @@ class Migration(SchemaMigration):
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'number': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'postal_code': ('django.db.models.fields.CharField', [], {'max_length': '15', 'null': 'True', 'blank': 'True'})
+        },
+        u'users.recipient': {
+            'Meta': {'object_name': 'Recipient'},
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
+            'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
+            'recipient_UUID': ('django.db.models.fields.CharField', [], {'max_length': '36', 'blank': 'True'})
         }
     }
 

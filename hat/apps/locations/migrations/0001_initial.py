@@ -11,7 +11,7 @@ class Migration(SchemaMigration):
         # Adding model 'Location'
         db.create_table(u'locations_location', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('date_created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
             ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('number', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
             ('address_line_1', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
@@ -20,7 +20,7 @@ class Migration(SchemaMigration):
             ('county', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
             ('postal_code', self.gf('django.db.models.fields.CharField')(max_length=15, null=True, blank=True)),
             ('type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['locations.LocationType'])),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=45)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=512)),
             ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('longitude', self.gf('django.db.models.fields.DecimalField')(null=True, max_digits=25, decimal_places=5, blank=True)),
             ('latitude', self.gf('django.db.models.fields.DecimalField')(null=True, max_digits=25, decimal_places=5, blank=True)),
@@ -33,7 +33,7 @@ class Migration(SchemaMigration):
         # Adding model 'LocationType'
         db.create_table(u'locations_locationtype', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('date_created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
             ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
@@ -43,7 +43,7 @@ class Migration(SchemaMigration):
         # Adding model 'LocationPersonCrossRef'
         db.create_table(u'locations_locationpersoncrossref', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('date_created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
             ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('location', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['locations.Location'])),
             ('person', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['users.Person'])),
@@ -55,7 +55,7 @@ class Migration(SchemaMigration):
         # Adding model 'LocationPersonRelationshipType'
         db.create_table(u'locations_locationpersonrelationshiptype', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('date_created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
             ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
@@ -65,19 +65,19 @@ class Migration(SchemaMigration):
         # Adding model 'LocationThingCrossRef'
         db.create_table(u'locations_locationthingcrossref', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('date_created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
             ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('location', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['locations.Location'])),
             ('thing', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['things.Thing'])),
-            ('common_name', self.gf('django.db.models.fields.CharField')(max_length=45)),
-            ('relationship_type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['locations.LocationThingRelationshipType'])),
+            ('common_name', self.gf('django.db.models.fields.CharField')(max_length=45, null=True, blank=True)),
+            ('relationship_type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['locations.LocationThingRelationshipType'], null=True, blank=True)),
         ))
         db.send_create_signal(u'locations', ['LocationThingCrossRef'])
 
         # Adding model 'LocationThingRelationshipType'
         db.create_table(u'locations_locationthingrelationshiptype', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('date_created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
             ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
@@ -87,7 +87,7 @@ class Migration(SchemaMigration):
         # Adding model 'LocationToLocationCrossRef'
         db.create_table(u'locations_locationtolocationcrossref', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('date_created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
             ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('loc_one', self.gf('django.db.models.fields.related.ForeignKey')(related_name='loc_one', to=orm['locations.Location'])),
             ('loc_two', self.gf('django.db.models.fields.related.ForeignKey')(related_name='loc_two', to=orm['locations.Location'])),
@@ -99,7 +99,7 @@ class Migration(SchemaMigration):
         # Adding model 'LocationToLocationRelationshipType'
         db.create_table(u'locations_locationtolocationrelationshiptype', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('date_created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
             ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
@@ -109,7 +109,7 @@ class Migration(SchemaMigration):
         # Adding model 'LocationSensorCrossRef'
         db.create_table(u'locations_locationsensorcrossref', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('date_created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
             ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('location', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['locations.Location'])),
             ('sensor', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['things.Sensor'])),
@@ -121,7 +121,7 @@ class Migration(SchemaMigration):
         # Adding model 'LocationSensorRelationshipType'
         db.create_table(u'locations_locationsensorrelationshiptype', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('date_created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
             ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
@@ -131,7 +131,7 @@ class Migration(SchemaMigration):
         # Adding model 'InventoryLocationSecondary'
         db.create_table(u'locations_inventorylocationsecondary', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('date_created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
             ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('location', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['locations.Location'])),
             ('thing', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['things.Thing'])),
@@ -218,7 +218,7 @@ class Migration(SchemaMigration):
         },
         u'locations.inventorylocationsecondary': {
             'Meta': {'object_name': 'InventoryLocationSecondary'},
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'location': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['locations.Location']"}),
@@ -235,7 +235,7 @@ class Migration(SchemaMigration):
             'address_line_2': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'city': ('django.db.models.fields.CharField', [], {'max_length': '64', 'null': 'True', 'blank': 'True'}),
             'county': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'height_from_sea_level': ('django.db.models.fields.IntegerField', [], {'max_length': '6', 'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
@@ -243,7 +243,7 @@ class Migration(SchemaMigration):
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'latitude': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '25', 'decimal_places': '5', 'blank': 'True'}),
             'longitude': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '25', 'decimal_places': '5', 'blank': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '45'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '512'}),
             'number': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'orientation': ('django.db.models.fields.CharField', [], {'max_length': '256', 'null': 'True', 'blank': 'True'}),
             'postal_code': ('django.db.models.fields.CharField', [], {'max_length': '15', 'null': 'True', 'blank': 'True'}),
@@ -252,7 +252,7 @@ class Migration(SchemaMigration):
         u'locations.locationpersoncrossref': {
             'Meta': {'object_name': 'LocationPersonCrossRef'},
             'common_name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'location': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['locations.Location']"}),
@@ -261,7 +261,7 @@ class Migration(SchemaMigration):
         },
         u'locations.locationpersonrelationshiptype': {
             'Meta': {'object_name': 'LocationPersonRelationshipType'},
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -270,7 +270,7 @@ class Migration(SchemaMigration):
         u'locations.locationsensorcrossref': {
             'Meta': {'object_name': 'LocationSensorCrossRef'},
             'common_name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'location': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['locations.Location']"}),
@@ -279,7 +279,7 @@ class Migration(SchemaMigration):
         },
         u'locations.locationsensorrelationshiptype': {
             'Meta': {'object_name': 'LocationSensorRelationshipType'},
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -287,17 +287,17 @@ class Migration(SchemaMigration):
         },
         u'locations.locationthingcrossref': {
             'Meta': {'object_name': 'LocationThingCrossRef'},
-            'common_name': ('django.db.models.fields.CharField', [], {'max_length': '45'}),
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'common_name': ('django.db.models.fields.CharField', [], {'max_length': '45', 'null': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'location': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['locations.Location']"}),
-            'relationship_type': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['locations.LocationThingRelationshipType']"}),
+            'relationship_type': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['locations.LocationThingRelationshipType']", 'null': 'True', 'blank': 'True'}),
             'thing': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['things.Thing']"})
         },
         u'locations.locationthingrelationshiptype': {
             'Meta': {'object_name': 'LocationThingRelationshipType'},
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -305,7 +305,7 @@ class Migration(SchemaMigration):
         },
         u'locations.locationtolocationcrossref': {
             'Meta': {'object_name': 'LocationToLocationCrossRef'},
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'loc_one': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'loc_one'", 'to': u"orm['locations.Location']"}),
@@ -315,7 +315,7 @@ class Migration(SchemaMigration):
         },
         u'locations.locationtolocationrelationshiptype': {
             'Meta': {'object_name': 'LocationToLocationRelationshipType'},
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -323,7 +323,7 @@ class Migration(SchemaMigration):
         },
         u'locations.locationtype': {
             'Meta': {'object_name': 'LocationType'},
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -339,7 +339,7 @@ class Migration(SchemaMigration):
         },
         u'organisations.organisationtype': {
             'Meta': {'object_name': 'OrganisationType'},
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -348,7 +348,7 @@ class Migration(SchemaMigration):
         u'system.currency': {
             'Meta': {'ordering': "('name',)", 'object_name': 'Currency'},
             'code': ('django.db.models.fields.CharField', [], {'max_length': '16'}),
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '45'}),
@@ -356,7 +356,7 @@ class Migration(SchemaMigration):
         },
         u'system.ethnicity': {
             'Meta': {'object_name': 'Ethnicity'},
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -364,7 +364,7 @@ class Migration(SchemaMigration):
         },
         u'system.gender': {
             'Meta': {'object_name': 'Gender'},
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -372,7 +372,7 @@ class Migration(SchemaMigration):
         },
         u'system.maritalstatus': {
             'Meta': {'object_name': 'MaritalStatus'},
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -380,7 +380,7 @@ class Migration(SchemaMigration):
         },
         u'system.nationality': {
             'Meta': {'object_name': 'Nationality'},
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -388,7 +388,7 @@ class Migration(SchemaMigration):
         },
         u'system.prefix': {
             'Meta': {'object_name': 'Prefix'},
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -396,7 +396,7 @@ class Migration(SchemaMigration):
         },
         u'system.religion': {
             'Meta': {'object_name': 'Religion'},
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -404,22 +404,23 @@ class Migration(SchemaMigration):
         },
         u'things.sensor': {
             'Meta': {'object_name': 'Sensor'},
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'manufacturer': ('django.db.models.fields.CharField', [], {'max_length': '45', 'null': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'sensor_id': ('django.db.models.fields.CharField', [], {'default': "'f271865d-ce62-433d-b8e9-bcfd401a31ef'", 'max_length': '36'})
+            'sensor_id': ('django.db.models.fields.CharField', [], {'default': "'1fef7c7a-4f35-40e6-9bbf-dc73c2c298d1'", 'max_length': '36'})
         },
         u'things.thing': {
             'Meta': {'object_name': 'Thing'},
             'brand': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'device_id': ('django.db.models.fields.CharField', [], {'default': "'1055256b-05d3-4fe2-bf1f-4937ebe34cb5'", 'max_length': '36'}),
+            'device_id': ('django.db.models.fields.CharField', [], {'default': "'ae2de450-8982-4751-9941-de8b062f92fe'", 'max_length': '36'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'ip_address': ('django.db.models.fields.GenericIPAddressField', [], {'max_length': '39'}),
+            'is_service': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'point_of_purchase_id': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True', 'blank': 'True'}),
@@ -432,7 +433,7 @@ class Migration(SchemaMigration):
         },
         u'things.thingtype': {
             'Meta': {'object_name': 'ThingType'},
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -442,7 +443,7 @@ class Migration(SchemaMigration):
         u'things.valuecreationevent': {
             'Meta': {'object_name': 'ValueCreationEvent'},
             'consumption_rules_id': ('django.db.models.fields.PositiveIntegerField', [], {'max_length': '5', 'blank': 'True'}),
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'end_time': ('django.db.models.fields.TimeField', [], {}),
             'end_value': ('django.db.models.fields.CharField', [], {'max_length': '45'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
@@ -453,7 +454,7 @@ class Migration(SchemaMigration):
         },
         u'things.valuecreationtype': {
             'Meta': {'object_name': 'ValueCreationType'},
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
@@ -465,7 +466,7 @@ class Migration(SchemaMigration):
             'annual_income': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '15', 'decimal_places': '2', 'blank': 'True'}),
             'avatar': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'currency': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['system.Currency']", 'null': 'True', 'blank': 'True'}),
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'date_of_birth': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
             'email_address': ('django.db.models.fields.EmailField', [], {'max_length': '254', 'null': 'True', 'blank': 'True'}),
             'ethnicity': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['system.Ethnicity']", 'null': 'True', 'blank': 'True'}),
@@ -480,7 +481,8 @@ class Migration(SchemaMigration):
             'prefix': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['system.Prefix']", 'null': 'True', 'blank': 'True'}),
             'related_organisations': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'person_related_organisations'", 'null': 'True', 'to': u"orm['organisations.Organisation']"}),
             'religion': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['system.Religion']", 'null': 'True', 'blank': 'True'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'related_user_ac'", 'to': u"orm['auth.User']"})
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'related_user_ac'", 'to': u"orm['auth.User']"}),
+            'user_GUID': ('django.db.models.fields.CharField', [], {'max_length': '36', 'blank': 'True'})
         },
         u'users.personaddress': {
             'Meta': {'object_name': 'PersonAddress'},
@@ -488,7 +490,7 @@ class Migration(SchemaMigration):
             'address_line_2': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'city': ('django.db.models.fields.CharField', [], {'max_length': '64', 'null': 'True', 'blank': 'True'}),
             'county': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'date_created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'is_current': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),

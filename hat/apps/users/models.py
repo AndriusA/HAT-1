@@ -44,14 +44,6 @@ class AffiliateService(CreateUpdateMixin):
     )
 
 
-class Recipient(CreateUpdateMixin, NameDescMixin):
-
-    # Reciepient Identifier number
-    recipient_UUID = UUIDField(
-
-    )
-
-
 class Person(CreateUpdateMixin):
 
     # FK to person, all users tied to a person
@@ -248,29 +240,6 @@ class PersonToPersonCrossRef(CreateUpdateMixin):
         verbose_name_plural = u'Relationships'
 
 
-class PersonDirectDebitCrossRef(CreateUpdateMixin):
-
-    #FK to Person Class
-    person = models.ForeignKey(
-        Person
-    )
-
-     #FK to DirectDebit class
-    DirectDebit = models.ForeignKey(
-        'events.DirectDebit'
-    )
-
-    relationship_type = models.ForeignKey(
-        'PersonDirectDebitRelationshipType',
-        blank=True,
-        null=True,
-    )
-
-
-class PersonDirectDebitRelationshipType(CreateUpdateMixin, NameDescMixin):
-    pass
-
-
 class PersonToPersonRelationshipType(CreateUpdateMixin, NameDescMixin):
     pass
 
@@ -340,3 +309,38 @@ class DynamicType(CreateUpdateMixin, NameDescMixin):
         blank=True,
         null=True,
     )
+
+################################################################
+# Code additions made after code handover from "One Space Media"
+################################################################
+
+
+class Recipient(CreateUpdateMixin, NameDescMixin):
+
+    # Reciepient Identifier number
+    recipient_UUID = UUIDField(
+
+    )
+
+
+class PersonDataDebitCrossRef(CreateUpdateMixin):
+
+    #FK to Person Class
+    person = models.ForeignKey(
+        Person
+    )
+
+     #FK to DataDebit class
+    DataDebit = models.ForeignKey(
+        'events.DataDebit'
+    )
+
+    relationship_type = models.ForeignKey(
+        'PersonDataDebitRelationshipType',
+        blank=True,
+        null=True,
+    )
+
+
+class PersonDataDebitRelationshipType(CreateUpdateMixin, NameDescMixin):
+    pass

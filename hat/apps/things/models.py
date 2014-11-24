@@ -4,6 +4,7 @@ from uuid import uuid4
 
 from ...models import CreateUpdateMixin, NameDescMixin
 
+
 class Thing(CreateUpdateMixin, NameDescMixin):
 
     # FK to User class

@@ -69,92 +69,6 @@ class Event(CreateUpdateMixin, NameDescMixin):
     )
 
 
-# DirectDebit class, defines the data direct debit
-# created from a user defined event
-
-class DataDebit(CreateUpdateMixin, NameDescMixin):
-
-    sell_rent = models.BooleanField(
-        default=False
-        )
-
-    price = models.DecimalField(
-        max_digits=10,
-        decimal_places=2
-        )
-
-    event_time_type = models.PositiveIntegerField(
-        max_length=1,
-        choices=EVENT_TIME_TYPES
-    )
-
-    contract_start_date = models.DateTimeField(
-        blank=False,
-        null=False,
-        default=lambda: datetime.now()
-    )
-
-    contract_end_date = models.DateTimeField(
-        blank=False,
-        null=False,
-        default=lambda: datetime.now()
-    )
-
-    rolling = models.BooleanField(
-        default=False,
-    )
-
-
-#Direct debit and recipient cross relationship class
-class DataDebitRecipientCrossRef(CreateUpdateMixin):
-
-    #FK to DirectDebit Class
-    DataDebit = models.ForeignKey(
-        DataDebit
-    )
-
-     #FK to Recipient class
-    Recipient = models.ForeignKey(
-        'users.Recipient'
-    )
-    #FK Data Debit recipient rel type
-    relationship_type = models.ForeignKey(
-        'DDRecipientRelationshipType',
-        blank=True,
-        null=True,
-    )
-
-
-#DataDebit Recipient Rel type
-class DDRecipientRelationshipType(CreateUpdateMixin, NameDescMixin):
-    pass
-
-
-#Direct debit and recipient cross relationship class
-class DataDebitEventCrossRef(CreateUpdateMixin):
-
-    #FK to DirectDebit Class
-    DataDebit = models.ForeignKey(
-        DataDebit
-    )
-
-    #FK to Event class
-    Event = models.ForeignKey(
-        'events.Event'
-    )
-
-    relationship_type = models.ForeignKey(
-        'DataDebitEventRelationshipType',
-        blank=True,
-        null=True,
-    )
-
-
-#EventType class determines the relationship between direct debit and event
-class DataDebitEventRelationshipType(CreateUpdateMixin, NameDescMixin):
-    pass
-
-
 # EventType class, determines the type of the event
 # Could potentially be populated via 'choices' depending on requirement
 class EventType(CreateUpdateMixin, NameDescMixin):
@@ -271,4 +185,92 @@ class EventPersonCrossRef(CreateUpdateMixin):
 
 
 class EventPersonRelationshipType(CreateUpdateMixin, NameDescMixin):
+    pass
+
+################################################################
+# Code additions made after code handover from "One Space Media"
+################################################################
+
+
+# DataDebit class, defines the data direct debit
+class DataDebit(CreateUpdateMixin, NameDescMixin):
+
+    sell_rent = models.BooleanField(
+        default=False
+        )
+
+    price = models.DecimalField(
+        max_digits=10,
+        decimal_places=2
+        )
+
+    event_time_type = models.PositiveIntegerField(
+        max_length=1,
+        choices=EVENT_TIME_TYPES
+    )
+
+    contract_start_date = models.DateTimeField(
+        blank=False,
+        null=False,
+        default=lambda: datetime.now()
+    )
+
+    contract_end_date = models.DateTimeField(
+        blank=False,
+        null=False,
+        default=lambda: datetime.now()
+    )
+
+    rolling = models.BooleanField(
+        default=False,
+    )
+
+
+#Data Debit and Recipient cross relationship class
+class DataDebitRecipientCrossRef(CreateUpdateMixin):
+
+    #FK to DataDebit Class
+    DataDebit = models.ForeignKey(
+        DataDebit
+    )
+
+     #FK to Recipient class
+    Recipient = models.ForeignKey(
+        'users.Recipient'
+    )
+    #FK Data Debit recipient rel type
+    relationship_type = models.ForeignKey(
+        'DataDebitRecipientRelationshipType',
+        blank=True,
+        null=True,
+    )
+
+
+#Data Debit Recipient relationship type
+class DataDebitRecipientRelationshipType(CreateUpdateMixin, NameDescMixin):
+    pass
+
+
+#Direct Debit and Recipient cross relationship class
+class DataDebitEventCrossRef(CreateUpdateMixin):
+
+    #FK to DataDebit Class
+    DataDebit = models.ForeignKey(
+        DataDebit
+    )
+
+    #FK to Event class
+    Event = models.ForeignKey(
+        'events.Event'
+    )
+
+    relationship_type = models.ForeignKey(
+        'DataDebitEventRelationshipType',
+        blank=True,
+        null=True,
+    )
+
+
+# Event Type class determines the relationship between direct debit and event
+class DataDebitEventRelationshipType(CreateUpdateMixin, NameDescMixin):
     pass
