@@ -612,127 +612,127 @@ class BatchSensorDataView(ApiAuthenticationMixinInbound):
         return super(BatchSensorDataView, self).response(request, *args, **kwargs)
 
 
-class CreateEventView(ApiAuthenticationMixinInbound):
-
-    required_fields = ['name', 'type', 'status', 'time_type', 'start_timestamp', 'end_timestamp']
-
-    def post(self, request, *args, **kwargs):
-
-        # Main try catch, this allows me to be more specific with errors
-        try:
-
-            # Get event name
-            name = self.post_data.get('name', '')
-
-            # Get description
-            description = self.post_data.get('description', '')
-
-            # Get type
-            try:
-                type = EventType.objects.get(pk=int(self.post_data.get('type')))
-            except Exception:
-                raise ApiException("Invalid event type provided.")
-
-            # Get status
-            if str(self.post_data.get('status')) in dict(EVENT_STATUS_CODES).keys():
-                status = str(self.post_data.get('status'))
-            else:
-                raise ApiException("Invalid event status provided.")
-
-            # Get time type
-            if str(self.post_data.get('time_type')) in dict(EVENT_TIME_TYPES).keys():
-                time_type = str(self.post_data.get('time_type'))
-            else:
-                raise ApiException("Invalid event time type provided.")
-
-            try:
-                # Convert start and end timestamps from INT to datetime objects
-                start_timestamp = datetime.fromtimestamp(float(self.post_data.get('start_timestamp')))
-                end_timestamp = datetime.fromtimestamp(float(self.post_data.get('end_timestamp')))
-            except:
-                raise ApiException("There was an error converting converting the start and end timestamp values to floats.")
-
-            # Add and save the event
-            event = Event(
-                name=name,
-                description=description,
-                type=type,
-                status=status,
-                event_time_type=time_type,
-                start_date=start_timestamp,
-                end_date=end_timestamp,
-                date_created=datetime.now()
-            )
-
-            event.save()
-
-            # Loop through sensor data and join it to the event
-            for sensor_data_id in self.post_data.get('sensor_data', []):
-
-                # Get the sensor data
-                try:
-                    sensor_data = SensorData.objects.get(pk=sensor_data_id)
-                except Exception:
-                    raise ApiException("Sensor data with the ID of {} does not exist.".format(
-                        sensor_data_id
-                    ))
-
-                # Add the sensor to the event sensor ref table
-                sensor_data_ref = EventSensorDataCrossRef(
-                    event=event,
-                    sensor_data=sensor_data,
-                    date_created=datetime.now()
-                )
-                sensor_data_ref.save()
-
-            # Loop through locations data and join it to the event
-            for location_id in self.post_data.get('locations', []):
-
-                # Get the location
-                try:
-                    location = Location.objects.get(pk=location_id)
-                except Exception:
-                    raise ApiException("Location with the ID of {} does not exist.".format(
-                        location_id
-                    ))
-
-                # Add the location to the event location ref table
-                location_ref = EventLocationCrossRef(
-                    event=event,
-                    location=location,
-                    date_created=datetime.now()
-                )
-                location_ref.save()
-
-
-            # Loop through people data and join it to the event
-            for person_id in self.post_data.get('people', []):
-
-                # Get the person
-                try:
-                    person = Person.objects.get(pk=person_id)
-                except Exception:
-                    raise ApiException("Person with the ID of {} does not exist.".format(
-                        person_id
-                    ))
-
-                # Add the person to the event person ref table
-                person_ref = EventPersonCrossRef(
-                    event=event,
-                    person=person,
-                    date_created=datetime.now()
-                )
-                person_ref.save()
-
-
-        except ApiException as error:
-
-            # Get error string
-            error_string = str(error) if str(error) != "" else "Unknown error has occured."
-            self.add_error(error_string)
-
-        return super(CreateEventView, self).response(request, *args, **kwargs)
-
+# class CreateEventView(ApiAuthenticationMixinInbound):
+#
+#     required_fields = ['name', 'type', 'status', 'time_type', 'start_timestamp', 'end_timestamp']
+#
+#     def post(self, request, *args, **kwargs):
+#
+#         # Main try catch, this allows me to be more specific with errors
+#         try:
+#
+#             # Get event name
+#             name = self.post_data.get('name', '')
+#
+#             # Get description
+#             description = self.post_data.get('description', '')
+#
+#             # Get type
+#             try:
+#                 type = EventType.objects.get(pk=int(self.post_data.get('type')))
+#             except Exception:
+#                 raise ApiException("Invalid event type provided.")
+#
+#             # Get status
+#             if str(self.post_data.get('status')) in dict(EVENT_STATUS_CODES).keys():
+#                 status = str(self.post_data.get('status'))
+#             else:
+#                 raise ApiException("Invalid event status provided.")
+#
+#             # Get time type
+#             if str(self.post_data.get('time_type')) in dict(EVENT_TIME_TYPES).keys():
+#                 time_type = str(self.post_data.get('time_type'))
+#             else:
+#                 raise ApiException("Invalid event time type provided.")
+#
+#             try:
+#                 # Convert start and end timestamps from INT to datetime objects
+#                 start_timestamp = datetime.fromtimestamp(float(self.post_data.get('start_timestamp')))
+#                 end_timestamp = datetime.fromtimestamp(float(self.post_data.get('end_timestamp')))
+#             except:
+#                 raise ApiException("There was an error converting converting the start and end timestamp values to floats.")
+#
+#             # Add and save the event
+#             event = Event(
+#                 name=name,
+#                 description=description,
+#                 type=type,
+#                 status=status,
+#                 event_time_type=time_type,
+#                 start_date=start_timestamp,
+#                 end_date=end_timestamp,
+#                 date_created=datetime.now()
+#             )
+#
+#             event.save()
+#
+#             # Loop through sensor data and join it to the event
+#             for sensor_data_id in self.post_data.get('sensor_data', []):
+#
+#                 # Get the sensor data
+#                 try:
+#                     sensor_data = SensorData.objects.get(pk=sensor_data_id)
+#                 except Exception:
+#                     raise ApiException("Sensor data with the ID of {} does not exist.".format(
+#                         sensor_data_id
+#                     ))
+#
+#                 # Add the sensor to the event sensor ref table
+#                 sensor_data_ref = EventSensorDataCrossRef(
+#                     event=event,
+#                     sensor_data=sensor_data,
+#                     date_created=datetime.now()
+#                 )
+#                 sensor_data_ref.save()
+#
+#             # Loop through locations data and join it to the event
+#             for location_id in self.post_data.get('locations', []):
+#
+#                 # Get the location
+#                 try:
+#                     location = Location.objects.get(pk=location_id)
+#                 except Exception:
+#                     raise ApiException("Location with the ID of {} does not exist.".format(
+#                         location_id
+#                     ))
+#
+#                 # Add the location to the event location ref table
+#                 location_ref = EventLocationCrossRef(
+#                     event=event,
+#                     location=location,
+#                     date_created=datetime.now()
+#                 )
+#                 location_ref.save()
+#
+#
+#             # Loop through people data and join it to the event
+#             for person_id in self.post_data.get('people', []):
+#
+#                 # Get the person
+#                 try:
+#                     person = Person.objects.get(pk=person_id)
+#                 except Exception:
+#                     raise ApiException("Person with the ID of {} does not exist.".format(
+#                         person_id
+#                     ))
+#
+#                 # Add the person to the event person ref table
+#                 person_ref = EventPersonCrossRef(
+#                     event=event,
+#                     person=person,
+#                     date_created=datetime.now()
+#                 )
+#                 person_ref.save()
+#
+#
+#         except ApiException as error:
+#
+#             # Get error string
+#             error_string = str(error) if str(error) != "" else "Unknown error has occured."
+#             self.add_error(error_string)
+#
+#         return super(CreateEventView, self).response(request, *args, **kwargs)
+      
 
 class CreateLocationView(ApiAuthenticationMixinInbound):
 
@@ -845,6 +845,52 @@ class CreatePersonView(ApiAuthenticationMixinInbound):
             self.add_error(error_string)
 
         return super(CreatePersonView, self).response(request, *args, **kwargs)
+
+		class CreateSensorView(ApiAuthenticationMixin):
+    required_fields = ['device_id', 'name', 'manufacturer']
+
+    def post(self, request, *args, **kwargs):
+
+        # Main try catch, this allows me to be more specific with errors
+        try:
+
+            try:
+                device = Thing.objects.get(device_id=self.post_data.get('device_id'))
+            except:
+                raise ApiException("Device not found.")
+
+            # Get sensor name, description, and manufacturer
+            name = self.post_data.get('name', '')
+            description = self.post_data.get('description', '')
+            manufacturer = self.post_data.get('manufacturer', '')
+
+            # Add and save the sensor
+            sensor = Sensor(
+                name=name,
+                description=description,
+                manufacturer=manufacturer,
+                date_created=datetime.now()
+            )
+            sensor.save()
+
+            thing_sensor_join = ThingSensorCrossRef(
+                name=name,
+                thing=device,
+                sensor=sensor,
+                date_created=datetime.now()
+            )
+            thing_sensor_join.save()
+
+            # Return the sensor ID
+            self.add_data('sensor_id', sensor.pk)
+
+        except ApiException as error:
+
+            # Get error string
+            error_string = str(error) if str(error) != "" else "Unknown error has occured."
+            self.add_error(error_string)
+
+        return super(CreateSensorView, self).response(request, *args, **kwargs)
 
 ################################################################
 # Code additions made after code handover from "One Space Media"

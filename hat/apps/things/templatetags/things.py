@@ -74,7 +74,12 @@ def data_stream(context, device=None, location=None, limit=None, start_date=None
 
 
 @register.inclusion_tag('site/includes/stream_graph.html', takes_context=True)
-def stream_graph(context, location=None):
+def stream_graph(context, location=None, device=None, days=1):
+
+    query_days = context['request'].GET.get('days', None)
+
+    if query_days:
+        days = int(query_days)
 
     # Create list of last 24 hours
     current_time = datetime.now()
@@ -83,13 +88,17 @@ def stream_graph(context, location=None):
         current_time.month,
         current_time.day,
         current_time.hour,
-    ), "%Y-%m-%d %H:%M:%S") - timedelta(hours=i) for i in range(24)]
+    ), "%Y-%m-%d %H:%M:%S") - timedelta(hours=i) for i in range(24*days)]
 
     # Get the data from the current location
-    devices = Thing.objects.filter(locationthingcrossref__location=location)
+    devices = []
+    if location:
+        devices = Thing.objects.filter(locationthingcrossref__location=location)
+    if device:
+        devices = [device]
+
     sensor_data = SensorData.objects.filter(
         sensor__in=Sensor.objects.filter(thingsensorcrossref__thing__in=devices),
-        #date_created__range=(last_24_hours[23], last_24_hours[0])
     )
 
     temperature_values = []
@@ -97,7 +106,7 @@ def stream_graph(context, location=None):
 
     # Get temperature for the dates we have
     for date in last_24_hours:
-        value = sensor_data.filter(type=1, date_created__lte=date).order_by('-date_created')[:1]
+        value = sensor_data.filter(type=11, date_created__lte=date).order_by('-date_created')[:1]
         if value:
             value = value[0]
         temperature_values.append(value)
@@ -114,43 +123,9 @@ def stream_graph(context, location=None):
         'last_24_hours': last_24_hours,
         'temperature_values': temperature_values,
         'illuminance_values': illuminance_values,
-        'location': location
-    }
-
-
-@register.inclusion_tag('site/includes/stream_graph_devices.html', takes_context=True)
-def stream_graph_devices(context, device=None):
-
-    # Create list of last 24 hours
-    current_time = datetime.now()
-    last_24_hours = [datetime.strptime("{}-{}-{} {}:00:00".format(
-        current_time.year,
-        current_time.month,
-        current_time.day,
-        current_time.hour,
-    ), "%Y-%m-%d %H:%M:%S") - timedelta(hours=i) for i in range(24)]
-
-    # Get the data from the current location
-    devices = Thing.objects.filter(locationthingcrossref__location=location)
-    sensor_data = SensorData.objects.filter(
-        sensor__in=Sensor.objects.filter(thingsensorcrossref__thing__in=devices),
-        #date_created__range=(last_24_hours[23], last_24_hours[0])
-    )
-
-    values = []
-
-    # Get temperature for the dates we have
-    for date in last_24_hours:
-        value = sensor_data.filter(type=11, date_created__lte=date).order_by('-date_created')[:1]
-        if value:
-            value = value[0]
-        values.append(value)
-
-    return {
-        'current_time': current_time,
-        'last_24_hours': last_24_hours,
-        'values': temperature_values,
-        'Things': Things
+        'location': location,
+        'device': device,
+        'days': days
     }
 
 

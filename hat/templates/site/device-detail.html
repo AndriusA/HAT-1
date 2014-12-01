@@ -1,5 +1,5 @@
 {% extends base_template %}
-{% load assets %}
+{% load assets things %}
 
 {% block page_title_text %}Data{% endblock page_title_text %}
 
@@ -19,7 +19,7 @@
 
                 <div class="medium-3 text-center columns image" data-equalizer-watch>
                     {% if device.pk == 6 %}
-                        {% img "img/fibaro.png" width="100" %}
+                        {% img "img/fibaro.jpg" width="100" %}
                     {% else %}
                         {% img "img/icon-pinwidget.png" width="100" %}
                     {% endif %}
@@ -39,8 +39,7 @@
                         </div>
 
                         <div class="medium-8 columns">
-                        <p><strong>Location:</strong> {% if device.location %}<a href="{% url 'site:location' device.location.location.pk %}">{{ device.location.location }}</a>{% else %}-{% endif %}</p>
-                            
+                            <p><strong>Location:</strong> {% if device.location %}<a href="{% url 'site:location' device.location.location.pk %}">{{ device.location.location }}</a>{% else %}Bathroom{% endif %}</p>
                         </div>
 
                     </div>
@@ -63,6 +62,8 @@
                     <p>{{ device.description }}</p>
                 </section>
             </section>
+
+            {% stream_graph device=device %}
 
             {% comment %}
 

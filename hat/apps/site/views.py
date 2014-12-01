@@ -36,6 +36,15 @@ class LocationListView(TemplateView):
         context = super(LocationListView, self).get_context_data(**kwargs)
         context['locations'] = Location.objects.all()
         return context
+		
+class LocationMapView(TemplateView):
+    template_name = 'site/location-map.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(LocationMapView, self).get_context_data(**kwargs)
+        context['locations'] = Location.objects.exclude(longitude__isnull=True, latitude__isnull=True)
+        print context['locations']
+        return context
 
 
 class LocationDetailView(TemplateView):
