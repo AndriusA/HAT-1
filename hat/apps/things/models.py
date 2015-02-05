@@ -132,10 +132,11 @@ class ThingPropertyRelationshipType(CreateUpdateMixin, NameDescMixin):
     pass
 
 
+
 class ThingProperty(CreateUpdateMixin, NameDescMixin):
 
     unit_id = models.ForeignKey(
-        'system.UnitOfMeasurement',
+        'system.UnitOfMeasurementThingPropertyCrossRef',
     )
 
     value = models.PositiveIntegerField(

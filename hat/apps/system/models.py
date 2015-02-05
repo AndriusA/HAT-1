@@ -61,7 +61,28 @@ class UnitOfMeasurement(CreateUpdateMixin, NameDescMixin):
     class Meta:
         verbose_name_plural = u'Units'
 
+class UnitOfMeasurementThingPropertyCrossRef(CreateUpdateMixin):
 
+     #FK to unit_id
+        unit_id = models.ForeignKey(
+        'UnitOfMeasurement',
+    )
+
+
+    thing_property = models.ForeignKey(
+        'things.ThingProperty'
+    )
+
+    relationship_type = models.ForeignKey(
+        'UnitOfMeasurementRelationshipType'
+    )
+
+    is_current = models.BooleanField(
+        default=False,
+    )
+
+class UnitOfMeasurementRelationshipType(CreateUpdateMixin, NameDescMixin):
+pass
 # System wide Nationality table
 class Nationality(CreateUpdateMixin, NameDescMixin):
 

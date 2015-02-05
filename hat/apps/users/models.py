@@ -166,6 +166,28 @@ class PersonAddress(CreateUpdateMixin, AddressMixin):
     class Meta:
         verbose_name_plural = u'People Addresses'
 
+class PersonAddressLocationCrossRef(CreateUpdateMixin):
+
+    #FK to Person Class
+    person_address_id = models.ForeignKey(
+        PersonAddress
+    )
+
+     #FK to DataDebit class
+    location_id = models.ForeignKey(
+        'locations.location'
+    )
+
+    relationship_type = models.ForeignKey(
+        'PersonAddressRelationshipType',
+        blank=True,
+        null=True,
+    )
+
+
+class PersonAddressRelationshipType(CreateUpdateMixin, NameDescMixin):
+    pass
+
 
 class PersonContactMethod(CreateUpdateMixin):
 
