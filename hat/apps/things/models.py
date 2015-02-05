@@ -44,12 +44,6 @@ class Thing(CreateUpdateMixin, NameDescMixin):
         null=True,
     )
 
-    source_thing = models.PositiveIntegerField(
-        max_length=5,
-        blank=True,
-        null=True,
-    )
-
     device_id = models.CharField(
         max_length=36,
         default=lambda: str(uuid4())
@@ -140,8 +134,8 @@ class ThingPropertyRelationshipType(CreateUpdateMixin, NameDescMixin):
 
 class ThingProperty(CreateUpdateMixin, NameDescMixin):
 
-    unit = models.CharField(
-        max_length=100,
+    unit_id = models.ForeignKey(
+        'system.UnitOfMeasurement',
     )
 
     value = models.PositiveIntegerField(
@@ -153,37 +147,38 @@ class ThingProperty(CreateUpdateMixin, NameDescMixin):
     class Meta:
         verbose_name_plural = u'Thing Properties'
 
+class ThingToThingCrossRef(CreateUpdateMixin):
 
-class InventoryThingSecondary(CreateUpdateMixin):
-
-    thing = models.ForeignKey(
-        Thing,
+    thing_one = models.ForeignKey(
+        'Thing',
+        related_name='thing1',
     )
 
-    person = models.ForeignKey(
-        'ThingPersonCrossRef'
+    thing_two = models.ForeignKey(
+        'Thing',
+        related_name='thing2',
     )
 
-    ud_inventory_name = models.CharField(
-        max_length=45,
+    relationship_type = models.ForeignKey(
+        'ThingToThingRelationshipType',
     )
 
-    thing_name = models.CharField(
+    relationship_description = models.CharField(
         max_length=100,
+        blank=True,
+        null=True,
     )
 
-    stock_level = models.PositiveIntegerField(
-        max_length=5
-    )
+    class Meta:
+        verbose_name_plural = u'Relationships'
 
-    unit_name = models.CharField(
-        max_length=45,
-    )
 
-    threshold = models.PositiveIntegerField(
-        max_length=5,
-    )
+class ThingToThingRelationshipType(CreateUpdateMixin, NameDescMixin):
+    pass
 
+    class Meta:
+        verbose_name_plural = u'T2T Relationship Types'
+ 
 
 class ThingSensorCrossRef(CreateUpdateMixin, NameDescMixin):
 
