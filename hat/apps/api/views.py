@@ -846,7 +846,7 @@ class CreatePersonView(ApiAuthenticationMixinInbound):
 
         return super(CreatePersonView, self).response(request, *args, **kwargs)
 
-		class CreateSensorView(ApiAuthenticationMixin):
+class CreateSensorView(ApiAuthenticationMixinInbound):
     required_fields = ['device_id', 'name', 'manufacturer']
 
     def post(self, request, *args, **kwargs):
@@ -976,12 +976,7 @@ class GetSensorDataView(ApiAuthenticationMixinForSensorOutbound):
         sensordata = SensorData.objects.filter(sensor_id = 2)
 
         # Set sensors
-<<<<<<< Updated upstream
-        self.add_data('sensor_data', [({'date_created': each_sensor_value.date_created} ,{'type_id': each_sensor_value.type_id} , {'unit_id' : each_sensor_value.unit_id} , {'value': each_sensor_value.value},{'source_description': each_sensor_value.source_description},{'change_of_status': each_sensor_value.change_of_status} ) for each_sensor_value in sensordata]) 
-=======
-        self.add_data('sensor_data', [({'type_id': each_sensor_value.type_id} , {'unit_id' : each_sensor_value.unit_id} , {'value': each_sensor_value.value},{'source_description': each_sensor_value.source_description},{'change_of_status': each_sensor_value.change_of_status} ) for each_sensor_value in sensordata]) 
->>>>>>> Stashed changes
-    
+        self.add_data('sensor_data', [({'date_created': each_sensor_value.date_created} ,{'type_id': each_sensor_value.type_id} , {'unit_id' : each_sensor_value.unit_id} , {'value': each_sensor_value.value},{'source_description': each_sensor_value.source_description},{'change_of_status': each_sensor_value.change_of_status} ) for each_sensor_value in sensordata])     
 
         # Call the super post, this does the error checking
         return super(GetSensorDataView, self).response(request, *args, **kwargs)

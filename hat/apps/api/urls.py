@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, url, include
-from views import ApiDocumentation, SensorsView, SensorDataView, BatchSensorDataView, CreateEventView, CreateLocationView, CreatePersonView, CreateSensorView
+from views import ApiDocumentation, SensorsView, SensorDataView, BatchSensorDataView, CreateLocationView, CreatePersonView, CreateSensorView
 from views import GetSensorDataView
 from views import GetSensorDescriptionView
 #, CreateRecipientView

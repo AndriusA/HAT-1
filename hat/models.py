@@ -5,6 +5,7 @@ from django.db import models
 class CreateUpdateMixin(models.Model):
 
     date_created = models.DateTimeField(
+        auto_now=True
     )
 
     last_updated = models.DateTimeField(
