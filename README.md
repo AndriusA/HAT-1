@@ -10,7 +10,53 @@
 
 ### How do I get set up? ###
 
-* TBC
+
+#### Development Database
+
+The HAT uses PostgreSQL database. For development you could use one locally, e.g.:
+
+    postgres -D /usr/local/var/postgres
+    createdb hat
+    createuser hat -P
+
+Once you have run all the database initialisation scripts, you should make sure that the configured database user has access to the necessary tables:
+
+	psql hat -c "GRANT ALL ON ALL TABLES IN SCHEMA public to hat;"
+	psql hat -c "GRANT ALL ON ALL FUNCTIONS IN SCHEMA public to hat;"
+	psql hat -c "GRANT ALL ON ALL SEQUENCES IN SCHEMA public to hat;"
+
+#### Development Server
+
+Make sure you have entered your database configuration in Django configs (e.g. `settings/local.py`)
+
+Setting up then proceeds in a few steps:
+
+	# Setup project dependencies
+	pip install -r requirements.txt 
+	# Setup base database models (for INSTALLED_APPS, etc.)
+	python manage.py syncdb
+	# Migrate app models
+	python manage.py migrate
+
+Caveat with app model migration: the default oder of migration does not work, but you can get around this by expliitly specifying the order:
+
+	python manage.py migrate things
+	python manage.py migrate locations
+	python manage.py migrate events
+	python manage.py migrate users
+	python manage.py migrate
+
+The import system data (curriencies, ethnicities, genders, etc.):
+	
+	python manage.py system_importer
+
+Finally, load data fixtures (also needs to happen in a specific order):
+
+	python manage.py loaddata hat/fixtures/thing_types.json
+	python manage.py loaddata hat/fixtures/things.json
+	python manage.py loaddata hat/fixtures/units.json
+	python manage.py loaddata hat/fixtures/sensors.json
+
 
 ### Contribution guidelines ###
 
