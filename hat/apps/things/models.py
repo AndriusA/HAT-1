@@ -200,6 +200,25 @@ class ThingSensorCrossRef(CreateUpdateMixin, NameDescMixin):
 class ThingSensorRelationshipType(CreateUpdateMixin, NameDescMixin):
 	pass
 
+class SensorLocationCrossRef(CreateUpdateMixin, NameDescMixin):
+
+		#FK to thing
+	sensor = models.ForeignKey(
+		Sensor
+	)
+
+	location = models.ForeignKey(
+		'locations.Location'
+	)
+
+	relationship_type = models.ForeignKey(
+		'ThingSensorRelationshipType'
+	)
+
+
+class SensorLocationRelationshipType(CreateUpdateMixin, NameDescMixin):
+	pass
+
 
 class Sensor(CreateUpdateMixin, NameDescMixin):
 
