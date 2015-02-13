@@ -204,7 +204,7 @@ class SensorLocationCrossRef(CreateUpdateMixin, NameDescMixin):
 
 		#FK to thing
 	sensor = models.ForeignKey(
-		Sensor
+		'Sensor'
 	)
 
 	location = models.ForeignKey(
