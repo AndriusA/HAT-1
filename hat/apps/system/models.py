@@ -7,126 +7,126 @@ from ...models import CreateUpdateMixin, NameDescMixin
 # Full functionality is yet to be discussed (valid as of 01/07/2014).
 class EventLog(models.Model):
 
-    event_type = models.CharField(
-        max_length=45,
-    )
+	event_type = models.CharField(
+		max_length=45,
+	)
 
-    date = models.DateField()
+	date = models.DateField()
 
-    time = models.TimeField()
+	time = models.TimeField()
 
-    creator = models.CharField(
-        max_length=100,
-    )
+	creator = models.CharField(
+		max_length=100,
+	)
 
-    command = models.CharField(
-        max_length=100,
-    )
+	command = models.CharField(
+		max_length=100,
+	)
 
-    result = models.CharField(
-        max_length=45,
-    )
+	result = models.CharField(
+		max_length=45,
+	)
 
 
 # System wide Currency table
 class Currency(CreateUpdateMixin):
 
-    name = models.CharField(
-        max_length=45,
-        unique=True,
-    )
+	name = models.CharField(
+		max_length=45,
+		unique=True,
+	)
 
-    code = models.CharField(
-        max_length=16,
-    )
+	code = models.CharField(
+		max_length=16,
+	)
 
-    symbol = models.CharField(
-        max_length=16,
-        blank=True,
-    )
+	symbol = models.CharField(
+		max_length=16,
+		blank=True,
+	)
 
-    class Meta:
-        ordering = ('name',)
-        verbose_name_plural = u'currencies'
-
+	class Meta:
+		ordering = ('name',)
+		verbose_name_plural = u'currencies'
 
 class UnitOfMeasurement(CreateUpdateMixin, NameDescMixin):
 
-    symbol = models.CharField(
-        max_length=16,
-        blank=False,
-        null=True,
-    )
+	symbol = models.CharField(
+		max_length=16,
+		blank=False,
+		null=True,
+	)
 
-    class Meta:
-        verbose_name_plural = u'Units'
+	class Meta:
+		verbose_name_plural = u'Units'
 
-class UnitOfMeasurementThingPropertyCrossRef(CreateUpdateMixin):
+class UnitThingPropertyCrossRef(CreateUpdateMixin):
 
-     #FK to unit_id
-        unit_id = models.ForeignKey(
-        'UnitOfMeasurement',
-    )
+	 #FK to unit_id
+	unit_id = models.ForeignKey(
+		'UnitOfMeasurement',
+	)
+
+	thing_property = models.ForeignKey(
+		'things.ThingProperty'
+	)
+
+	relationship_type = models.ForeignKey(
+		'UnitRelationshipType'
+	)
+
+	is_current = models.BooleanField(
+		default=False,
+	)
+
+class UnitRelationshipType(CreateUpdateMixin, NameDescMixin):
+	pass
 
 
-    thing_property = models.ForeignKey(
-        'things.ThingProperty'
-    )
-
-    relationship_type = models.ForeignKey(
-        'UnitOfMeasurementRelationshipType'
-    )
-
-    is_current = models.BooleanField(
-        default=False,
-    )
-
-class UnitOfMeasurementRelationshipType(CreateUpdateMixin, NameDescMixin):
-pass
 # System wide Nationality table
 class Nationality(CreateUpdateMixin, NameDescMixin):
 
-    class Meta:
-        verbose_name_plural = u'Nationalities'
+	class Meta:
+		verbose_name_plural = u'Nationalities'
 
 
 # System wide Ethnicity table
 class Ethnicity(CreateUpdateMixin, NameDescMixin):
 
-    class Meta:
-        verbose_name_plural = u'Ethnicities'
+	class Meta:
+		verbose_name_plural = u'Ethnicities'
 
 
 # System wide Gender table
 class Gender(CreateUpdateMixin, NameDescMixin):
 
-    class Meta:
-        verbose_name_plural = u'Genders'
+	class Meta:
+		verbose_name_plural = u'Genders'
 
 
 # System wide MaritalStatus table
 class MaritalStatus(CreateUpdateMixin, NameDescMixin):
 
-    class Meta:
-        verbose_name_plural = u'Marital Statuses'
+	class Meta:
+		verbose_name_plural = u'Marital Statuses'
 
 
 # System wide Religion table
 class Religion(CreateUpdateMixin, NameDescMixin):
 
-    class Meta:
-        verbose_name_plural = u'Religions'
+	class Meta:
+		verbose_name_plural = u'Religions'
 
 
 # System wide Prefixes table
 class Prefix(CreateUpdateMixin, NameDescMixin):
 
-    class Meta:
-        verbose_name_plural = u'Prefixes'
+	class Meta:
+		verbose_name_plural = u'Prefixes'
 
 
 # System wide ContactMethodTypes table
 class ContactMethodType(CreateUpdateMixin, NameDescMixin):
 
-    class Meta:
-        verbose_name_plural = u'Contact Method Types'
+	class Meta:
+		verbose_name_plural = u'Contact Method Types'

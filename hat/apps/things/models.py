@@ -7,285 +7,285 @@ from ...models import CreateUpdateMixin, NameDescMixin
 
 class Thing(CreateUpdateMixin, NameDescMixin):
 
-    # FK to User class
-    user = models.ForeignKey(
-        User
-    )
+	# FK to User class
+	user = models.ForeignKey(
+		User
+	)
 
-    brand = models.CharField(
-        max_length=100,
-        blank=True,
-        null=True,
-    )
+	brand = models.CharField(
+		max_length=100,
+		blank=True,
+		null=True,
+	)
 
-    type = models.ForeignKey(
-        'ThingType'
-    )
+	type = models.ForeignKey(
+		'ThingType'
+	)
 
-    purchase_date = models.DateField(
-        blank=True,
-        null=True,
-    )
+	purchase_date = models.DateField(
+		blank=True,
+		null=True,
+	)
 
-    point_of_purchase_id = models.PositiveIntegerField(
-        blank=True,
-        null=True,
-    )
+	point_of_purchase_id = models.PositiveIntegerField(
+		blank=True,
+		null=True,
+	)
 
-    supplier_id = models.PositiveIntegerField(
-        blank=True,
-        null=True,
-    )
+	supplier_id = models.PositiveIntegerField(
+		blank=True,
+		null=True,
+	)
 
-    value_creation_practice_type = models.ForeignKey(
-        'ValueCreationEvent',
-        related_name="related_value_event",
-        blank=True,
-        null=True,
-    )
+	value_creation_practice_type = models.ForeignKey(
+		'ValueCreationEvent',
+		related_name="related_value_event",
+		blank=True,
+		null=True,
+	)
 
-    device_id = models.CharField(
-        max_length=36,
-        default=lambda: str(uuid4())
-    )
+	device_id = models.CharField(
+		max_length=36,
+		default=lambda: str(uuid4())
+	)
 
-    ip_address = models.GenericIPAddressField()
+	ip_address = models.GenericIPAddressField()
 
-    is_service = models.BooleanField(
-        default=False
-    )
+	is_service = models.BooleanField(
+		default=False
+	)
 
-    # image = models.FileField(
-    #     blank=True,
-    #     null=True,
-    # )
+	# image = models.FileField(
+	#     blank=True,
+	#     null=True,
+	# )
 
-    def last_used(self):
+	def last_used(self):
 
-        # Get all device sensors
-        sensor_refs = ThingSensorCrossRef.objects.filter(thing=self)
-        sensors = [sensor_ref.sensor for sensor_ref in sensor_refs]
-        latest_data = SensorData.objects.filter(sensor__in=sensors).order_by('-date_created')[:1]
+		# Get all device sensors
+		sensor_refs = ThingSensorCrossRef.objects.filter(thing=self)
+		sensors = [sensor_ref.sensor for sensor_ref in sensor_refs]
+		latest_data = SensorData.objects.filter(sensor__in=sensors).order_by('-date_created')[:1]
 
-        if latest_data:
-            return latest_data[0].date_created
+		if latest_data:
+			return latest_data[0].date_created
 
-        return None
+		return None
 
 
 class ThingType(CreateUpdateMixin, NameDescMixin):
 
-    parent_node = models.PositiveIntegerField(
-        max_length=5,
-    )
+	parent_node = models.PositiveIntegerField(
+		max_length=5,
+	)
 
-    class Meta:
-        verbose_name_plural = u"Thing Types"
+	class Meta:
+		verbose_name_plural = u"Thing Types"
 
 
 class ThingPersonCrossRef(CreateUpdateMixin, NameDescMixin):
 
-    #FK to owner
-    owner = models.ForeignKey(
-        'users.Person'
-    )
+	#FK to owner
+	owner = models.ForeignKey(
+		'users.Person'
+	)
 
-    #FK to thing
-    thing = models.ForeignKey(
-        'Thing'
-    )
+	#FK to thing
+	thing = models.ForeignKey(
+		'Thing'
+	)
 
-    relationship_type = models.ForeignKey(
-        'ThingPersonRelationshipType'
-    )
+	relationship_type = models.ForeignKey(
+		'ThingPersonRelationshipType'
+	)
 
-    is_relationship_current = models.BooleanField(
-        default=False,
-    )
+	is_relationship_current = models.BooleanField(
+		default=False,
+	)
 
 
 class ThingPersonRelationshipType(CreateUpdateMixin, NameDescMixin):
-    pass
+	pass
 
 
 class ThingPropertyCrossRef(CreateUpdateMixin):
 
-    #FK to thing
-    thing = models.ForeignKey(
-        Thing
-    )
+	#FK to thing
+	thing = models.ForeignKey(
+		Thing
+	)
 
-    thing_property = models.ForeignKey(
-        'ThingProperty'
-    )
+	thing_property = models.ForeignKey(
+		'ThingProperty'
+	)
 
-    relationship_type = models.ForeignKey(
-        'ThingPropertyRelationshipType'
-    )
+	relationship_type = models.ForeignKey(
+		'ThingPropertyRelationshipType'
+	)
 
-    is_current = models.BooleanField(
-        default=False,
-    )
+	is_current = models.BooleanField(
+		default=False,
+	)
 
 
 class ThingPropertyRelationshipType(CreateUpdateMixin, NameDescMixin):
-    pass
+	pass
 
 
 
 class ThingProperty(CreateUpdateMixin, NameDescMixin):
 
-    unit_id = models.ForeignKey(
-        'system.UnitOfMeasurementThingPropertyCrossRef',
-    )
+	unit_id = models.ForeignKey(
+		'system.UnitThingPropertyCrossRef',
+	)
 
-    value = models.PositiveIntegerField(
-        max_length=5,
-        blank=True,
-        null=True,
-    )
+	value = models.PositiveIntegerField(
+		max_length=5,
+		blank=True,
+		null=True,
+	)
 
-    class Meta:
-        verbose_name_plural = u'Thing Properties'
+	class Meta:
+		verbose_name_plural = u'Thing Properties'
 
 class ThingToThingCrossRef(CreateUpdateMixin):
 
-    thing_one = models.ForeignKey(
-        'Thing',
-        related_name='thing1',
-    )
+	thing_one = models.ForeignKey(
+		'Thing',
+		related_name='thing1',
+	)
 
-    thing_two = models.ForeignKey(
-        'Thing',
-        related_name='thing2',
-    )
+	thing_two = models.ForeignKey(
+		'Thing',
+		related_name='thing2',
+	)
 
-    relationship_type = models.ForeignKey(
-        'ThingToThingRelationshipType',
-    )
+	relationship_type = models.ForeignKey(
+		'ThingToThingRelationshipType',
+	)
 
-    relationship_description = models.CharField(
-        max_length=100,
-        blank=True,
-        null=True,
-    )
+	relationship_description = models.CharField(
+		max_length=100,
+		blank=True,
+		null=True,
+	)
 
-    class Meta:
-        verbose_name_plural = u'Relationships'
+	class Meta:
+		verbose_name_plural = u'Relationships'
 
 
 class ThingToThingRelationshipType(CreateUpdateMixin, NameDescMixin):
-    pass
+	pass
 
-    class Meta:
-        verbose_name_plural = u'T2T Relationship Types'
+	class Meta:
+		verbose_name_plural = u'T2T Relationship Types'
  
 
 class ThingSensorCrossRef(CreateUpdateMixin, NameDescMixin):
 
-        #FK to thing
-    thing = models.ForeignKey(
-        Thing
-    )
+		#FK to thing
+	thing = models.ForeignKey(
+		Thing
+	)
 
-    sensor = models.ForeignKey(
-        'Sensor'
-    )
+	sensor = models.ForeignKey(
+		'Sensor'
+	)
 
-    relationship_type = models.ForeignKey(
-        'ThingSensorRelationshipType'
-    )
+	relationship_type = models.ForeignKey(
+		'ThingSensorRelationshipType'
+	)
 
 
 class ThingSensorRelationshipType(CreateUpdateMixin, NameDescMixin):
-    pass
+	pass
 
 
 class Sensor(CreateUpdateMixin, NameDescMixin):
 
-    manufacturer = models.CharField(
-        max_length=45,
-        blank=True,
-        null=True,
-    )
+	manufacturer = models.CharField(
+		max_length=45,
+		blank=True,
+		null=True,
+	)
 
-    sensor_id = models.CharField(
-        max_length=36,
-        default=lambda: str(uuid4())
-    )
+	sensor_id = models.CharField(
+		max_length=36,
+		default=lambda: str(uuid4())
+	)
 
-    class Meta:
-        verbose_name_plural = u'Sensors'
+	class Meta:
+		verbose_name_plural = u'Sensors'
 
 
 class SensorData(CreateUpdateMixin):
 
-    sensor = models.ForeignKey(
-        Sensor
-    )
+	sensor = models.ForeignKey(
+		Sensor
+	)
 
-    type = models.ForeignKey(
-        'SensorDataType'
-    )
+	type = models.ForeignKey(
+		'SensorDataType'
+	)
 
-    unit = models.ForeignKey(
-        'system.UnitOfMeasurement'
-    )
+	unit = models.ForeignKey(
+		'system.UnitOfMeasurement'
+	)
 
-    value = models.CharField(
-        max_length=45,
-    )
+	value = models.CharField(
+		max_length=45,
+	)
 
-    source_description = models.TextField(
-        max_length=45,
-        blank=True,
-        null=True,
-    )
+	source_description = models.TextField(
+		max_length=45,
+		blank=True,
+		null=True,
+	)
 
-    change_of_status = models.BooleanField(
-        default=False,
-    )
+	change_of_status = models.BooleanField(
+		default=False,
+	)
 
-    def thing(self):
-        return ThingSensorCrossRef.objects.filter(sensor=self.sensor)[0].thing
+	def thing(self):
+		return ThingSensorCrossRef.objects.filter(sensor=self.sensor)[0].thing
 
-    def __unicode__(self):
-        return self.source_description
+	def __unicode__(self):
+		return self.source_description
 
-    class Meta:
-        verbose_name_plural = u'Sensor Data'
-        ordering = ['-date_created']
+	class Meta:
+		verbose_name_plural = u'Sensor Data'
+		ordering = ['-date_created']
 
 
 class SensorDataType(CreateUpdateMixin, NameDescMixin):
 
-    class Meta:
-        verbose_name_plural = u'Sensor Data Types'
+	class Meta:
+		verbose_name_plural = u'Sensor Data Types'
 
 
 class ValueCreationEvent(CreateUpdateMixin):
 
-    type = models.ForeignKey(
-        'ValueCreationType'
-    )
+	type = models.ForeignKey(
+		'ValueCreationType'
+	)
 
-    start_time = models.TimeField()
+	start_time = models.TimeField()
 
-    end_time = models.TimeField()
+	end_time = models.TimeField()
 
-    start_value = models.CharField(
-        max_length=45,
-    )
+	start_value = models.CharField(
+		max_length=45,
+	)
 
-    end_value = models.CharField(
-        max_length=45,
-    )
+	end_value = models.CharField(
+		max_length=45,
+	)
 
-    consumption_rules_id = models.PositiveIntegerField(
-        max_length=5,
-        blank=True,
-    )
+	consumption_rules_id = models.PositiveIntegerField(
+		max_length=5,
+		blank=True,
+	)
 
 
 class ValueCreationType(CreateUpdateMixin, NameDescMixin):
-    pass
+	pass
