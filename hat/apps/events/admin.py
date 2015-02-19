@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Event, EventType, EventSensorDataCrossRef
+from .models import Event, EventType, EventSensorDataCrossRef, EventSensorDataRelationshipType, DataDebitEventRelationshipType, DataDebitEventCrossRef, DataDebit, DataDebitRecipientCrossRef, EventToEventCrossRef, EventToEventRelationshipType, EventPersonCrossRef, EventPersonRelationshipType
 # Register your models here.
 
 
@@ -14,3 +14,12 @@ class EventTypeAdmin(admin.ModelAdmin):
 admin.site.register(Event, EventAdmin)
 admin.site.register(EventType, EventTypeAdmin)
 admin.site.register(EventSensorDataCrossRef)
+admin.site.register(EventSensorDataRelationshipType)
+admin.site.register(DataDebitEventRelationshipType)
+admin.site.register(DataDebitEventCrossRef)
+admin.site.register(DataDebit)
+admin.site.register(DataDebitRecipientCrossRef)
+admin.site.register(EventToEventCrossRef)
+admin.site.register(EventToEventRelationshipType)
+admin.site.register(EventPersonCrossRef)
+admin.site.register(EventPersonRelationshipType)
