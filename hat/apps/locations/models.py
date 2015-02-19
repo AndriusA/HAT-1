@@ -132,7 +132,7 @@ class LocationThingCrossRef(CreateUpdateMixin):
 
 
 class LocationThingRelationshipType(CreateUpdateMixin, NameDescMixin):
-
+    pass
 
 
 class LocationToLocationCrossRef(CreateUpdateMixin):

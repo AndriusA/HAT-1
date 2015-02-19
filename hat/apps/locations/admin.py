@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Location, LocationType, LocationThingCrossRef, LocationThingRelationshipType
+from .models import Location, LocationType, LocationThingCrossRef
 
 
 class LocationAdmin(admin.ModelAdmin):
@@ -14,4 +14,3 @@ class LocationTypeAdmin(admin.ModelAdmin):
 admin.site.register(Location)
 admin.site.register(LocationType)
 admin.site.register(LocationThingCrossRef)
-admin.site.register(LocationThingRelationshipType)

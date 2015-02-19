@@ -4,7 +4,7 @@ from django.db import models
 # This is extended by a pretty huge number of classes across all apps in the system.
 class CreateUpdateMixin(models.Model):
 
-    date_created_x = models.DateTimeField(
+    date_created = models.DateTimeField(
     )
 
     last_updated = models.DateTimeField(

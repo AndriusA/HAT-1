@@ -9852,7 +9852,7 @@ html, body, .perspective {
 
 /* line 2, ../scss/components/_structure.scss */
 .login {
-  background: url("/Development/static/img/hill-center.png") bottom center no-repeat, url("/Development/static/img/hill-left.png") bottom left no-repeat, url("/Development/static/img/hill-right.png") bottom right no-repeat, #36485c;
+  background: url("/static/img/hill-center.png") bottom center no-repeat, url("/static/img/hill-left.png") bottom left no-repeat, url("/static/img/hill-right.png") bottom right no-repeat, #36485c;
   height: 100%;
 }
 
@@ -9878,7 +9878,7 @@ html, body, .perspective {
 /* line 29, ../scss/components/_structure.scss */
 .login-container:before {
   content: '';
-  background: url("/Development/static/img/login-head.png") no-repeat;
+  background: url("/static/img/login-head.png") no-repeat;
   display: block;
   height: 9.6875rem;
   width: 21.3125rem;
@@ -9910,7 +9910,7 @@ html, body, .perspective {
 
 /* line 55, ../scss/components/_structure.scss */
 .welcome-left {
-  background: url("/Development/static/img/welcome-left.png") no-repeat #18bc9a;
+  background: url("/static/img/welcome-left.png") no-repeat #18bc9a;
   color: #fff;
 }
 /* line 59, ../scss/components/_structure.scss */

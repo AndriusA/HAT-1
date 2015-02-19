@@ -166,6 +166,28 @@ class PersonAddress(CreateUpdateMixin, AddressMixin):
     class Meta:
         verbose_name_plural = u'People Addresses'
 
+class PersonAddressLocationCrossRef(CreateUpdateMixin):
+
+    #FK to Person Class
+    person_address_id = models.ForeignKey(
+        PersonAddress
+    )
+
+     #FK to DataDebit class
+    location_id = models.ForeignKey(
+        'locations.location'
+    )
+
+    relationship_type = models.ForeignKey(
+        'PersonAddressRelationshipType',
+        blank=True,
+        null=True,
+    )
+
+
+class PersonAddressRelationshipType(CreateUpdateMixin, NameDescMixin):
+    pass
+
 
 class PersonContactMethod(CreateUpdateMixin):
 
@@ -245,60 +267,16 @@ class PersonToPersonRelationshipType(CreateUpdateMixin, NameDescMixin):
 
     class Meta:
         verbose_name_plural = u'P2P Relationship Types'
+ 
 
 
-class Emotion(CreateUpdateMixin, NameDescMixin):
+class DynamicType(CreateUpdateMixin, NameDescMixin):
 
-    #FK to Person
-    person = models.ForeignKey(
-        'Person'
-    )
-
-    time = models.TimeField()
-
-    type = models.ForeignKey(
-        'EmotionType'
-    )
-
-    class Meta:
-        verbose_name_plural = u'Emotional States'
-
-
-class EmotionType(CreateUpdateMixin, NameDescMixin):
-    pass
-
-    class Meta:
-        verbose_name_plural = u'Emotional State Types'
-
-
-# Data about a person that may change - weight, blood pressure, heartrate etc.
-class PersonDynamic(CreateUpdateMixin):
-
-     #FK to Person
+         #FK to Person
     person = models.ForeignKey(
         Person,
     )
 
-    type = models.ForeignKey(
-        'DynamicType'
-    )
-
-    value = models.CharField(
-        max_length=45
-    )
-
-    priority = models.PositiveIntegerField(
-        max_length=5,
-        blank=True,
-        null=True,
-    )
-
-    is_current = models.BooleanField(
-        default=False,
-    )
-
-
-class DynamicType(CreateUpdateMixin, NameDescMixin):
 
     sensor_data = models.ForeignKey(
         'things.SensorData'

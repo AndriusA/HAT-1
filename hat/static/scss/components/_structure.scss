@@ -1,9 +1,9 @@
 // 'login'
 .login {
     background:
-        url('/Development/static/img/hill-center.png') bottom center no-repeat,
-        url('/Development/static/img/hill-left.png')   bottom left   no-repeat,
-        url('/Development/static/img/hill-right.png')  bottom right  no-repeat,
+        url('/static/img/hill-center.png') bottom center no-repeat,
+        url('/static/img/hill-left.png')   bottom left   no-repeat,
+        url('/static/img/hill-right.png')  bottom right  no-repeat,
         $primary-color;
 
     height: 100%;
@@ -28,7 +28,7 @@
     
     &:before {
         content: '';
-        background: url('/Development/static/img/login-head.png') no-repeat;
+        background: url('/static/img/login-head.png') no-repeat;
         display: block;
         height: rem-calc(155); width: rem-calc(341);
         position: absolute;
@@ -53,7 +53,7 @@
 
 // 'site:welcome'
 .welcome-left {
-    background: url('/Development/static/img/welcome-left.png') no-repeat #18bc9a;
+    background: url('/static/img/welcome-left.png') no-repeat #18bc9a;
     color: #fff;
 
     h1, h2, h3,

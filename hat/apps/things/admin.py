@@ -3,8 +3,8 @@ from django.conf.urls import patterns, url
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .models import (Thing, ThingProperty, ThingType, Sensor, SensorData, SensorDataType,
-                     ThingSensorCrossRef, ThingSensorRelationshipType)
+from .models import (Thing, ThingToThingCrossRef, ThingToThingRelationshipType, ThingProperty, ThingPropertyCrossRef, ThingPropertyRelationshipType, ThingType, Sensor, SensorData, SensorDataType,
+                     ThingSensorCrossRef, ThingSensorRelationshipType, ThingPersonCrossRef, ThingPersonRelationshipType, ValueCreationType, ValueCreationEvent)
 
 from .forms import CSVExportForm
 
@@ -15,7 +15,23 @@ class ThingAdmin:
     pass
 
 
+class ThingToThingCrossRefAdmin:
+    pass
+
+
+class ThingToThingRelationshipTypeAdmin:
+    pass
+
+
 class ThingPropertyAdmin:
+    pass
+
+
+class ThingPropertyCrossRefAdmin:
+    pass
+
+
+class ThingPropertyRelationshipTypeAdmin:
     pass
 
 
@@ -144,11 +160,35 @@ class SensorDataTypeAdmin:
     pass
 
 
+class ThingPersonCrossRefAdmin:
+    pass
+
+
+class ThingPersonRelationshipTypeAdmin:
+    pass
+
+
+class ValueCreationTypeAdmin:
+    pass
+
+
+class ValueCreationEventAdmin:
+    pass
+
+
 admin.site.register(Thing)
+admin.site.register(ThingToThingCrossRef)
+admin.site.register(ThingToThingRelationshipType)
 admin.site.register(ThingProperty)
+admin.site.register(ThingPropertyCrossRef)
+admin.site.register(ThingPropertyRelationshipType)
 admin.site.register(ThingType)
 admin.site.register(Sensor)
 admin.site.register(SensorData, SensorDataAdmin)
 admin.site.register(SensorDataType)
 admin.site.register(ThingSensorCrossRef)
 admin.site.register(ThingSensorRelationshipType)
+admin.site.register(ThingPersonCrossRef)
+admin.site.register(ThingPersonRelationshipType)
+admin.site.register(ValueCreationType)
+admin.site.register(ValueCreationEvent)

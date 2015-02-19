@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 
 admin.autodiscover()
 
-base_urlpatterns = patterns('',
+urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'hat.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
@@ -43,7 +43,7 @@ base_urlpatterns = patterns('',
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-base_urlpatterns += patterns('django.contrib.auth.views',
+urlpatterns += patterns('django.contrib.auth.views',
     url(r'^accounts/password/reset/$',
         'password_reset',
         name='password_reset'),
@@ -57,11 +57,3 @@ base_urlpatterns += patterns('django.contrib.auth.views',
         'password_reset_complete',
         name='password_reset_complete')
 )
-
-#--------------------------------------------------------------------------------
-# To add a prefix to all the URL's without hardcoding the prefix in every pattern
-#--------------------------------------------------------------------------------
-
-urlpatterns = patterns ('',
-    url(r'^Development/' , include(base_urlpatterns)),
-    )

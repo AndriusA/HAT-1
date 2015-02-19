@@ -36,9 +36,9 @@ SUIT_CONFIG = {
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "hat_development",
-        "USER": "hat_development",
-        "PASSWORD": "5a2$k:Nc]R7QgRj",
+        "NAME": "hat",
+        "USER": "hat",
+        "PASSWORD": "bn2qrb62To",
         "HOST": "",
         "PORT": ""
     }
@@ -46,18 +46,18 @@ DATABASES = {
 
 # Absolute path to the directory where all uploaded media files are stored.
 
-MEDIA_ROOT = "/var/www/hubofallthings.net/public_html/Development/hat_media"
+MEDIA_ROOT = "/var/www/hat_media"
 
-MEDIA_URL = "/Development/media/"
+MEDIA_URL = "/media/"
 
 FILE_UPLOAD_PERMISSIONS = 0644
 
 
 # Absolute path to the directory where static files will be collected.
 
-STATIC_ROOT = "/var/www/hubofallthings.net/public_html/Development/hat_static"
+STATIC_ROOT = "/var/www/hat_static"
 
-STATIC_URL = "/Development/static/"
+STATIC_URL = "/static/"
 
 
 # Email settings.
