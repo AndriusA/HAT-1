@@ -199,7 +199,9 @@ PUBLICATION_MIDDLEWARE_EXCLUDE_URLS = (
 )
 
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
-
+# SESSION_COOKIE_NAME = "cookie_DP0_2"
+# CSRF_COOKIE_NAME = "cookie_DP0_2"
+# CSRF_COOKIE_DOMAIN = "hubofallthings.net"
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
 SITE_ID = 1
