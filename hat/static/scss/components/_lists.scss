@@ -1,0 +1,191 @@
+.list--side {
+    margin-bottom: 0;
+    border-bottom: $border-styling;
+
+    li {
+        &:not(:last-child) { border-bottom: $border-styling; }
+        &.active a {
+            background: $primary-color;
+            color: #fff;
+        }
+
+        a {
+            display: block;
+            padding: rem-calc(0 20);
+            color: $primary-color;
+            font-size: rem-calc(14);
+            line-height: 44px;
+        }
+    }
+}
+
+.list--block {
+    @extend .clearfix;
+    margin: 0;
+    list-style: none;
+
+    .item {
+        :not(.title):not(i) { font-size: rem-calc(12); }
+
+        a {
+            @extend .clearfix;
+            display: block;
+            padding-bottom: rem-calc(14);
+            padding-top: rem-calc(15);
+        }
+        p {
+            margin-bottom: 0;
+            color: $body-font-color;
+        }
+        i { font-size: rem-calc(16); }
+
+        .title { margin: 0; }
+        .sub-title {
+            margin: rem-calc(0 0 5);
+            color: #999;
+        }
+    }
+    .item + .item {
+        // So we don't have to do silly border resets
+        border-top: $border-styling;
+    }
+
+    &.col2 {
+
+        .item {
+            float: left;
+            width: 50%;
+
+            &:nth-child(odd) { border-right: $border-styling; }
+            &:nth-child(2) {
+                border-top: none;
+            }
+        }
+    }
+}
+
+/* Stages
+* Stage 1 (PSD #24), Stage 2 (PSD #25), Stage 3 (PSD #26), Stage 4 (PSD #27)
+* -------------------------- */
+
+.list--arrows {
+    margin-bottom: $column-gutter/2;
+
+    .container {
+        margin: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .item {
+        background: #fff;
+        flex-grow: 1;
+        color: $primary-color;
+        font-size: 16px;
+        line-height: 60px;
+        text-align: center;
+        position: relative;
+
+        &:first-of-type a { padding: rem-calc(0 0 0 16); }
+        &:last-of-type a:after { display: none; }
+
+        &.disabled {
+            background: #f7f7f7;
+
+            a:after { background: #f7f7f7; }
+        }
+
+        @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+                z-index: 11 - $i;
+            }
+        }
+
+        a {
+            display: block;
+            padding: rem-calc(0 0 0 30);
+            color: $primary-color;
+
+            &:after {
+                background: #fff;
+                display: block;
+                height: 44px; width: 44px;
+                border-right: $border-styling;
+                border-bottom: $border-styling;
+                content: '';
+                @include transform(rotate(-45deg));
+                position: absolute;
+                top: 8px;
+                right: -21px;
+                z-index: -1;
+            }
+        }
+    }
+}
+
+/* Inline block list
+* Spans full length with clickable blocks, is flex built so you can have as
+* many children as you like
+* -------------------------- */
+
+.list--inline-block {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+
+    .item {
+        @include background-image(linear-gradient(to bottom, #fff, #f3f3f3));
+        text-align: center;
+        flex: 0 1 20%;
+
+        &:not(:nth-child(5n)) { border-right: $border-styling; }
+
+        .fa-check-circle {
+            display: none;
+        }
+
+        &.active {
+            a,
+            i {
+                color: #fff;
+            }
+            a { background: $anchor-font-color; }
+
+            .fa-check-circle {
+                display: inline-block;
+            }
+
+            .fa-plus-circle {
+                display: none;
+            }
+        }
+
+        a {
+            @include flexbox((
+                    display: box,
+                    box-align: center,
+                    box-pack: center
+            ));
+            min-height: rem-calc(150);
+        }
+        i { font-size: 24px; }
+
+        // Messy vertical align stuffs
+        p {
+            margin-bottom: $column-gutter/2;
+            font-size: rem-calc(12);
+            font-weight: 700;
+        }
+        span { display: inline-block; }
+        // End messy vertical align stuffs
+    }
+}
+
+.list--inline-block + .list--inline-block {
+    border-top: $border-styling;
+}

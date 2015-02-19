@@ -1,0 +1,117 @@
+{% extends base_template %}
+
+{% block page_title_icon %}fa-calendar{% endblock page_title_icon %}
+{% block page_title_text %}Events{% endblock page_title_text %}
+
+{% block top_title_content %}
+    <h2 class="top-title__heading left"><i class="fa fa-calendar"></i> Events</h2>
+    <a class="button small right" href="{% url 'site:create' %}">Create an event</a>
+{% endblock top_title_content %}
+
+{% block content %}
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box">
+
+                <header class="single-line">
+                    <div class="medium-21 columns">
+                        <h4>States</h4>
+                    </div>
+                    <div class="medium-3 left title-options disabled">
+                        <a href="#open">
+                            <span>Options</span>
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </a>
+                    </div>
+                </header>
+
+                <section>
+
+                    {% for event in events.object_list %}
+
+                        <section class="single-line">
+
+                            <div class="medium-1 columns text-center">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+
+                            <div class="medium-5 columns">
+                                <h4>{{ event.name }}</h4>
+                            </div>
+
+                            <div class="medium-4 columns">
+                                <dl>
+                                    <dt>Time:</dt>
+                                    <dd><a href="#">{{ event.start_date|date:"H:i" }} - {{ event.end_date|date:"H:i" }}</a></dd>
+                                </dl>
+                            </div>
+
+                            <div class="medium-6 columns">
+                                <dl>
+                                    <dt>Date:</dt>
+                                    <dd><a href="#">{{ event.start_date|date:"d/m/Y" }} - {{ event.end_date|date:"d/m/Y" }}</a></dd>
+                                </dl>
+                            </div>
+
+                            <div class="medium-6 columns">
+                                <dl>
+                                    <dt>Type:</dt>
+                                    <dd><a href="#">{{ event.type }}</a></dd>
+                                </dl>
+                            </div>
+
+                            <div class="medium-2 columns text-right">
+                                <a href="{% url 'site:event' event.pk %}"><i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+
+                        </section>
+
+                    {% endfor %}
+
+                </section>
+
+            </section>
+        </div>
+    </div>
+
+    <section>
+        <ul class="medium-block-grid-3">
+            <li>
+                {% if events.has_previous %}
+                    <a class="button secondary icon-left medium-8 expand" href="/events/{{ events.previous_page_number }}">
+                {% else %}
+                    <a class="button secondary icon-left medium-8 expand disabled" href="">
+                {% endif %}
+                    <span class="text"><i class="fa fa-chevron-left"></i> Previous</span>
+                </a>
+            </li>
+            <li>
+                <div class="border-box p-global text-center">
+
+                    {% for page in events.pages %}
+                        {% if page %}
+                            {% ifequal page events.number %}
+                                <span class="current page">{{ page }}</span>
+                            {% else %}
+                                <a href="/events/{{ page }}/" class="page">{{ page }}</a>
+                            {% endifequal %}
+                        {% else %}
+                            ...
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+            </li>
+            <li>
+                {% if events.has_next %}
+                    <a class="button secondary icon-left medium-8 expand" href="/events/{{ events.next_page_number }}">
+                {% else %}
+                    <a class="button secondary icon-left medium-8 expand disabled" href="">
+                {% endif %}
+                    <span class="text">Next<i class="fa fa-chevron-right"></i></span>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+{% endblock content %}

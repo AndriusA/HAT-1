@@ -1,0 +1,96 @@
+{% load things %}
+
+<section class="border-box">
+
+    <header class="single-line">
+        <div class="medium-18 columns">
+            <h4>Data stream for {{ Things }}</h4>
+        </div>
+        <div class="medium-6 left title-options disabled">
+            <a href="#open">
+                <span>Options</span>
+                <i class="fa fa-chevron-circle-down"></i>
+            </a>
+        </div>
+    </header>
+
+    <section>
+
+        <div id="stream_graph_{{ Things.pk }}" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+    </section>
+
+</section>
+
+<script>
+$(function () {
+    $('#stream_graph_{{ Things.pk }}').highcharts({
+        chart: {
+            marginTop: 25,
+            marginBottom: 60,
+            marginLeft: 25,
+            marginRight: 25
+        },
+        title: {
+            text: null
+        },
+        xAxis: [{
+            title: {
+                text: "Hours in the past from {{ current_time|date:"Y-m-d H:00" }}"
+            },
+            labels: {
+                enabled: true
+            },
+            gridLineColor: 'transparent',
+            tickInterval: 1
+        }],
+        yAxis: [{
+            labels: {
+                enabled: false,
+            },
+            title: {
+                text: null,
+            },
+            gridLineColor: 'transparent',
+            min: 0
+        }],
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top'
+        },
+        series: [{
+            name: 'Illuminance',
+            type: 'spline',
+            data: [
+                {% for value in illuminance_values %}
+                    {% if value %}
+                        {{ value.value|fix_value }},
+                    {% else %}
+                        0,
+                    {% endif %}
+                {% endfor %}
+            ],
+        }, {
+            name: 'Temperature',
+            type: 'spline',
+            data: [
+                {% for value in temperature_values %}
+                    {% if value %}
+                        {{ value.value|fix_value }},
+                    {% else %}
+                        0,
+                    {% endif %}
+                {% endfor %}
+            ],
+        }],
+        tooltip: {
+            headerFormat: '<b>{series.name}</b><br/>',
+            pointFormat: '{point.y}'
+        },
+        credits: {
+            enabled: false
+        },
+    });
+});
+</script>

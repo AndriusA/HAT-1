@@ -1,0 +1,29 @@
+.border-box fieldset {
+    border: none;
+    margin: 0;
+
+    &:not(:last-of-type) { border-bottom: $border-styling; }
+
+    + .submit-container {
+        border-top: $border-styling;
+
+        input[type=submit] {
+            margin: rem-calc(20 0);
+        }
+    }
+
+    legend {
+        margin: rem-calc(0 0 20);
+        padding: 0;
+        -webkit-padding-start: 0;
+        -webkit-padding-end: 0;
+    }
+}
+fieldset {
+    .row:last-child {
+        input,
+        select {
+            margin-bottom: 0 !important;
+        }
+    }
+}

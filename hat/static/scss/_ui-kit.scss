@@ -1,0 +1,286 @@
+/* TODO
+* Monitor app (#29)
+* Data stream (#32)
+* Form styling
+* Make sure headings line up with PSD
+* Verically align chevron link & other icons on #10, #11, #12, etc. (vertical-align: bottom)
+* Convert all px to rem-calc
+* Settings list & data list column widths (2, 3, 17, 2: Is this ideal?)
+* Check all colours vs PSD (Especially the dark blues)
+* Discuss typography vs PSD like (PSD #23)
+* Fix a on Monitor app to fill to full height/width in content-container__list-item
+* Stuff i've styled as <strong> actually <a>?
+* Content divs definitely need going over, especially if no heading
+* Look into Dan Samuels' BEM Wildcard style
+* Look into removing !important
+* IE Testing
+* -------------------------- */
+
+.ui-kit > h4 { text-align: center; }
+.fixed-side { position: fixed !important; top: 0; bottom: 0; }
+
+
+
+/* Temporary
+* Only here to style to ui-kit-full page
+* -------------------------- */
+.top-heading + .top-heading {
+    margin-top: rem-calc(20);
+}
+
+
+/* Globals
+* Styles used in multiple PSD #'s
+* -------------------------- */
+
+// Utilities
+.full-height-columns {
+    height: 100%;
+
+    > .columns { height: 100%; }
+}
+
+// Anchor
+
+a i { color: $anchor-font-color; }
+
+// Disabled
+
+[class*="disabled"],
+[class*="disabled"] * {
+    color: #cacaca !important;
+
+    a { pointer-events: none; }
+}
+[class*="disabled"] img { opacity: 0.5; }
+
+// Border box
+[class*="border-box"] {
+    @extend .clearfix;
+
+    background: #fff;
+    position: relative;
+
+    border: $border-styling;
+
+    &[class*="full"] {
+
+        & > div { @extend %padding-top-bot; }
+
+        &.no-heading {
+            padding: rem-calc(15);
+
+            p { line-height: $paragraph-line-height; }
+        }
+    }
+    &[class*="single"] {
+        & * {
+            line-height: $column-gutter/2;
+            vertical-align: top;
+        }
+
+        [class*="__title"] { margin: 0; }
+        [class*="icon--no-padding"] {
+            padding: 0;
+
+            i { line-height: rem-calc(60); }
+        }
+    }
+    &[class*="--media"] {
+
+        .media__image {
+            padding: 0;
+
+            text-align: center;
+        }
+    }
+    &[class*="--padding"] { padding: $column-gutter/2; }
+    &[class*="--form"] .row { padding: 0; }
+
+    & + [class*="--title"] { border-top: none; }
+
+    p,
+    dt, dd {
+        margin: 0;
+
+        font-size: rem-calc(12);
+    }
+    dl { margin-bottom: 0; }
+    dt, dd {
+        display: inline-block;
+    }
+    strong { color: $header-font-color; }
+}
+.border-box--disabled,
+.border-box--disabled i {
+    color: #999;
+}
+
+// Content container (No heading)
+.content-container--no-heading {
+
+    .content-container__list--vertical {
+        height: 100%;
+        margin: 0;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .content-container__list-item {
+            flex: 1;
+            margin-left: -1px;
+
+            position: relative;
+
+            &.primary {
+
+                a {
+                    background: $secondary-color;
+
+                    color: #fff;
+                }
+            }
+
+            a {
+                @include flexbox((
+                    display: box,
+                    box-align: center,
+                    box-pack: center
+                ));
+
+                color: $primary-color;
+                font-size: rem-calc(14);
+
+                position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+
+                i {
+                    margin-right: rem-calc(10);
+
+                    font-size: 1rem;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+
+}
+
+// Lists
+.list--box {
+
+    .list--box__item {
+        text-align: center;
+
+        &:nth-last-child(-n+3) a { margin-bottom: 0; }
+
+        a {
+            @include border-radius($global-radius);
+            
+            display: block;
+            margin-bottom: rem-calc(10);
+
+            border: $border-styling;
+            
+            color: $primary-color;
+            font-size: rem-calc(14);
+            line-height: rem-calc(34);
+        }
+    }
+}
+
+// Media
+
+    // List
+    .media-block-grid {
+        .media-item {
+            text-align: center; // To center images when they don't stretch on IE9
+            p {
+                line-height: rem-calc(48);
+                text-align: left; // To make up for the ta:c on the parent..
+            }
+            img { margin: 0 auto; }
+        }
+    }
+
+    // Item
+    .media-item {
+        @include box-shadow(0 0 rem-calc(8) rgba(0,0,0,0.1));
+
+        & > a { display: block; }
+
+        p {
+            padding: rem-calc(0 15);
+
+            color: $primary-color;
+            line-height: rem-calc(50);
+            font-weight: 700;
+
+            border-top: $border-styling;
+        }
+        i {
+            margin: rem-calc(17 0);
+
+            font-size: rem-calc(14);
+        }
+
+        .add-item {
+            .add {
+                margin: rem-calc(70 0);
+
+                font-size: rem-calc(80);
+            }
+        }
+    }
+
+    // Controls
+    [class^="media__controls"] {
+
+        &[class*="container"] {
+            height: rem-calc(50);
+            padding: 0 !important;
+
+            position: absolute;
+                top: 50%; margin-top: rem-calc(-25);
+                right: 0;
+                left: 0;
+        }
+        &[class*="right"], &[class*="left"] {
+            background: #fff;
+
+            height: rem-calc(50); width: rem-calc(50);
+
+            border: $border-styling;
+
+            text-align: center;
+
+            i {
+                margin-top: rem-calc(17);
+
+                color: $primary-color;
+            }
+        }
+        &[class*="left"]  { float: left ; border-left:  0; }
+        &[class*="right"] { float: right; border-right: 0; }
+
+        > a {
+            display: block;
+            height: 100%;
+        }
+    }
+
+
+/* User profile
+* User profile (PSD #23)
+* -------------------------- */
+
+.user-profile {
+
+    .user-profile__image           { padding:        0; }
+    .user-profile__content         { padding-bottom: 0; }
+    .user-profile__item:last-child { margin-bottom:  0; }
+}

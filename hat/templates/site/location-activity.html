@@ -1,0 +1,26 @@
+{% extends base_template %}
+{% load things %}
+
+{% block page_title_icon %}fa-globe{% endblock page_title_icon %}
+{% block page_title_text %}Locations{% endblock page_title_text %}
+
+{% block top_title_content %}
+    <h2 class="top-title__heading left"><i class="fa fa-globe"></i> {{ location }}</h2>
+    <ul class="button-group filter-group radius right">
+        <li><a href="{% url 'site:location' location.pk %}" class="button filter small">Overview</a></li>
+        <li><a href="{% url 'site:location_activity' location.pk %}" class="button filter small active">Activity</a></li>
+    </ul>
+{% endblock top_title_content %}
+
+{% block content %}
+    <div class="row">
+
+        <div class="medium-24 columns">
+
+            {% url 'site:location_activity' location.pk as base_url %}
+            {% data_stream location=location page=page base_url=base_url %}
+
+        </div>
+
+    </div>
+{% endblock content %}

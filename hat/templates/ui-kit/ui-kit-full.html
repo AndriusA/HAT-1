@@ -1,0 +1,1391 @@
+{% extends "base.html" %}
+
+{% block body_child %}
+    <div class="row-margin site-container">
+    <header class="top-heading" data-equalizer>
+        <div class="medium-4 columns top-heading__left top-heading__left--content" data-equalizer-watch>
+            &nbsp;
+        </div>
+        <div class="medium-16 columns top-heading__center" data-equalizer-watch>
+            <section>
+                <i class="fa fa-2x fa-download"></i>
+
+                <h1>Heading</h1>
+            </section>
+        </div>
+        <div class="medium-4 columns top-heading__right top-heading__right--content" data-equalizer-watch>
+            <a class="no-pjax" id="showMenu">
+                <span>
+                    <i class="fa fa-bars"></i>
+                    <span>Menu</span>
+                </span>
+            </a>
+        </div>
+    </header>
+    <!--------------------------------------------------------------- !-->
+    <header class="top-heading" data-equalizer>
+        <div class="medium-4 columns top-heading__left top-heading__left--content" data-equalizer-watch>
+            <a onclick="window.history.back();">
+                <span>
+                    <i class="fa fa-chevron-circle-left"></i>
+                    <span>Back</span>
+                </span>
+            </a>
+        </div>
+        <div class="medium-16 columns top-heading__center" data-equalizer-watch>
+            <section>
+                <i class="fa fa-2x fa-download"></i>
+
+                <h1>Heading</h1>
+            </section>
+        </div>
+        <div class="medium-4 columns top-heading__right top-heading__right--content" data-equalizer-watch>
+            <a class="no-pjax" id="showMenu">
+                <span>
+                    <i class="fa fa-bars"></i>
+                    <span>Menu</span>
+                </span>
+            </a>
+        </div>
+    </header>
+    <!--------------------------------------------------------------- !-->
+    <header class="top-title">
+        <div class="medium-24 columns">
+            <h2 class="left top-title__heading"><i class="fa fa-download"></i>
+                Top title</h2>
+        </div>
+    </header>
+    <!--------------------------------------------------------------- !-->
+    <header class="top-title">
+        <div class="medium-24 columns">
+            <h2 class="left top-title__heading"><i class="fa fa-download"></i>
+                Top title</h2>
+            <a class="button small filter right" href="#">Button</a>
+        </div>
+    </header>
+    <!--------------------------------------------------------------- !-->
+    <header class="top-title">
+        <div class="medium-24 columns">
+            <h2 class="left top-title__heading"><i class="fa fa-download"></i>
+                Top title</h2>
+            <ul class="button-group filter-group radius right">
+                <li><a href="#" class="button filter small">Button 1</a></li>
+                <li><a href="#" class="button filter active small">Button 2
+                    (Active)</a></li>
+                <li><a href="#" class="button filter small">Button 3</a></li>
+            </ul>
+        </div>
+    </header>
+    <!--------------------------------------------------------------- !-->
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box">
+                <header class="single-line">
+                    <div class="medium-24 columns">
+                        <h4>States</h4>
+                    </div>
+                </header>
+            </section>
+        </div>
+    </div>
+    <!--------------------------------------------------------------- !-->
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box">
+                <header class="single-line">
+                    <div class="medium-21 columns">
+                        <h4>States</h4>
+                    </div>
+                    <div class="medium-3 left title-options disabled">
+                        <a href="#open">
+                            <span>Options</span>
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </a>
+                    </div>
+                </header>
+            </section>
+        </div>
+    </div>
+    <!--------------------------------------------------------------- !-->
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box">
+                <header class="single-line">
+                    <div class="medium-21 columns">
+                        <h4>Between what time?</h4>
+                    </div>
+                    <div class="medium-3 left title-options disabled">
+                        <a href="#open">
+                            <span>Options</span>
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </a>
+                    </div>
+                </header>
+                <section>
+                    <fieldset>
+                        <div class="row">
+                            <div class="medium-24 columns">
+                                <label>Start time</label>
+                            </div>
+                            <div class="medium-4 columns">
+                                <label>
+                                    <select name="start_time_hour">
+                                        <option value="01">01</option>
+                                        <option value="02" selected="selected">
+                                            02
+                                        </option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="medium-4 columns">
+                                <select name="start_time_minute">
+                                    <option value="00">00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45" selected="selected">45
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="medium-4 columns">
+                                <select name="start_time_suffix">
+                                    <option value="AM">AM</option>
+                                    <option value="PM" selected="selected">PM
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="medium-4 columns">
+                                <label>
+                                    <select name="start_time_hour">
+                                        <option value="01">01</option>
+                                        <option value="02" selected="selected">
+                                            02
+                                        </option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="medium-4 columns">
+                                <select name="start_time_minute">
+                                    <option value="00">00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45" selected="selected">45
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="medium-4 columns">
+                                <select name="start_time_suffix">
+                                    <option value="AM">AM</option>
+                                    <option value="PM" selected="selected">PM
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="row">
+                            <div class="medium-24 columns">
+                                <label>End time</label>
+                            </div>
+                            <div class="medium-4 columns">
+                                <label>
+                                    <select name="end_time_hour">
+                                        <option value="01">01</option>
+                                        <option value="02" selected="selected">
+                                            02
+                                        </option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="medium-4 columns">
+                                <select name="end_time_minute">
+                                    <option value="00">00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45" selected="selected">45
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="medium-4 columns">
+                                <select name="end_time_suffix">
+                                    <option value="AM">AM</option>
+                                    <option value="PM" selected="selected">PM
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="medium-4 columns">
+                                <label>
+                                    <select name="start_time_hour">
+                                        <option value="01">01</option>
+                                        <option value="02" selected="selected">
+                                            02
+                                        </option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="medium-4 columns">
+                                <select name="start_time_minute">
+                                    <option value="00">00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45" selected="selected">45
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="medium-4 columns">
+                                <select name="start_time_suffix">
+                                    <option value="AM">AM</option>
+                                    <option value="PM" selected="selected">PM
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+                </section>
+            </section>
+        </div>
+    </div>
+    <!--------------------------------------------------------------- !-->
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box">
+                <header class="single-line">
+                    <div class="medium-21 columns">
+                        <h4>States</h4>
+                    </div>
+                    <div class="medium-3 left title-options disabled">
+                        <a href="#open">
+                            <span>Options</span>
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </a>
+                    </div>
+                </header>
+                <section>
+                    <section class="thing" data-equalizer>
+                        <div class="medium-3 text-center columns image" data-equalizer-watch>
+                            <img src="http://placehold.it/100x100" width="100" height="100" alt="">
+                        </div>
+                        <div class="medium-19 columns content" data-equalizer-watch>
+                            <h4>Fibaro</h4>
+
+                            <div class="row">
+                                <div class="medium-8 columns">
+                                    <p><strong>Brand:</strong></p>
+                                </div>
+                                <div class="medium-8 columns">
+                                    <p><strong>Last used:</strong> 24th October
+                                        2014 14:50:28</p>
+
+                                    <p><strong>IP address:</strong> 192.168.0.12
+                                    </p>
+                                </div>
+                                <div class="medium-8 columns">
+                                    <p><strong>Location:</strong>
+                                        <a href="/locations/detail/139/">Irene's
+                                            Bathroom</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="medium-2 columns text-right icon-vertical" data-equalizer-watch>
+                            <a href="/devices/6/detail/"><i class="fa fa-chevron-circle-right"></i></a>
+                        </div>
+                    </section>
+                    <section class="thing disabled" data-equalizer>
+                        <div class="medium-3 text-center columns image" data-equalizer-watch>
+                            <img src="http://placehold.it/100x100" width="100" height="100" alt="">
+                        </div>
+                        <div class="medium-19 columns content" data-equalizer-watch>
+                            <h4>Irene's Beautybox</h4>
+
+                            <div class="row">
+                                <div class="medium-8 columns">
+                                    <p><strong>Brand:</strong></p>
+                                </div>
+                                <div class="medium-8 columns">
+                                    <p><strong>Last used:</strong> 23rd October
+                                        2014 23:17:41</p>
+
+                                    <p><strong>IP address:</strong> 192.168.0.13
+                                    </p>
+                                </div>
+                                <div class="medium-8 columns">
+                                    <p><strong>Location:</strong> -</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="medium-2 columns text-right icon-vertical" data-equalizer-watch>
+                            <a href="/devices/7/detail/"><i class="fa fa-chevron-circle-right"></i></a>
+                        </div>
+                    </section>
+                    <section class="thing" data-equalizer>
+                        <div class="medium-3 text-center columns image" data-equalizer-watch>
+                            <img src="http://placehold.it/100x100" width="100" height="100" alt="">
+                        </div>
+                        <div class="medium-19 columns content" data-equalizer-watch>
+                            <h4>Irene's Toilet Roll Holder</h4>
+
+                            <div class="row">
+                                <div class="medium-8 columns">
+                                    <p><strong>Brand:</strong></p>
+                                </div>
+                                <div class="medium-8 columns">
+                                    <p><strong>Last used:</strong> 18th October
+                                        2014 20:00:20</p>
+
+                                    <p><strong>IP address:</strong> 192.168.0.10
+                                    </p>
+                                </div>
+                                <div class="medium-8 columns">
+                                    <p><strong>Location:</strong>
+                                        <a href="/locations/detail/139/">Irene's
+                                            Bathroom</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="medium-2 columns text-right icon-vertical" data-equalizer-watch>
+                            <a href="/devices/1/detail/"><i class="fa fa-chevron-circle-right"></i></a>
+                        </div>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </div>
+    <!--------------------------------------------------------------- !-->
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box">
+                <section class="single-line disabled">
+                    <div class="medium-3 columns">
+                        <h4>My data</h4>
+                    </div>
+                    <div class="medium-19 columns">
+                        <p>Connected with 201 data feeds</p>
+                    </div>
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </section>
+                <section class="single-line">
+                    <div class="medium-3 columns">
+                        <h4>My devices</h4>
+                    </div>
+                    <div class="medium-19 columns">
+                        <p>Connected to {{ device_count }}
+                            device{{ device_count|pluralize }}</p>
+                    </div>
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </section>
+                <section class="single-line">
+                    <div class="medium-3 columns">
+                        <h4>Other HATs</h4>
+                    </div>
+                    <div class="medium-19 columns">
+                        <p>Connected to 4 other HATs</p>
+                    </div>
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </section>
+                <section class="single-line disabled">
+                    <div class="medium-3 columns">
+                        <h4>3rd party data</h4>
+                    </div>
+                    <div class="medium-19 columns">
+                        <p>Connected to 105 data feeds</p>
+                    </div>
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </div>
+    <!--------------------------------------------------------------- !-->
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box">
+                <section class="single-line disabled">
+                    <div class="medium-22 columns">
+                        <p>25, Spencer close, Grovenham, uk</p>
+                    </div>
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </section>
+                <section class="single-line">
+                    <div class="medium-22 columns">
+                        <p>25, Spencer close, Grovenham, uk</p>
+                    </div>
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </section>
+                <section class="single-line">
+                    <div class="medium-22 columns">
+                        <p>25, Spencer close, Grovenham, uk</p>
+                    </div>
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </section>
+                <section class="single-line disabled">
+                    <div class="medium-22 columns">
+                        <p>25, Spencer close, Grovenham, uk</p>
+                    </div>
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </div>
+    <!--------------------------------------------------------------- !-->
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box">
+                <section class="single-line disabled">
+                    <div class="medium-1 columns text-center">
+                        <i class="fa fa-cog"></i>
+                    </div>
+                    <div class="medium-3 columns">
+                        <h4>My profile</h4>
+                    </div>
+                    <div class="medium-18 columns">
+                        <p>25, Spencer close, Grovenham, uk</p>
+                    </div>
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </section>
+                <section class="single-line">
+                    <div class="medium-1 columns text-center">
+                        <i class="fa fa-cog"></i>
+                    </div>
+                    <div class="medium-3 columns">
+                        <h4>My profile</h4>
+                    </div>
+                    <div class="medium-18 columns">
+                        <p>25, Spencer close, Grovenham, uk</p>
+                    </div>
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </section>
+                <section class="single-line">
+                    <div class="medium-1 columns text-center">
+                        <i class="fa fa-cog"></i>
+                    </div>
+                    <div class="medium-3 columns">
+                        <h4>My profile</h4>
+                    </div>
+                    <div class="medium-18 columns">
+                        <p>25, Spencer close, Grovenham, uk</p>
+                    </div>
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </section>
+                <section class="single-line disabled">
+                    <div class="medium-1 columns text-center">
+                        <i class="fa fa-cog"></i>
+                    </div>
+                    <div class="medium-3 columns">
+                        <h4>My profile</h4>
+                    </div>
+                    <div class="medium-18 columns">
+                        <p>25, Spencer close, Grovenham, uk</p>
+                    </div>
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </div>
+    <!--------------------------------------------------------------- !-->
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box">
+                <section class="single-line disabled">
+                    <div class="medium-1 columns text-center">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <div class="medium-5 columns">
+                        <h4>GRIM</h4>
+                    </div>
+                    <div class="medium-4 columns">
+                        <dl>
+                            <dt>Time:</dt>
+                            <dd><a href="#">06:00 - 08:00</a></dd>
+                        </dl>
+                    </div>
+                    <div class="medium-6 columns">
+                        <dl>
+                            <dt>Date:</dt>
+                            <dd><a href="#">21/10/2014 - 21/10/2014</a></dd>
+                        </dl>
+                    </div>
+                    <div class="medium-6 columns">
+                        <dl>
+                            <dt>Type:</dt>
+                            <dd><a href="#">User created event</a></dd>
+                        </dl>
+                    </div>
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </section>
+                <section class="single-line">
+                    <div class="medium-1 columns text-center">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <div class="medium-5 columns">
+                        <h4>GRIM</h4>
+                    </div>
+                    <div class="medium-4 columns">
+                        <dl>
+                            <dt>Time:</dt>
+                            <dd><a href="#">06:00 - 08:00</a></dd>
+                        </dl>
+                    </div>
+                    <div class="medium-6 columns">
+                        <dl>
+                            <dt>Date:</dt>
+                            <dd><a href="#">21/10/2014 - 21/10/2014</a></dd>
+                        </dl>
+                    </div>
+                    <div class="medium-6 columns">
+                        <dl>
+                            <dt>Type:</dt>
+                            <dd><a href="#">User created event</a></dd>
+                        </dl>
+                    </div>
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </section>
+                <section class="single-line">
+                    <div class="medium-1 columns text-center">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <div class="medium-5 columns">
+                        <h4>GRIM</h4>
+                    </div>
+                    <div class="medium-4 columns">
+                        <dl>
+                            <dt>Time:</dt>
+                            <dd><a href="#">06:00 - 08:00</a></dd>
+                        </dl>
+                    </div>
+                    <div class="medium-6 columns">
+                        <dl>
+                            <dt>Date:</dt>
+                            <dd><a href="#">21/10/2014 - 21/10/2014</a></dd>
+                        </dl>
+                    </div>
+                    <div class="medium-6 columns">
+                        <dl>
+                            <dt>Type:</dt>
+                            <dd><a href="#">User created event</a></dd>
+                        </dl>
+                    </div>
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </section>
+                <section class="single-line disabled">
+                    <div class="medium-1 columns text-center">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <div class="medium-5 columns">
+                        <h4>GRIM</h4>
+                    </div>
+                    <div class="medium-4 columns">
+                        <dl>
+                            <dt>Time:</dt>
+                            <dd><a href="#">06:00 - 08:00</a></dd>
+                        </dl>
+                    </div>
+                    <div class="medium-6 columns">
+                        <dl>
+                            <dt>Date:</dt>
+                            <dd><a href="#">21/10/2014 - 21/10/2014</a></dd>
+                        </dl>
+                    </div>
+                    <div class="medium-6 columns">
+                        <dl>
+                            <dt>Type:</dt>
+                            <dd><a href="#">User created event</a></dd>
+                        </dl>
+                    </div>
+                    <div class="medium-2 columns text-right">
+                        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </div>
+    <!--------------------------------------------------------------- !-->
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box">
+                <header class="single-line">
+                    <div class="medium-21 columns">
+                        <h4>Sub heading</h4>
+                    </div>
+                    <div class="medium-3 left title-options disabled">
+                        <a href="#open">
+                            <span>Options</span>
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </a>
+                    </div>
+                </header>
+                <section>
+                    <div class="medium-24 columns">
+                        <div class="row row__no-padding-column">
+                            <div class="medium-6 columns">
+                                <ul class="no-bullet list--side">
+                                    <li class="active">
+                                        <a href="#">Recommended</a></li>
+                                    <li><a href="#" class="disabled">Newest</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="disabled">Trending</a>
+                                    </li>
+                                    <li><a href="#" class="disabled">Top
+                                        selling</a></li>
+                                    <li><a href="#" class="disabled">Top
+                                        free</a></li>
+                                    <li class="disabled"><a href="#">Updates</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="medium-18 columns">
+                                <ul class="no-bullet list--block col2 bdl">
+                                    <li class="item" data-equalizer>
+                                        <a href="#">
+                                            <div class="small-6 columns text-center" data-equalizer-watch>
+                                                <img src="http://placehold.it/60x60" width="60" height="60" alt="">
+                                            </div>
+                                            <div class="small-14 columns" data-equalizer-watch>
+                                                <h4 class="title">Tesco
+                                                    Replenishment</h4>
+                                                <h6 class="sub-title">Tesco</h6>
+
+                                                <p>Free</p>
+                                            </div>
+                                            <div class="small-4 columns text-center icon-vertical" data-equalizer-watch>
+                                                <i class="fa fa-chevron-circle-right"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="item disabled" data-equalizer>
+                                        <a href="#">
+                                            <div class="small-6 columns text-center" data-equalizer-watch>
+                                                <img src="http://placehold.it/60x60" width="60" height="60" alt="">
+                                            </div>
+                                            <div class="small-14 columns" data-equalizer-watch>
+                                                <h4 class="title">Vroom</h4>
+                                                <h6 class="sub-title">VRM</h6>
+
+                                                <p>Free</p>
+                                            </div>
+                                            <div class="small-4 columns text-center icon-vertical" data-equalizer-watch>
+                                                <i class="fa fa-chevron-circle-right"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="item disabled" data-equalizer>
+                                        <a href="#">
+                                            <div class="small-6 columns text-center" data-equalizer-watch>
+                                                <img src="http://placehold.it/60x60" width="60" height="60" alt="">
+                                            </div>
+                                            <div class="small-14 columns" data-equalizer-watch>
+                                                <h4 class="title">MyState</h4>
+                                                <h6 class="sub-title">
+                                                    MyState</h6>
+
+                                                <p>Free</p>
+                                            </div>
+                                            <div class="small-4 columns text-center icon-vertical" data-equalizer-watch>
+                                                <i class="fa fa-chevron-circle-right"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="item disabled" data-equalizer>
+                                        <a href="#">
+                                            <div class="small-6 columns text-center" data-equalizer-watch>
+                                                <img src="http://placehold.it/60x60" width="60" height="60" alt="">
+                                            </div>
+                                            <div class="small-14 columns" data-equalizer-watch>
+                                                <h4 class="title">Diet
+                                                    analyser</h4>
+                                                <h6 class="sub-title">
+                                                    Fitbit</h6>
+
+                                                <p>Free</p>
+                                            </div>
+                                            <div class="small-4 columns text-center icon-vertical" data-equalizer-watch>
+                                                <i class="fa fa-chevron-circle-right"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="item disabled" data-equalizer>
+                                        <a href="#">
+                                            <div class="small-6 columns text-center" data-equalizer-watch>
+                                                <img src="http://placehold.it/60x60" width="60" height="60" alt="">
+                                            </div>
+                                            <div class="small-14 columns" data-equalizer-watch>
+                                                <h4 class="title">
+                                                    Shareables</h4>
+                                                <h6 class="sub-title">
+                                                    Shareables</h6>
+
+                                                <p>Free</p>
+                                            </div>
+                                            <div class="small-4 columns text-center icon-vertical" data-equalizer-watch>
+                                                <i class="fa fa-chevron-circle-right"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="item disabled" data-equalizer>
+                                        <a href="#">
+                                            <div class="small-6 columns text-center" data-equalizer-watch>
+                                                <img src="http://placehold.it/60x60" width="60" height="60" alt="">
+                                            </div>
+                                            <div class="small-14 columns" data-equalizer-watch>
+                                                <h4 class="title">Montior</h4>
+                                                <h6 class="sub-title">
+                                                    Monitor</h6>
+
+                                                <p>Free</p>
+                                            </div>
+                                            <div class="small-4 columns text-center icon-vertical" data-equalizer-watch>
+                                                <i class="fa fa-chevron-circle-right"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </div>
+    <!--------------------------------------------------------------- !-->
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box">
+                <img src="http://placehold.it/125x125" width="125" height="125" class="left">
+
+                <div class="row">
+                    <div class="medium-8 columns ptb-global">
+                        <ul class="no-bullet">
+                            <li class="user-profile__item">
+                                <strong>Date of birth:</strong> TBC
+                            </li>
+                            <li class="user-profile__item">
+                                <strong>Email address:</strong> <a href="#">irene@ng.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="medium-8 columns end ptb-global">
+                        <ul class="no-bullet">
+                            <li class="user-profile__item">
+                                <strong>Gender:</strong> TBC
+                            </li>
+                            <li class="user-profile__item">
+                                <strong>Irene's last activity:</strong> At
+                                09:14.53 <a href="#">Today</a> in <a href="#">Bathroom
+                                1</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!--------------------------------------------------------------- !-->
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box list--arrows">
+                <ul class="container">
+                    <li class="item"><a href="#">Select time frame</a></li>
+                    <li class="item disabled"><a href="#">Select parameters</a>
+                    </li>
+                    <li class="item disabled"><a href="#3">Data permissions</a>
+                    </li>
+                    <li class="item disabled"><a href="#4">Create event</a></li>
+                    <li class="item disabled"><a href="#3">Data permissions</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="border-box list--arrows">
+                <ul class="container">
+                    <li class="item"><a href="#">Select time frame</a></li>
+                    <li class="item"><a href="#">Select parameters</a></li>
+                    <li class="item disabled"><a href="#3">Data permissions</a>
+                    </li>
+                    <li class="item disabled"><a href="#4">Create event</a></li>
+                    <li class="item disabled"><a href="#3">Data permissions</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="border-box list--arrows">
+                <ul class="container">
+                    <li class="item"><a href="#">Select time frame</a></li>
+                    <li class="item"><a href="#">Select parameters</a></li>
+                    <li class="item"><a href="#3">Data permissions</a></li>
+                    <li class="item disabled"><a href="#4">Create event</a></li>
+                    <li class="item disabled"><a href="#3">Data permissions</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="border-box list--arrows">
+                <ul class="container">
+                    <li class="item"><a href="#">Select time frame</a></li>
+                    <li class="item"><a href="#">Select parameters</a></li>
+                    <li class="item"><a href="#3">Data permissions</a></li>
+                    <li class="item"><a href="#4">Create event</a></li>
+                    <li class="item disabled"><a href="#3">Data permissions</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <!--------------------------------------------------------------- !-->
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box">
+
+                <header class="single-line">
+                    <div class="medium-24 columns">
+                        <h4>Select locations from below</h4>
+                    </div>
+                </header>
+
+                <section>
+
+                    <ul class="list--inline-block locations">
+
+                        {% for location in locations %}
+                            <li class="item" data-location-id="{{ location.pk }}">
+                                <a href="#">
+                                    <span>
+                                        <p>{{ location }}</p>
+                                        <i class="fa fa-plus-circle"></i>
+                                        <i class="fa fa-check-circle"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+
+                </section>
+
+                <input type="hidden" name="locations" value="">
+
+            </section>
+        </div>
+    </div>
+    <!--------------------------------------------------------------- !-->
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box">
+                <header class="single-line">
+                    <div class="medium-24 columns">
+                        <h4>Select locations from below</h4>
+                    </div>
+                </header>
+                <section>
+                    <ul class="list--inline-block locations">
+                        <li class="item" data-location-id="#">
+                            <a href="#">
+                                <span>
+                                    <p>Location</p>
+                                    <i class="fa fa-plus-circle"></i>
+                                    <i class="fa fa-check-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="item" data-location-id="#">
+                            <a href="#">
+                                <span>
+                                    <p>Location</p>
+                                    <i class="fa fa-plus-circle"></i>
+                                    <i class="fa fa-check-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="item" data-location-id="#">
+                            <a href="#">
+                                <span>
+                                    <p>Location</p>
+                                    <i class="fa fa-plus-circle"></i>
+                                    <i class="fa fa-check-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="item" data-location-id="#">
+                            <a href="#">
+                                <span>
+                                    <p>Location</p>
+                                    <i class="fa fa-plus-circle"></i>
+                                    <i class="fa fa-check-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="item" data-location-id="#">
+                            <a href="#">
+                                <span>
+                                    <p>Location</p>
+                                    <i class="fa fa-plus-circle"></i>
+                                    <i class="fa fa-check-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="item" data-location-id="#">
+                            <a href="#">
+                                <span>
+                                    <p>Location</p>
+                                    <i class="fa fa-plus-circle"></i>
+                                    <i class="fa fa-check-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="item" data-location-id="#">
+                            <a href="#">
+                                <span>
+                                    <p>Location</p>
+                                    <i class="fa fa-plus-circle"></i>
+                                    <i class="fa fa-check-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="item" data-location-id="#">
+                            <a href="#">
+                                <span>
+                                    <p>Location</p>
+                                    <i class="fa fa-plus-circle"></i>
+                                    <i class="fa fa-check-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="item" data-location-id="#">
+                            <a href="#">
+                                <span>
+                                    <p>Location</p>
+                                    <i class="fa fa-plus-circle"></i>
+                                    <i class="fa fa-check-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="item" data-location-id="#">
+                            <a href="#">
+                                <span>
+                                    <p>Location</p>
+                                    <i class="fa fa-plus-circle"></i>
+                                    <i class="fa fa-check-circle"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                <input type="hidden" name="locations" value="">
+            </section>
+        </div>
+    </div>
+
+    <!--------------------------------------------------------------- !-->
+    <div class="row">
+        <div class="medium-12 columns row-margin">
+            <section class="border-box">
+                <header class="single-line">
+                    <div class="medium-18 columns">
+                        <h4>States</h4>
+                    </div>
+                    <div class="medium-6 left title-options">
+                        <a href="#open">
+                            <span>Options</span>
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </a>
+                    </div>
+                </header>
+            </section>
+            <section class="border-box">
+                <header class="single-line">
+                    <div class="medium-18 columns">
+                        <h4>Between what time?</h4>
+                    </div>
+                    <div class="medium-6 left title-options">
+                        <a href="#open">
+                            <span>Options</span>
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </a>
+                    </div>
+                </header>
+                <section>
+                    <fieldset>
+                        <div class="row">
+                            <div class="medium-24 columns">
+                                <label>Start time</label>
+                            </div>
+                            <div class="medium-8 columns">
+                                <label>
+                                    <select name="start_time_hour">
+                                        <option value="01">01</option>
+                                        <option value="02" selected="selected">
+                                            02
+                                        </option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="medium-8 columns">
+                                <select name="start_time_minute">
+                                    <option value="00">00</option>
+                                    <option value="15">15</option>
+                                    <option value="30">30</option>
+                                    <option value="45" selected="selected">45
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="medium-8 columns">
+                                <select name="start_time_suffix">
+                                    <option value="AM">AM</option>
+                                    <option value="PM" selected="selected">PM
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+                </section>
+            </section>
+            <div class="row">
+                <div class="medium-24 columns">
+                    <section class="border-box">
+                        <section class="single-line disabled">
+                            <div class="medium-2 icon--no-padding columns text-right">
+                                <i class="fa fa-cog"></i>
+                            </div>
+                            <div class="medium-18 columns">
+                                <p>25, Spencer close, Grovenham, uk</p>
+                            </div>
+                            <div class="medium-4 columns text-right">
+                                <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+                        </section>
+                        <section class="single-line">
+                            <div class="medium-2 icon--no-padding columns text-right">
+                                <i class="fa fa-cog"></i>
+                            </div>
+                            <div class="medium-18 columns">
+                                <p>25, Spencer close, Grovenham, uk</p>
+                            </div>
+                            <div class="medium-4 columns text-right">
+                                <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+                        </section>
+                        <section class="single-line">
+                            <div class="medium-2 icon--no-padding columns text-right">
+                                <i class="fa fa-cog"></i>
+                            </div>
+                            <div class="medium-18 columns">
+                                <p>25, Spencer close, Grovenham, uk</p>
+                            </div>
+                            <div class="medium-4 columns text-right">
+                                <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+                        </section>
+                        <section class="single-line disabled">
+                            <div class="medium-2 icon--no-padding columns text-right">
+                                <i class="fa fa-cog"></i>
+                            </div>
+                            <div class="medium-18 columns">
+                                <p>25, Spencer close, Grovenham, uk</p>
+                            </div>
+                            <div class="medium-4 columns text-right">
+                                <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+            </div>
+
+            <ul class="medium-block-grid-3 media-block-grid">
+                <li>
+                    <div class="border-box media-item disabled">
+                        <a href="#">
+                            <img src="http://placehold.it/351x351" width="351" height="351" alt="">
+                            <p class="icon-vertical">Vroom <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="border-box media-item">
+                        <a href="#">
+                            <img src="http://placehold.it/351x351" width="351" height="351" alt="">
+                            <p class="icon-vertical">Monitor <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="border-box media-item">
+                        <a href="#">
+                            <img src="http://placehold.it/351x351" width="351" height="351" alt="">
+                            <p class="icon-vertical">MyState <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="border-box media-item disabled">
+                        <a href="#">
+                            <img src="http://placehold.it/351x351" width="351" height="351" alt="">
+                            <p class="icon-vertical">Shareables <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="border-box media-item">
+                        <a href="#">
+                            <img src="http://placehold.it/351x351" width="351" height="351" alt="">
+                            <p class="icon-vertical">OnTime <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="border-box media-item disabled">
+                        <a href="#">
+                            <img src="http://placehold.it/351x351" width="351" height="351" alt="">
+                            <p class="icon-vertical">Pin a widget <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="medium-block-grid-2 media-block-grid">
+                <li>
+                    <div class="border-box media-item">
+                        <a href="#">
+                            <img src="http://placehold.it/351x351" alt="">
+                            <p class="icon-vertical">OnTime <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="border-box media-item disabled">
+                        <a href="#">
+                            <img src="http://placehold.it/351x351" alt="">
+                            <p class="icon-vertical">Pin a widget <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <section>
+                <div>
+                    <a class="button secondary medium-12" href="#">
+                        <span class="text">Events</span>
+                    </a>
+                    <a class="button secondary icon icon-left medium-12" href="#">
+                        <span class="text">
+                            <i class="fa fa-calendar"></i> Events
+                        </span>
+                    </a>
+                    <a class="button secondary icon icon-left medium-12 disabled" href="#">
+                        <span class="text">
+                            <i class="fa fa-calendar"></i> Events
+                        </span>
+                    </a>
+                </div>
+                <ul class="button-group">
+                    <li>
+                        <a class="button secondary icon icon-left" href="#">
+                            <span class="icon"><i class="fa fa-calendar"></i></span>
+                            <span class="text">Button w/ icon</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="button secondary icon icon-left" href="#">
+                            <span class="icon"><i class="fa fa-cog"></i></span>
+                            <span class="text">Button w/ icon</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="button secondary icon icon-left" href="#">
+                            <span class="icon"><i class="fa fa-share-square-o"></i></span>
+                            <span class="text">Button w/ icon</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <div class="medium-12 columns row-margin">
+            <div class="row">
+                <div class="medium-24 columns">
+                    <section class="border-box">
+                        <section class="single-line disabled">
+                            <div class="medium-20 columns">
+                                <p>25, Spencer close, Grovenham, uk</p>
+                            </div>
+                            <div class="medium-4 columns text-right">
+                                <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+                        </section>
+                        <section class="single-line">
+                            <div class="medium-20 columns">
+                                <p>25, Spencer close, Grovenham, uk</p>
+                            </div>
+                            <div class="medium-4 columns text-right">
+                                <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+                        </section>
+                        <section class="single-line">
+                            <div class="medium-20 columns">
+                                <p>25, Spencer close, Grovenham, uk</p>
+                            </div>
+                            <div class="medium-4 columns text-right">
+                                <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+                        </section>
+                        <section class="single-line disabled">
+                            <div class="medium-20 columns">
+                                <p>25, Spencer close, Grovenham, uk</p>
+                            </div>
+                            <div class="medium-4 columns text-right">
+                                <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+            </div>
+            <section class="border-box p-global">
+                <p>Stuck for ideas? Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </section>
+            <section class="border-box">
+                <fieldset>
+                    <div class="row">
+                        <div class="medium-24 columns">
+                            <h4>Form subheading</h4>
+                        </div>
+                        <div class="medium-12 columns">
+                            <label>First Name</label>
+                            <input type="text" placeholder="First Name">
+                        </div>
+                        <div class="medium-12 columns">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="medium-24 columns">
+                            <label>Date of birth</label>
+                        </div>
+                        <div class="medium-8 columns">
+                            <label>
+                                <select>
+                                    <option value="husker">Husker</option>
+                                    <option value="starbuck">Starbuck</option>
+                                    <option value="hotdog">Hot Dog</option>
+                                    <option value="apollo">Apollo</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="medium-8 columns">
+                            <select>
+                                <option value="husker">Husker</option>
+                                <option value="starbuck">Starbuck</option>
+                                <option value="hotdog">Hot Dog</option>
+                                <option value="apollo">Apollo</option>
+                            </select>
+                        </div>
+                        <div class="medium-8 columns">
+                            <select>
+                                <option value="husker">Husker</option>
+                                <option value="starbuck">Starbuck</option>
+                                <option value="hotdog">Hot Dog</option>
+                                <option value="apollo">Apollo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="medium-24 columns">
+                            <label>Radio button</label>
+                        </div>
+                        <div class="medium-12 columns">
+                            <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Unselected</label>
+                        </div>
+                        <div class="medium-12 columns">
+                            <input type="radio" name="pokemon" value="Blue" id="pokemonBlue" checked><label for="pokemonBlue">Selected</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="medium-24 columns">
+                            <label>Check these out</label>
+                            <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
+                            <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="medium-24 columns">
+                            <label>Text message</label>
+                            <textarea></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+            </section>
+        </div>
+    </div>
+    <!--------------------------------------------------------------- !-->
+</div>
+{% endblock body_child %}

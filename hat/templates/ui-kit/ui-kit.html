@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block primary_content %}
+    <div class="row">
+        <div class="medium-4 columns">
+            <nav class="fixed-side">
+                <ul class="side-nav">
+                    <li class="heading">Headings</li>
+                    <li><a href="#header1">Header 1</a></li>
+                    <li><a href="#header2">Header 2</a></li>
+                    <li class="divider"></li>
+                    <li><a href="sub-title1">Sub title 1</a></li>
+                    <li><a href="sub-title2">Sub title 2</a></li>
+                    <li><a href="sub-title3">Sub title 3</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="medium-20 ui-kit columns">
+            {# Header 1 (PSD #1) & Header 2 (PSD #2) #}
+            {% include "ui-kit/headings.html" %}
+            {# Sub title blank (PSD #3), Sub title button (PSD #4) & Sub title buttons (PSD #5) #}
+            {% include "ui-kit/sub-titles.html" %}
+            {# Sub heading button (PSD #6), Sub heading option closed (PSD #7) & Sub heading closed (PSD #8) #}
+            {% include "ui-kit/sub-headings.html" %}
+            {# Thing (PSD #9), Inactive thing (PSD #10) & Active thing (PSD #11) #}
+            {% include "ui-kit/things.html" %}
+            {# Inactive data list (PSD #12), Active data list (PSD #13) #}
+            {% include "ui-kit/data-lists.html" %}
+            {# Inactive location (PSD #14), Active location (PSD #15) #}
+            {% include "ui-kit/locations.html" %}
+            {# Inactive location (PSD #16), Active location (PSD #17) #}
+            {% include "ui-kit/settings-list.html" %}
+            {# Widgets (PSD #18) #}
+            {% include "ui-kit/widgets.html" %}
+            {# Event list inactive (PSD #19), Event list active (PSD #20) #}
+            {% include "ui-kit/events-list.html" %}
+            {# Activity list inactive (PSD #21), Activity list active (PSD #22) #}
+            {% include "ui-kit/activities-list.html" %}
+            {# User profile (PSD #23) #}
+            {% include "ui-kit/user-profile.html" %}
+            {# Stage 1 (PSD #24), Stage 2 (PSD #25), Stage 3 (PSD #26), Stage 4 (PSD #27) #}
+            {% include "ui-kit/stages.html" %}
+            {# Grid Select (PSD #28) #}
+            {% include "ui-kit/grid-select.html" %}
+            {# Monitor app (PSD #29) #}
+            {% include "ui-kit/monitor-app.html" %}
+            {# Half option closed (PSD #30), Half option open (PSD #31) #}
+            {% include "ui-kit/half-options.html" %}
+            {# Half state inactive (PSD #33), Half state active (PSD #34) #}
+            {% include "ui-kit/half-states.html" %}
+            {# Half action inactive (PSD #35), Half action active (PSD #36), Third party action active (PSD #37) & Third party action active (PSD #38) #}
+            {% include "ui-kit/half-actions.html" %}
+            {# Subtitle half (PSD #39) & Description (PSD #40) #}
+            {% include "ui-kit/half-content-boxes.html" %}
+            {# Subtitle half (PSD #41) #}
+            {% include "ui-kit/half-widget.html" %}
+            {# Form (PSD #42) #}
+            {% include "ui-kit/half-form.html" %}
+            {# Shortcut buttons (PSD #43) #}
+            {% include "ui-kit/half-shortcut-buttons.html" %}
+            {# Image gallery (PSD #44) #}
+            {% include "ui-kit/half-image-gallery.html" %}
+            {# Widget welcome icons (PSD #45) #}
+            {% include "ui-kit/half-widget-icons.html" %}
+            {# Buttons (PSD 46-49) #}
+            {% include "ui-kit/buttons.html" %}
+        </div>
+    </div>
+{% endblock primary_content %}

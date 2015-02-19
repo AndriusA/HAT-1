@@ -1,0 +1,17 @@
+/* Thing
+* Thing (PSD #9), Inactive thing (PSD #10) & Active thing (PSD #11)
+* -------------------------- */
+
+.thing {
+    @extend .clearfix;
+
+    & > div { @extend %padding-top-bot; }
+
+    p { font-size: rem-calc(14); }
+
+    .image + .content {
+        border-left: $border-styling;
+    }
+    .title { margin: rem-calc(0 0 10); }
+}
+.thing + .thing { border-top: $border-styling; }

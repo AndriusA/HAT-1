@@ -1,0 +1,148 @@
+// Buttons
+.button {
+    @include border-radius($global-radius);
+    padding: rem-calc(20 20 20);
+    line-height: $column-gutter/2;
+    position: relative;
+    white-space: nowrap;
+}
+.button.primary {
+    background: $primary-color;
+    border: 1px solid $primary-color;
+
+    i {
+        color: #fff;
+    }
+}
+.button.secondary {
+    background: #fff;
+    border: $border-styling;
+    color: $primary-color;
+
+    &:not(.disabled) i {
+        color: $secondary-color;
+    }
+    &.icon i {
+        vertical-align: middle;
+    }
+
+    i {
+        font-size: 1rem;
+    }
+}
+.button.disabled {
+     background: #fff !important;
+     border: $border-styling;
+     color: #cacaca !important;
+     pointer-events: none;
+
+     &:hover {
+         background: #fff;
+         color: #cacaca;
+     }
+ }
+.button.filter {
+    background: $primary-color;
+    border: 1px solid $primary-color;
+}
+.button.icon {
+    border-collapse: collapse;
+    display: table;
+    height: rem-calc(60);
+
+    &:not(.secondary) i {
+        color: #fff;
+    }
+
+    i { line-height: 1; }
+
+    .text {
+        display: table-cell;
+        padding: rem-calc(0 20 0 55);
+        text-align: center;
+        vertical-align: middle;
+        white-space: initial;
+    }
+}
+.button.icon-right i,
+.button.icon-left i {
+    position: absolute;
+    top: 50%;
+        margin-top: rem-calc(-7);
+}
+.button.icon-right i { right: $column-gutter/2; }
+.button.icon-left  i { left:  $column-gutter/2; }
+.button.full {
+    display: block;
+}
+.button.small {
+    font-size: rem-calc(14);
+}
+
+// Button Group
+.button-group { // Needed for single left border in button groups
+    list-style: none;
+    margin: 0;
+    li {
+        display: inline-block;
+        .button {
+            @include border-radius(0);
+
+            border: $border-styling;
+            border-left: 0;
+        }
+
+        &:not(:first-of-type) {
+            margin-left: -4px;
+        }
+        &:first-child .button {
+            @include border-radius($global-radius 0 0 $global-radius);
+
+            border-left: $border-styling;
+        }
+        &:last-child .button {
+            @include border-radius(0 $global-radius $global-radius 0);
+        }
+    }
+}
+.single-line .button-group {
+     .button {
+         padding-top: 0;
+         padding-bottom: 0;
+         border-width: 0 1px;
+     }
+    :first-of-type .button,
+    :last-of-type .button {
+        @include border-radius(0);
+    }
+    :first-of-type .button {
+        border-left: none;
+    }
+    :last-of-type .button {
+        border-right: none;
+    }
+}
+.button-group.equal-children {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    li {
+        display: block;
+        flex-grow: 1;
+        margin-left: 0;
+    }
+    .button {
+        display: block;
+        padding: 0;
+
+        .text { display: block; }
+    }
+}
+.filter-group {
+    .filter:not(.active) {
+        background: #fff;
+
+        color: $primary-color;
+    }
+}

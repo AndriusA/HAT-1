@@ -1,0 +1,24 @@
+{% extends base_template %}
+{% load things %}
+
+{% block page_title_text %}Data{% endblock page_title_text %}
+
+{% block top_title_content %}
+    <h2 class="top-title__heading left"><i class="fa fa-download"></i> {{ device.name }}</h2>
+    <ul class="button-group filter-group radius right">
+        <li><a href="{% url 'site:device' device.pk %}" class="button filter small">About</a></li>
+        <li><a href="{% url 'site:activity' device.pk %}" class="button filter small active">Activity</a></li>
+        <li><a href="#" class="button filter small disabled">Contents</a></li>
+    </ul>
+{% endblock top_title_content %}
+
+{% block content %}
+    <div class="row">
+        <div class="medium-24 columns">
+
+            {% url 'site:activity' device.pk as base_url %}
+            {% data_stream device=device page=page base_url=base_url %}
+
+        </div>
+    </div>
+{% endblock content %}

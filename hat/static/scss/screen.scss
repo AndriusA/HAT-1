@@ -1,0 +1,118 @@
+// Make sure the charset is set appropriately
+@charset "UTF-8";
+
+//  Core Foundation imports
+@import "foundation/normalize";
+@import "compass";
+
+// Local imports
+@import "foundation/settings";
+@import "font-awesome/font-awesome";
+
+// Behold, here are all the Foundation components.
+@import
+    "foundation/foundation/components/grid",
+    // "foundation/foundation/components/accordion",
+    // "foundation/foundation/components/alert-boxes",
+    "foundation/foundation/components/block-grid",
+    // "foundation/foundation/components/breadcrumbs",
+    // "foundation/foundation/components/button-groups",
+    "foundation/foundation/components/buttons",
+    // "foundation/foundation/components/clearing",
+    // "foundation/foundation/components/dropdown",
+    // "foundation/foundation/components/dropdown-buttons",
+    // "foundation/foundation/components/flex-video",
+    "foundation/foundation/components/forms",
+    // "foundation/foundation/components/inline-lists",
+    // "foundation/foundation/components/joyride",
+    // "foundation/foundation/components/keystrokes",
+    // "foundation/foundation/components/labels",
+    // "foundation/foundation/components/magellan",
+    // "foundation/foundation/components/orbit",
+    "foundation/foundation/components/pagination",
+    // "foundation/foundation/components/panels",
+    // "foundation/foundation/components/pricing-tables",
+    // "foundation/foundation/components/progress-bars",
+    // "foundation/foundation/components/range-slider",
+    // "foundation/foundation/components/reveal",
+    // "foundation/foundation/components/side-nav",
+    // "foundation/foundation/components/split-buttons",
+    // "foundation/foundation/components/sub-nav",
+    // "foundation/foundation/components/switches",
+    "foundation/foundation/components/tables",
+    // "foundation/foundation/components/tabs",
+    // "foundation/foundation/components/thumbs",
+    // "foundation/foundation/components/tooltips",
+    // "foundation/foundation/components/top-bar",
+    "foundation/foundation/components/type",
+    // "foundation/foundation/components/offcanvas",
+    "foundation/foundation/components/visibility";
+
+// Utilities
+@import "utilities";
+
+// Foundation overrides
+@import "foundation_overrides";
+
+// UI-Kit
+@import "ui-kit";
+
+// Components
+@import
+    "components/blocks",
+    "components/buttons",
+    "components/forms",
+    "components/lists",
+    "components/headings",
+    "components/media",
+    "components/nav-perspective",
+    "components/structure",
+    "components/tables",
+    "components/thing",
+    "components/type",
+    "components/top-bar",
+    "components/nprogress";
+
+// Set up default margin-bottom's to match James Dellar / George Hadfield's way of getting margin-bottom
+@mixin heading-margin-bottom() {
+    // $font-sizes: ($h1-font-size, $h2-font-size, $h3-font-size, $h4-font-size, $h5-font-size, $h6-font-size);
+    $font-sizes: (
+            1: $h1-font-size,
+            2: $h2-font-size,
+            3: $h3-font-size,
+            4: $h4-font-size,
+            5: $h5-font-size,
+            6: $h6-font-size,
+    );
+    @for $i from 1 through 6 {
+        h#{$i} {
+            margin-bottom: map-get($font-sizes, $i) * $header-line-height / 2;;
+        }
+    }
+}
+
+@include heading-margin-bottom;
+
+html, body {
+    height: 100%; width: 100%; // Needed for nav-perspective
+}
+
+.row      { min-width: rem-calc(1024); }
+.row .row { min-width: 0;              }
+
+.disabled {
+    color: rgb(211, 211, 211);
+
+    &:hover {
+        color: rgb(211, 211, 211);
+        cursor: default;
+    }
+}
+
+.pagination-digits {
+
+    span, a {
+        padding: 0 5px 0 5px;
+    }
+
+}

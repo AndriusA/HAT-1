@@ -1,0 +1,85 @@
+{% extends base_template %}
+{% load assets %}
+
+{% block page_title_text %}Data{% endblock page_title_text %}
+
+{% block top_title_content %}
+    <h2 class="top-title__heading left"><i class="fa fa-download"></i> Devices</h2>
+    <a class="button small right disabled" href="#">Get device</a>
+{% endblock top_title_content %}
+
+{% block content %}
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box">
+
+                <header class="single-line">
+                    <div class="medium-21 columns">
+                        <h4>States</h4>
+                    </div>
+                    <div class="medium-3 left title-options disabled">
+                        <a href="#open">
+                            <span>Options</span>
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </a>
+                    </div>
+                </header>
+
+                <section>
+
+                    {% for device in devices %}
+
+
+
+                        <section class="thing" data-equalizer="">
+
+                            <div class="medium-3 text-center columns image" data-equalizer-watch>
+
+                                {% if device.pk == 6 %}
+                                    {% img "img/fibaro.png" width="100" %}
+                                {% elif device.pk == 3 %}
+                                    {% img "img/fb_icon.png" width="100" %}
+                                    {% elif device.pk == 5 %}
+                                    {% img "img/Outlook_Calendar_logo.png" width="100" %}
+                                    {% elif device.pk == 4 %}
+                                    {% img "img/gcal_icon.png" width="100" %}
+                                    {% else %}
+                                    {% img "img/icon-pinwidget.png" width="100" %}
+                                {% endif %}
+                            </div>
+
+                            <div class="medium-19 columns content" data-equalizer-watch>
+                                <h4>{{ device.name }}</h4>
+                                <div class="row">
+
+                                    <div class="medium-8 columns">
+                                        <p><strong>Brand:</strong> {{ device.brand }}</p>
+                                    </div>
+
+                                    <div class="medium-8 columns">
+                                        <p><strong>Last used:</strong> {% if device.last_used %}{{ device.last_used|date:"dS F Y H:i:s" }}{% else %}-{% endif %}</p>
+                                        <p><strong>IP address:</strong> {{ device.ip_address }}</p>
+                                    </div>
+
+                                    <div class="medium-8 columns">
+                                        <p><strong>Location:</strong> {% if device.location %}<a href="{% url 'site:location' device.location.location.pk %}">{{ device.location.location }}</a>{% else %}-{% endif %}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="medium-2 columns text-right icon-vertical" data-equalizer-watch>
+                                <a href="{% url 'site:device' device.pk %}"><i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+
+                        </section>
+
+                    {% endfor %}
+
+
+                </section>
+
+            </section>
+        </div>
+    </div>
+
+{% endblock content %}

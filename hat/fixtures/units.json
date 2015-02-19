@@ -1,0 +1,13 @@
+[
+{
+    "pk": 1,
+    "model": "system.unitofmeasurement",
+    "fields": {
+        "date_created": "2014-09-02T14:46:32.119Z",
+        "symbol": "N/A",
+        "last_updated": "2014-09-02T14:46:32.119Z",
+        "name": "Remaining level of dispenser",
+        "description": "Distance from sensor to the empty point of the dispenser (spindle or bottom of box). Empty states determined by data over time as brands produce different results. Higher values indicate more consumable remaining."
+    }
+}
+]

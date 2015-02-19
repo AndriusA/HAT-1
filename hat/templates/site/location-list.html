@@ -1,0 +1,128 @@
+{% extends base_template %}
+
+{% block page_title_text %}Locations{% endblock page_title_text %}
+{% block page_title_icon %}fa-globe{% endblock page_title_icon %}
+
+{% block top_title_content %}
+    <h2 class="top-title__heading left"><i class="fa fa-globe"></i> Locations</h2>
+    <ul class="button-group filter-group radius right">
+        <li><a href="#" class="button filter small active">List</a></li>
+        <li><a href="#" class="button filter small disabled">Map</a></li>
+    </ul>
+{% endblock top_title_content %}
+
+{% block content %}
+    <div class="row">
+        <div class="medium-24 columns">
+            <section class="border-box">
+
+                <header class="single-line">
+                    <div class="medium-20 columns">
+                        <h4>My locations</h4>
+                    </div>
+                    <div class="medium-4 left title-options disabled">
+                        <a href="#open">
+                            <span>Options</span>
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </a>
+                    </div>
+                </header>
+
+                <section>
+
+                    {% for location in locations %}
+                        <section class="single-line">
+
+                            <div class="medium-22 columns">
+                                <p>{{ location.name }}</p>
+                            </div>
+
+                            <div class="medium-2 columns text-right">
+                                <a href="{% url 'site:location' location.pk %}"><i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+
+                        </section>
+                    {% empty %}
+                        <section class="single-line">
+
+                            <div class="medium-24 columns">
+                                <p>You currently have no locations</p>
+                            </div>
+
+                        </section>
+                    {% endfor %}
+
+                </section>
+
+            </section>
+
+            <section class="border-box">
+
+                <header class="single-line">
+                    <div class="medium-20 columns">
+                        <h4>Multiple location points</h4>
+                    </div>
+                    <div class="medium-4 left title-options disabled">
+                        <a href="#open">
+                            <span>Options</span>
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </a>
+                    </div>
+                </header>
+
+                <section>
+
+                    <section class="single-line disabled">
+
+                        <div class="medium-22 columns">
+                            <p>Food bank initiative, Grovenham</p>
+                        </div>
+
+                        <div class="medium-2 columns text-right">
+                            <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                        </div>
+
+                    </section>
+
+                    <section class="single-line disabled">
+
+                        <div class="medium-22 columns">
+                            <p>New York marathon</p>
+                        </div>
+
+                        <div class="medium-2 columns text-right">
+                            <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                        </div>
+
+                    </section>
+
+                    <section class="single-line disabled">
+
+                        <div class="medium-22 columns">
+                            <p>Town Fete</p>
+                        </div>
+
+                        <div class="medium-2 columns text-right">
+                            <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                        </div>
+
+                    </section>
+
+                    <section class="single-line disabled">
+
+                        <div class="medium-22 columns">
+                            <p>Sports centre</p>
+                        </div>
+
+                        <div class="medium-2 columns text-right">
+                            <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+                        </div>
+
+                    </section>
+
+                </section>
+
+            </section>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,107 @@
+[
+{
+    "pk": 1,
+    "model": "things.thingsensorcrossref",
+    "fields": {
+        "last_updated": "2014-09-02T14:40:46.978Z",
+        "name": "Sharp GP2Y0A41SK0F infrared distance sensor in Smart Toilet Roll Holder",
+        "thing": 1,
+        "relationship_type": 1,
+        "date_created": "2014-09-02T14:40:46.978Z",
+        "sensor": 1,
+        "description": "The only sensor on the Smart Toilet Roll holder, in the backplate"
+    }
+},
+{
+    "pk": 2,
+    "model": "things.thingsensorcrossref",
+    "fields": {
+        "last_updated": "2014-09-03T13:27:04.640Z",
+        "name": "Beauty Box barcode scanner",
+        "thing": 2,
+        "relationship_type": 2,
+        "date_created": "2014-09-03T13:27:03.132Z",
+        "sensor": 2,
+        "description": "Adafruit barcode scanner, sensor 1 of 2 in beautybox thing"
+    }
+},
+{
+    "pk": 3,
+    "model": "things.thingsensorcrossref",
+    "fields": {
+        "last_updated": "2014-09-03T13:27:38.914Z",
+        "name": "Beauty Box weight sensor",
+        "thing": 2,
+        "relationship_type": 2,
+        "date_created": "2014-09-03T13:27:38.914Z",
+        "sensor": 3,
+        "description": "Scale with 5kg upper limit and sensitivity of ~2g, sensor 2 of 2 in beautybox thing"
+    }
+},
+{
+    "pk": 1,
+    "model": "things.thingsensorrelationshiptype",
+    "fields": {
+        "date_created": "2014-09-02T14:40:43.662Z",
+        "last_updated": "2014-09-02T14:40:43.662Z",
+        "name": "Toilet roll infrared distance sensor",
+        "description": "The only sensor on the Smart Toilet Roll holder, in the backplate"
+    }
+},
+{
+    "pk": 2,
+    "model": "things.thingsensorrelationshiptype",
+    "fields": {
+        "date_created": "2014-09-03T13:26:25.699Z",
+        "last_updated": "2014-09-03T13:26:25.699Z",
+        "name": "Beauty Box sensor",
+        "description": "Sensor inside beauty box"
+    }
+},
+{
+    "pk": 1,
+    "model": "things.sensor",
+    "fields": {
+        "sensor_id": "bf84dc87-cca1-45fe-82b1-9f7c2215135f",
+        "last_updated": "2014-09-02T14:36:39.729Z",
+        "name": "Toilet roll infrared distance sensor",
+        "description": "Gives an abstract value of the distance between the sensor in the backplate of the holder and whatever the light bounces off \u2013 toilet paper or cardboard tube.",
+        "date_created": "2014-09-02T14:36:39.729Z",
+        "manufacturer": "Sharp"
+    }
+},
+{
+    "pk": 2,
+    "model": "things.sensor",
+    "fields": {
+        "sensor_id": "cd88bc5d-ce65-426e-bc2e-93bdac3dedf3",
+        "last_updated": "2014-09-03T13:25:04.379Z",
+        "name": "Beauty Box barcode scanner",
+        "description": "Adafruit barcode scanner, sensor 1 of 2 in beautybox thing",
+        "date_created": "2014-09-03T13:25:04.379Z",
+        "manufacturer": "Adafruit"
+    }
+},
+{
+    "pk": 3,
+    "model": "things.sensor",
+    "fields": {
+        "sensor_id": "a6b30549-246d-4c2e-a44d-4d76535d9921",
+        "last_updated": "2014-09-03T13:25:39.710Z",
+        "name": "Beauty Box weight sensor",
+        "description": "Scale with 5kg upper limit and sensitivity of ~2g, sensor 2 of 2 in beautybox thing",
+        "date_created": "2014-09-03T13:25:39.710Z",
+        "manufacturer": "Salter"
+    }
+},
+{
+    "pk": 1,
+    "model": "things.sensordatatype",
+    "fields": {
+        "date_created": "2014-09-02T14:44:45.968Z",
+        "last_updated": "2014-09-02T14:44:45.968Z",
+        "name": "Toilet roll remaining",
+        "description": "Due to variation in thickness and tube diameter across brands this is an abstract value of toilet roll remaining. Measurement decreases as distance between middle of roll and backplate on the holder increases."
+    }
+}
+]

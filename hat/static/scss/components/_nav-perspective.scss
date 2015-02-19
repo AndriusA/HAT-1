@@ -1,0 +1,155 @@
+html, body, .perspective {
+    width: 100%;
+    height: 100%;
+}
+.perspective, .wrapper, .site-container {
+    position: relative;
+}
+.site-container {
+    background: $body-bg;
+    min-height: 100%;
+    outline: 1px solid rgba(0,0,0,0);
+    z-index: 10;
+
+    position: relative;
+    @include transform(translateZ(0) translateX(0) rotateY(0deg));
+
+    &:after {
+        background: rgba(0,0,0,0.2);
+        height: 0; width: 100%;
+        opacity: 0;
+
+        content: '';
+
+        position: absolute;
+            top: 0;
+            left: 0;
+
+        /* the transition delay of the height needs to be synced with the site-container transition time */
+        @include transition(opacity 0.4s, height 0s 0.4s);
+    }
+}
+
+.component {
+    margin: 0 auto;
+    width: 60%;
+
+    font-size: 1.5em;
+    text-align: justify;
+}
+
+/* Modal view */
+.perspective.modalview {
+    position: fixed;
+    @include perspective(rem-calc(1500));
+}
+
+.modalview {
+    .site-container {
+        height: 100%; width: 100%;
+        overflow: hidden;
+        cursor: pointer;
+        position: absolute;
+        @include backface-visibility(hidden);
+    }
+    .wrapper {
+        -webkit-transform: translateZ(-1px); /* solves a rendering bug in Chrome on Windows */
+    }
+}
+
+.animate .site-container:after {
+    height: 101%;
+    opacity: 1;
+
+    @include transition(opacity 0.3s);
+}
+
+/* Outer Nav */
+.outer-nav {
+    height: auto; width: rem-calc(500);
+
+    font-size: 2em;
+
+    position: absolute;
+
+    &.vertical {
+        top: 50%;
+
+        @include transform(translateY(-50%));
+        @include transform-style(preserve-3d);
+
+        a { display: block; }
+    }
+    &.horizontal {
+        max-width: rem-calc(1000);
+        width: 75%;
+
+        text-align: center;
+
+        left: 50%;
+
+        @include transform(translateX(-50%));
+
+        a { margin: rem-calc(15 20); }
+    }
+
+    &.left   { left:   25%; }
+    &.right  { right:  10%; }
+    &.top    { top:    25%; }
+    &.bottom { bottom: 25%; }
+}
+
+.outer-nav a {
+    display: inline-block;
+    margin: rem-calc(0 0 30 0);
+
+    color: #fff;
+    font-size: rem-calc(26); // Moved up from 24 in the PSD as it looked a bit blurry
+    font-weight: 100;
+    white-space: nowrap;
+
+    @include transition(color 0.3s);
+    @include transform-style(preserve-3d);
+
+    i { margin-right: rem-calc(10); }
+}
+
+.effect-moveleft {
+    background: $primary-color;
+
+    .site-container {
+        @include transition(transform 0.7s);
+        @include transform-origin(50% 50%);
+        
+        &:after { background: rgba(54, 72, 92, 0.3); }
+    }
+    .outer-nav a {
+        opacity: 0;
+
+        color: #fff;
+
+        @include transform(translateX(rem-calc(100)) translateZ(rem-calc(-1000)));
+        @include transition(transform 0.6s, opacity 0.6s);
+
+        i { color: #fff; }
+
+        &:hover,
+        &:hover i { color: $anchor-font-color; }
+    }
+
+    &.animate .site-container {
+        @include transform(translateX(-50%) rotateY(45deg) translateZ(rem-calc(-50)));
+    }
+    &.animate .outer-nav a {
+        opacity: 1;
+
+        @include transform(translateX(0) translateZ(0));
+    }
+    &.animate .outer-nav li:nth-child(1) a { @include transition-delay(0.10s); }
+    &.animate .outer-nav li:nth-child(2) a { @include transition-delay(0.15s); }
+    &.animate .outer-nav li:nth-child(3) a { @include transition-delay(0.20s); }
+    &.animate .outer-nav li:nth-child(4) a { @include transition-delay(0.25s); }
+    &.animate .outer-nav li:nth-child(5) a { @include transition-delay(0.30s); }
+    &.animate .outer-nav li:nth-child(6) a { @include transition-delay(0.35s); }
+    &.animate .outer-nav li:nth-child(7) a { @include transition-delay(0.40s); }
+}

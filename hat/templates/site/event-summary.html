@@ -1,0 +1,151 @@
+{% load things %}
+    <div class="small-24 columns">
+        <section class="border-box">
+
+            <header class="single-line">
+                <div class="medium-24 columns">
+                    <h4>Event summary</h4>
+                </div>
+            </header>
+
+            <p class="p-global">
+                Below is a short summary of what your event will look like:
+            </p>
+
+        </section>
+    </div>
+
+    <div class="small-12 columns">
+        <section class="border-box">
+
+            <header class="single-line">
+                <div class="medium-24 columns">
+                    <h4>Details</h4>
+                </div>
+            </header>
+
+            <section>
+                <h4 class="medium-24 columns heading-bdb">Event name</h4>
+
+                <fieldset>
+                    <div class="medium-24">
+                        <input type="text" readonly="readonly" value="{{ name }}">
+                    </div>
+                </fieldset>
+
+                <h4 class="medium-24 columns heading-bdb">Between what time?</h4>
+
+                <fieldset>
+                    <div class="row">
+
+                        <div class="medium-24 columns">
+                            <label>Start time</label>
+                        </div>
+
+                        <div class="medium-8 columns">
+                            <input type="text" readonly="readonly" value="{{ start_date|date:"h" }}">
+                        </div>
+
+                        <div class="medium-8 columns">
+                            <input type="text" readonly="readonly" value="{{ start_date|date:"i" }}">
+                        </div>
+
+                        <div class="medium-8 columns">
+                            <input type="text" readonly="readonly" value="{{ start_date|date:"A" }}">
+                        </div>
+
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <div class="row">
+
+                        <div class="medium-24 columns">
+                            <label>End time</label>
+                        </div>
+
+                        <div class="medium-8 columns">
+                            <input type="text" readonly="readonly" value="{{ end_date|date:"h" }}">
+                        </div>
+
+                        <div class="medium-8 columns">
+                            <input type="text" readonly="readonly" value="{{ end_date|date:"i" }}">
+                        </div>
+
+                        <div class="medium-8 columns">
+                            <input type="text" readonly="readonly" value="{{ end_date|date:"A" }}">
+                        </div>
+
+                    </div>
+                </fieldset>
+
+                <h4 class="medium-24 columns heading-bdb">On what date?</h4>
+
+                <fieldset>
+                    <div class="row">
+
+                        <div class="medium-24 columns">
+                            <label>Start date</label>
+                        </div>
+
+                        <div class="medium-8 columns">
+                            <input type="text" readonly="readonly" value="{{ end_date|date:"d" }}">
+                        </div>
+
+                        <div class="medium-8 columns">
+                            <input type="text" readonly="readonly" value="{{ end_date|date:"F" }}">
+                        </div>
+
+                        <div class="medium-8 columns">
+                            <input type="text" readonly="readonly" value="{{ end_date|date:"Y" }}">
+                        </div>
+
+                    </div>
+                </fieldset>
+
+            </section>
+
+        </section>
+    </div>
+
+    <div class="small-12 columns">
+
+        <div class="small-24">
+            <section class="border-box">
+
+                <header class="single-line">
+                    <div class="medium-24 columns">
+                        <h4>Data snapshot</h4>
+                    </div>
+                </header>
+
+                {% data_stream limit=10 start_date=start_date end_date=end_date device=devices %}
+
+            </section>
+        </div>
+
+        <div class="small-24">
+            <section class="border-box">
+
+                <header class="single-line">
+                    <div class="medium-24 columns">
+                        <h4>Sub events</h4>
+                    </div>
+                </header>
+
+                {% for event in events %}
+
+                    <section class="single-line">
+
+                        <div class="medium-24 columns">
+                            <p>{{ event }}</p>
+                        </div>
+
+                    </section>
+
+                {% endfor %}
+
+            </section>
+        </div>
+
+    </div>

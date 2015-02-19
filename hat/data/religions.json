@@ -1,0 +1,504 @@
+{
+"result": [
+{
+"name": "Buddhism", 
+"type": "/religion/religion", 
+"id": "/en/buddhism"
+}, 
+{
+"name": "Zen", 
+"type": "/religion/religion", 
+"id": "/en/zen"
+}, 
+{
+"name": "Judaism", 
+"type": "/religion/religion", 
+"id": "/en/judaism"
+}, 
+{
+"name": "Calvinism", 
+"type": "/religion/religion", 
+"id": "/en/calvinism"
+}, 
+{
+"name": "Hinduism", 
+"type": "/religion/religion", 
+"id": "/en/hinduism"
+}, 
+{
+"name": "Abrahamic religions", 
+"type": "/religion/religion", 
+"id": "/en/abrahamic_religion"
+}, 
+{
+"name": "Islam", 
+"type": "/religion/religion", 
+"id": "/en/islam"
+}, 
+{
+"name": "Dharmic religions", 
+"type": "/religion/religion", 
+"id": "/en/dharmic_religions"
+}, 
+{
+"name": "Taoism", 
+"type": "/religion/religion", 
+"id": "/en/taoism"
+}, 
+{
+"name": "Confucianism", 
+"type": "/religion/religion", 
+"id": "/en/confucianism"
+}, 
+{
+"name": "Shinto", 
+"type": "/religion/religion", 
+"id": "/en/shinto"
+}, 
+{
+"name": "Sikhism", 
+"type": "/religion/religion", 
+"id": "/en/sikhism"
+}, 
+{
+"name": "Restorationism", 
+"type": "/religion/religion", 
+"id": "/en/restorationism"
+}, 
+{
+"name": "Protestantism", 
+"type": "/religion/religion", 
+"id": "/en/protestantism"
+}, 
+{
+"name": "Jainism", 
+"type": "/religion/religion", 
+"id": "/en/jainism"
+}, 
+{
+"name": "East Asian religions", 
+"type": "/religion/religion", 
+"id": "/en/taoic_religion"
+}, 
+{
+"name": "Christianity", 
+"type": "/religion/religion", 
+"id": "/en/christianity"
+}, 
+{
+"name": "Anglicanism", 
+"type": "/religion/religion", 
+"id": "/en/anglicanism"
+}, 
+{
+"name": "Eastern Orthodox Church", 
+"type": "/religion/religion", 
+"id": "/en/eastern_orthodox_church"
+}, 
+{
+"name": "Oriental Orthodoxy", 
+"type": "/religion/religion", 
+"id": "/en/oriental_orthodoxy"
+}, 
+{
+"name": "Catholicism", 
+"type": "/religion/religion", 
+"id": "/en/catholicism"
+}, 
+{
+"name": "Madhyamaka", 
+"type": "/religion/religion", 
+"id": "/en/madhyamaka"
+}, 
+{
+"name": "Methodism", 
+"type": "/religion/religion", 
+"id": "/en/methodism"
+}, 
+{
+"name": "Holiness movement", 
+"type": "/religion/religion", 
+"id": "/en/holiness_movement"
+}, 
+{
+"name": "Sunni Islam", 
+"type": "/religion/religion", 
+"id": "/en/sunni_islam"
+}, 
+{
+"name": "Modern Orthodox Judaism", 
+"type": "/religion/religion", 
+"id": "/en/modern_orthodox_judaism"
+}, 
+{
+"name": "Seventh-day Adventist Church", 
+"type": "/religion/religion", 
+"id": "/en/seventh-day_adventist_church"
+}, 
+{
+"name": "Conservative Judaism", 
+"type": "/religion/religion", 
+"id": "/en/conservative_judaism"
+}, 
+{
+"name": "Baptists", 
+"type": "/religion/religion", 
+"id": "/en/baptist"
+}, 
+{
+"name": "East Asian Buddhism", 
+"type": "/religion/religion", 
+"id": "/en/east_asian_buddhism"
+}, 
+{
+"name": "Reformed Baptists", 
+"type": "/religion/religion", 
+"id": "/en/reformed_baptist"
+}, 
+{
+"name": "Early Buddhist schools", 
+"type": "/religion/religion", 
+"id": "/en/early_buddhist_schools"
+}, 
+{
+"name": "Presbyterianism", 
+"type": "/religion/religion", 
+"id": "/en/presbyterianism"
+}, 
+{
+"name": "Smarta Tradition", 
+"type": "/religion/religion", 
+"id": "/en/smartism"
+}, 
+{
+"name": "Karaite Judaism", 
+"type": "/religion/religion", 
+"id": "/en/karaite_judaism"
+}, 
+{
+"name": "Charismatic Movement", 
+"type": "/religion/religion", 
+"id": "/en/charismatic_movement"
+}, 
+{
+"name": "Sufism", 
+"type": "/religion/religion", 
+"id": "/en/sufism"
+}, 
+{
+"name": "Lutheranism", 
+"type": "/religion/religion", 
+"id": "/en/lutheranism"
+}, 
+{
+"name": "Reconstructionist Judaism", 
+"type": "/religion/religion", 
+"id": "/en/reconstructionist_judaism"
+}, 
+{
+"name": "Tibetan Buddhism", 
+"type": "/religion/religion", 
+"id": "/en/tibetan_buddhism"
+}, 
+{
+"name": "Anabaptists", 
+"type": "/religion/religion", 
+"id": "/en/anabaptist"
+}, 
+{
+"name": "Reform Judaism", 
+"type": "/religion/religion", 
+"id": "/en/reform_judaism"
+}, 
+{
+"name": "Mahayana", 
+"type": "/religion/religion", 
+"id": "/en/mahayana"
+}, 
+{
+"name": "Nondenominational Christianity", 
+"type": "/religion/religion", 
+"id": "/en/non-denominational_christianity"
+}, 
+{
+"name": "Haredi Judaism", 
+"type": "/religion/religion", 
+"id": "/en/haredi_judaism"
+}, 
+{
+"name": "Vajrayana", 
+"type": "/religion/religion", 
+"id": "/en/vajrayana"
+}, 
+{
+"name": "Way of the Celestial Masters", 
+"type": "/religion/religion", 
+"id": "/en/tianshi_dao"
+}, 
+{
+"name": "Quakers", 
+"type": "/religion/religion", 
+"id": "/en/religious_society_of_friends"
+}, 
+{
+"name": "Eastern Christianity", 
+"type": "/religion/religion", 
+"id": "/en/eastern_christianity"
+}, 
+{
+"name": "Lingbao School", 
+"type": "/religion/religion", 
+"id": "/en/lingbao"
+}, 
+{
+"name": "Restoration Movement", 
+"type": "/religion/religion", 
+"id": "/en/restoration_movement"
+}, 
+{
+"name": "Evangelicalism", 
+"type": "/religion/religion", 
+"id": "/en/evangelicalism"
+}, 
+{
+"name": "Theravada", 
+"type": "/religion/religion", 
+"id": "/en/theravada"
+}, 
+{
+"name": "Vaishnavism", 
+"type": "/religion/religion", 
+"id": "/en/vaishnavism"
+}, 
+{
+"name": "Jehovah's Witnesses", 
+"type": "/religion/religion", 
+"id": "/en/jehovahs_witnesses"
+}, 
+{
+"name": "Shia Islam", 
+"type": "/religion/religion", 
+"id": "/en/shia_islam"
+}, 
+{
+"name": "Orthodox Judaism", 
+"type": "/religion/religion", 
+"id": "/en/orthodox_judaism"
+}, 
+{
+"name": "Shaktism", 
+"type": "/religion/religion", 
+"id": "/en/shaktism"
+}, 
+{
+"name": "Rabbinic Judaism", 
+"type": "/religion/religion", 
+"id": "/en/rabbinic_judaism"
+}, 
+{
+"name": "Quanzhen School", 
+"type": "/religion/religion", 
+"id": "/en/quanzhen_school"
+}, 
+{
+"name": "Shangqing School", 
+"type": "/religion/religion", 
+"id": "/en/shangqing_school"
+}, 
+{
+"name": "Pentecostalism", 
+"type": "/religion/religion", 
+"id": "/en/pentecostalism"
+}, 
+{
+"name": "Christian and Missionary Alliance", 
+"type": "/religion/religion", 
+"id": "/en/christian_and_missionary_alliance"
+}, 
+{
+"name": "Hasidic Judaism", 
+"type": "/religion/religion", 
+"id": "/en/hasidic_judaism"
+}, 
+{
+"name": "Shaivism", 
+"type": "/religion/religion", 
+"id": "/en/shaivism"
+}, 
+{
+"name": "Continental Reformed church", 
+"type": "/religion/religion", 
+"id": "/en/reformed_churches"
+}, 
+{
+"name": "Jewish Renewal", 
+"type": "/religion/religion", 
+"id": "/en/jewish_renewal"
+}, 
+{
+"name": "African Methodist Episcopal Church", 
+"type": "/religion/religion", 
+"id": "/en/african_methodist_episcopal_church"
+}, 
+{
+"name": "Adventism", 
+"type": "/religion/religion", 
+"id": "/en/adventist"
+}, 
+{
+"name": "Congregational church", 
+"type": "/religion/religion", 
+"id": "/en/congregational_church"
+}, 
+{
+"name": "Agnosticism", 
+"type": "/religion/religion", 
+"id": "/en/agnosticism"
+}, 
+{
+"name": "Buddhist philosophy", 
+"type": "/religion/religion", 
+"id": "/en/buddhist_philosophy"
+}, 
+{
+"name": "Deism", 
+"type": "/religion/religion", 
+"id": "/en/deism"
+}, 
+{
+"name": "Gnosticism in modern times", 
+"type": "/religion/religion", 
+"id": "/en/gnosticism"
+}, 
+{
+"name": "Monotheism", 
+"type": "/religion/religion", 
+"id": "/en/monotheism"
+}, 
+{
+"name": "Paganism", 
+"type": "/religion/religion", 
+"id": "/en/paganism"
+}, 
+{
+"name": "Pantheism", 
+"type": "/religion/religion", 
+"id": "/en/pantheism"
+}, 
+{
+"name": "Thelema", 
+"type": "/religion/religion", 
+"id": "/en/thelema"
+}, 
+{
+"name": "Christian fundamentalism", 
+"type": "/religion/religion", 
+"id": "/en/fundamentalist_christianity"
+}, 
+{
+"name": "Humanistic Judaism", 
+"type": "/religion/religion", 
+"id": "/en/humanistic_judaism"
+}, 
+{
+"name": "Strong agnosticism", 
+"type": "/religion/religion", 
+"id": "/en/strong_agnosticism"
+}, 
+{
+"name": "Agnostic atheism", 
+"type": "/religion/religion", 
+"id": "/en/agnostic_atheism"
+}, 
+{
+"name": "Agnostic theism", 
+"type": "/religion/religion", 
+"id": "/en/agnostic_theism"
+}, 
+{
+"name": "Ignosticism", 
+"type": "/religion/religion", 
+"id": "/en/ignosticism"
+}, 
+{
+"name": "Apathetic agnosticism", 
+"type": "/religion/religion", 
+"id": "/en/apathetic_agnosticism"
+}, 
+{
+"name": "Weak agnosticism", 
+"type": "/religion/religion", 
+"id": "/en/weak_agnosticism"
+}, 
+{
+"name": "Atheism", 
+"type": "/religion/religion", 
+"id": "/en/atheism"
+}, 
+{
+"name": "Greek Orthodox Church", 
+"type": "/religion/religion", 
+"id": "/en/greek_orthodox_church"
+}, 
+{
+"name": "Evangelical Free Church of America", 
+"type": "/religion/religion", 
+"id": "/en/evangelical_free_church_of_america"
+}, 
+{
+"name": "United Methodist Church", 
+"type": "/religion/religion", 
+"id": "/en/united_methodist_church"
+}, 
+{
+"name": "Reformed Church in America", 
+"type": "/religion/religion", 
+"id": "/en/reformed_church_in_america"
+}, 
+{
+"name": "United Church of Canada", 
+"type": "/religion/religion", 
+"id": "/en/united_church_of_canada"
+}, 
+{
+"name": "Churches of Christ", 
+"type": "/religion/religion", 
+"id": "/en/church_of_christ"
+}, 
+{
+"name": "Freethought", 
+"type": "/religion/religion", 
+"id": "/en/freethought"
+}, 
+{
+"name": "Unitarianism", 
+"type": "/religion/religion", 
+"id": "/en/unitarianism"
+}, 
+{
+"name": "Church of Christ in Congo", 
+"type": "/religion/religion", 
+"id": "/en/eglise_du_christ_au_congo"
+}, 
+{
+"name": "Ethiopian Orthodox Tewahedo Church", 
+"type": "/religion/religion", 
+"id": "/en/ethiopian_orthodox_tewahedo_church"
+}, 
+{
+"name": "Mormonism", 
+"type": "/religion/religion", 
+"id": "/en/mormonism"
+}, 
+{
+"name": "Scientology", 
+"type": "/religion/religion", 
+"id": "/en/scientology"
+}, 
+{
+"name": "Unitarian Universalism", 
+"type": "/religion/religion", 
+"id": "/en/unitarian_universalism"
+}
+]
+}

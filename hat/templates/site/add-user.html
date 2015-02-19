@@ -1,0 +1,157 @@
+{% extends base_template %}
+
+{% block page_title_icon %}fa-users{% endblock page_title_icon %}
+{% block page_title_text %}Users{% endblock page_title_text %}
+
+{% block top_title_content %}
+    <h2><i class="fa fa-users"></i> Users</h2>
+{% endblock top_title_content %}
+
+{% block content %}
+    <div class="row">
+        <div class="medium-12 columns medium-centered">
+            <section class="border-box">
+
+                <header class="single-line">
+                    <div class="medium-24 columns">
+                        <h4>Add a user</h4>
+                    </div>
+                </header>
+
+                <section>
+                    <form action="">
+
+                        <fieldset>
+
+                            <legend class="medium-24 left">Personal Details</legend>
+
+                            <div class="row">
+
+                                <div class="medium-12 columns">
+                                    <label>First Name</label>
+                                    <input type="text">
+                                </div>
+
+                                <div class="medium-12 columns">
+                                    <label>Last Name</label>
+                                    <input type="text">
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="medium-24 columns">
+                                    <label>Date of birth</label>
+                                </div>
+
+                                <div class="medium-8 columns">
+                                    <label>
+                                        <select>
+                                            <option value="husker">Husker</option>
+                                            <option value="starbuck">Starbuck</option>
+                                            <option value="hotdog">Hot Dog</option>
+                                            <option value="apollo">Apollo</option>
+                                        </select>
+                                    </label>
+                                </div>
+
+                                <div class="medium-8 columns">
+                                    <select>
+                                        <option value="husker">Husker</option>
+                                        <option value="starbuck">Starbuck</option>
+                                        <option value="hotdog">Hot Dog</option>
+                                        <option value="apollo">Apollo</option>
+                                    </select>
+                                </div>
+
+                                <div class="medium-8 columns">
+                                    <select>
+                                        <option value="husker">Husker</option>
+                                        <option value="starbuck">Starbuck</option>
+                                        <option value="hotdog">Hot Dog</option>
+                                        <option value="apollo">Apollo</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="medium-24 columns">
+                                    <label>Gender</label>
+                                </div>
+
+                                <div class="medium-12 columns">
+                                    <input type="radio" name="pokemon" value="Red" id="pokemonRed">
+                                    <label class="icon" for="pokemonRed">
+                                        <i class="fa fa-male"></i>
+                                        Male
+                                    </label>
+                                </div>
+
+                                <div class="medium-12 columns">
+                                    <input type="radio" name="pokemon" value="Blue" id="pokemonBlue" checked="">
+                                    <label class="icon" for="pokemonBlue">
+                                        <i class="fa fa-female"></i>
+                                        Female
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+                        <fieldset>
+
+                            <legend class="medium-24 left">Contact information</legend>
+
+                            <div class="row">
+
+                                <div class="medium-24 columns">
+                                    <label>Your email address</label>
+                                    <input type="text">
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="medium-12 columns">
+                                    <label>Home telephone</label>
+                                    <input type="text">
+                                </div>
+
+                                <div class="medium-12 columns">
+                                    <label>Mobile telephone</label>
+                                    <input type="text">
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="medium-12 columns">
+                                    <label>House number</label>
+                                    <input type="text">
+                                </div>
+
+                                <div class="medium-12 columns">
+                                    <label>Postcode</label>
+                                    <input type="text">
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+                            <div class="medium-24 columns submit-container">
+                                <input class="button small" type="submit">
+                            </div>
+
+                    </form>
+                </section>
+            </section>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,68 @@
+{% extends base_template %}
+{% load assets %}
+
+{% block page_title_text %}Data{% endblock %}
+
+{% block top_title_content %}
+
+    <h2 class="top-title__heading left"><i class="fa fa-users"></i> Connected HATs</h2>
+    <a class="button small filter right disabled" href="#">Filter</a>
+
+{% endblock top_title_content %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="medium-24 columns">
+            <ul class="medium-block-grid-4 media-block-grid">
+
+                <li>
+                    <div class="border-box media-item disabled">
+                        <a href="#">
+                            {% img "img/people/john-stevens.png" width="351" %}
+                            <p class="icon-vertical">John Stevens <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="border-box media-item disabled">
+                        <a href="#">
+                            {% img "img/people/anna-stevens.png" width="351" %}
+                            <p class="icon-vertical">Anna Stevens <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="border-box media-item disabled">
+                        <a href="#">
+                            {% img "img/people/carl-stevens.png" width="351" %}
+                            <p class="icon-vertical">Carl Stevens <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="border-box media-item disabled">
+                        <a href="#">
+                            {% img "img/people/anita-stevens.png" width="351" %}
+                            <p class="icon-vertical">Anita Stevens <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="border-box media-item disabled">
+                        <a href="#">
+                            {% img "img/icon-pinwidget.png" width="351" %}
+                            <p class="icon-vertical">Connect another HAT <i class="fa fa-chevron-circle-right right"></i></p>
+                        </a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,112 @@
+{% extends base_template %}
+{% load things %}
+
+{% block page_title_icon %}fa-calendar{% endblock page_title_icon %}
+{% block page_title_text %}Events{% endblock page_title_text %}
+
+{% block top_title_content %}
+    <h2 class="top-title__heading left"><i class="fa fa-calendar"></i> {{ event.name }}</h2>
+    <h2 class="top-title__heading right"><i class="fa fa-chevron-circle-right"></i> Share as Data Debit</h2>
+{% endblock top_title_content %}
+
+{% block content %}
+    <div class="row">
+        <div class="medium-12 columns">
+            <section class="border-box">
+                <header class="single-line">
+                    <div class="medium-24 columns">
+                        <h4>{{ event.name }} information</h4>
+                    </div>
+                </header>
+                <section>
+                    <section class="single-line">
+                        <div class="medium-12 columns">
+                            <p><strong>Time:</strong> <a href="#">{{ event.start_date|date:"H:i" }} - {{ event.end_date|date:"H:i" }}</a></p>
+                        </div>
+
+                        <div class="medium-12 columns">
+                            <p><strong>Date:</strong> <a href="#">{{ event.start_date|date:"d/m/Y" }} - {{ event.end_date|date:"d/m/Y" }}</a></p>
+                        </div>
+                    </section>
+                </section>
+            </section>
+
+            {% data_stream limit=10 event=event %}
+
+            {% if events %}
+
+                <section class="border-box">
+
+                    <header class="single-line">
+                        <div class="medium-18 columns">
+                            <h4>Sub events</h4>
+                        </div>
+
+                    </header>
+
+                    <section>
+
+                        {% for sub_event in events %}
+
+                            <section class="single-line">
+
+                                <div class="medium-22 columns">
+                                    <p>{{ sub_event.event_two }}</p>
+                                </div>
+
+                                <div class="medium-2 columns text-right">
+                                    <a href="{% url 'site:event' sub_event.event_two.pk %}"><i class="fa fa-chevron-circle-right"></i></a>
+                                </div>
+
+                            </section>
+
+                        {% endfor %}
+
+                    </section>
+
+                </section>
+
+            {% endif %}
+
+        </div>
+        <div class="medium-12 columns">
+            <section class="border-box">
+                <header class="single-line">
+                    <div class="medium-24 columns">
+                        <h4>{{ event.name }} options</h4>
+                    </div>
+                </header>
+                <section>
+                    <section class="single-line">
+                        <ul class="button-group equal-children">
+                            <li>
+                                <a href="/devices/detail" class="button icon icon-left secondary small disabled">
+                                    <span class="text">
+                                        <i class="fa fa-calendar"></i> Historical Data
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/devices/activity" class="button icon icon-left secondary small disabled">
+                                    <span class="text">
+                                        <i class="fa fa-cog"></i> Edit Event
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="button icon icon-left secondary small disabled">
+                                    <span class="text">
+                                        <i class="fa fa-share-square-o"></i> Share
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+            </section>
+
+        </div>
+    </div>
+{% endblock content %}

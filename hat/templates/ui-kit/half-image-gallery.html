@@ -1,0 +1,54 @@
+{% load markdown_deux_tags %}
+
+<h4 id="inactive-data-list">Half image gallery</h4>
+<hr>
+<div class="row">
+
+    <section class="medium-12 columns">
+
+        <section class="border-box--full--media--padding">
+
+            <div class="media__image">
+                <img alt="#" src="http://placehold.it/400x200">
+            </div>
+
+            <div class="media__controls__container">
+
+                <div class="media__controls__right">
+                    <i class="fa fa-chevron-circle-right"></i>
+                </div>
+
+                <div class="media__controls__left">
+                    <i class="fa fa-chevron-circle-left"></i>
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+</div>
+<hr>
+{% markdown STYLE %}
+    <section class="border-box--full--media no-heading">
+
+        <div class="media__image">
+            <img alt="#" src="http://placehold.it/400x200">
+        </div>
+
+        <div class="media__controls__container">
+
+            <div class="media__controls__right">
+                <i class="fa fa-chevron-circle-right"></i>
+            </div>
+
+            <div class="media__controls__left">
+                <i class="fa fa-chevron-circle-left"></i>
+            </div>
+
+        </div>
+
+    </section>
+{% endmarkdown %}
+<hr>

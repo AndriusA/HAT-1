@@ -1,0 +1,39 @@
+{
+"result": [
+{
+"name": "Handfasting", 
+"id": "/en/handfasting", 
+"type": "/people/marriage_union_type"
+}, 
+{
+"name": "Marriage", 
+"id": "/en/marriage", 
+"type": "/people/marriage_union_type"
+}, 
+{
+"name": "Common-law marriage", 
+"id": "/en/common-law_marriage", 
+"type": "/people/marriage_union_type"
+}, 
+{
+"name": "Domestic partnership", 
+"id": "/en/domestic_partnership", 
+"type": "/people/marriage_union_type"
+}, 
+{
+"name": "Nikah mut\u2018ah", 
+"id": "/en/nikah_mut_ah", 
+"type": "/people/marriage_union_type"
+}, 
+{
+"name": "Registered partnership", 
+"id": "/en/registered_partnership", 
+"type": "/people/marriage_union_type"
+}, 
+{
+"name": "Putative marriage", 
+"id": "/en/putative_marriage", 
+"type": "/people/marriage_union_type"
+}
+]
+}
