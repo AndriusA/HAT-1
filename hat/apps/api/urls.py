@@ -2,7 +2,7 @@ from django.conf.urls import patterns, url, include
 from views import ApiDocumentation, SensorsView, SensorDataView, BatchSensorDataView, CreateLocationView, CreatePersonView, CreateSensorView
 from views import GetSensorDataView
 from views import GetSensorDescriptionView
-#, CreateRecipientView
+#, CreateRecipientView, CreateEventView,
 
 urlpatterns = patterns('',
     url(r'^$', ApiDocumentation.as_view()),

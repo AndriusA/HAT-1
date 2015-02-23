@@ -10,7 +10,6 @@
 
 ### How do I get set up? ###
 
-
 #### Development Database
 
 The HAT uses PostgreSQL database. For development you could use one locally, e.g.:
