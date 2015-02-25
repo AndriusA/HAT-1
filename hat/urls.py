@@ -41,6 +41,8 @@ urlpatterns = patterns('',
 
     url(r'^api/v1/', include('hat.apps.api.urls')),
 
+    url(r'^graph/',include('hat.apps.things.urls')),
+
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += patterns('django.contrib.auth.views',
