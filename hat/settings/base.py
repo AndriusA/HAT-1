@@ -45,6 +45,8 @@ SUIT_CONFIG = {
 
         {'app':'events' , 'label': 'My Data Debits'},
 
+        {'app':'organisations' , 'label': 'My Organisations'},
+
         {'label': 'My Mashups', 'models': [
             {'label': 'Health'},
             {'label': 'Energy',  'url': 'http://hat.smart-e.org/energy.html'},
