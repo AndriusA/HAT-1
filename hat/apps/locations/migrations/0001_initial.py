@@ -410,14 +410,14 @@ class Migration(SchemaMigration):
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'manufacturer': ('django.db.models.fields.CharField', [], {'max_length': '45', 'null': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'sensor_id': ('django.db.models.fields.CharField', [], {'default': "'1fef7c7a-4f35-40e6-9bbf-dc73c2c298d1'", 'max_length': '36'})
+            'sensor_id': ('django.db.models.fields.CharField', [], {'default': "'d8d50775-71db-4480-b12f-5212bcf457a1'", 'max_length': '36'})
         },
         u'things.thing': {
             'Meta': {'object_name': 'Thing'},
             'brand': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'device_id': ('django.db.models.fields.CharField', [], {'default': "'ae2de450-8982-4751-9941-de8b062f92fe'", 'max_length': '36'}),
+            'device_id': ('django.db.models.fields.CharField', [], {'default': "'56c259e7-264d-4ddc-a4ce-844265a1feb8'", 'max_length': '36'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'ip_address': ('django.db.models.fields.GenericIPAddressField', [], {'max_length': '39'}),
             'is_service': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
@@ -425,7 +425,6 @@ class Migration(SchemaMigration):
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'point_of_purchase_id': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True', 'blank': 'True'}),
             'purchase_date': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
-            'source_thing': ('django.db.models.fields.PositiveIntegerField', [], {'max_length': '5', 'null': 'True', 'blank': 'True'}),
             'supplier_id': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True', 'blank': 'True'}),
             'type': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['things.ThingType']"}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),

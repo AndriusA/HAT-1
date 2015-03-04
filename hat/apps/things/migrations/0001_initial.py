@@ -22,8 +22,7 @@ class Migration(SchemaMigration):
             ('point_of_purchase_id', self.gf('django.db.models.fields.PositiveIntegerField')(null=True, blank=True)),
             ('supplier_id', self.gf('django.db.models.fields.PositiveIntegerField')(null=True, blank=True)),
             ('value_creation_practice_type', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='related_value_event', null=True, to=orm['things.ValueCreationEvent'])),
-            ('source_thing', self.gf('django.db.models.fields.PositiveIntegerField')(max_length=5, null=True, blank=True)),
-            ('device_id', self.gf('django.db.models.fields.CharField')(default='5c96b88b-10f2-4573-a533-960e15b22d19', max_length=36)),
+            ('device_id', self.gf('django.db.models.fields.CharField')(default='2bb81417-0cda-45ff-88ad-df833d436e42', max_length=36)),
             ('ip_address', self.gf('django.db.models.fields.GenericIPAddressField')(max_length=39)),
             ('is_service', self.gf('django.db.models.fields.BooleanField')(default=False)),
         ))
@@ -93,25 +92,32 @@ class Migration(SchemaMigration):
             ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
-            ('unit', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('unit_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['system.UnitThingPropertyCrossRef'])),
             ('value', self.gf('django.db.models.fields.PositiveIntegerField')(max_length=5, null=True, blank=True)),
         ))
         db.send_create_signal(u'things', ['ThingProperty'])
 
-        # Adding model 'InventoryThingSecondary'
-        db.create_table(u'things_inventorythingsecondary', (
+        # Adding model 'ThingToThingCrossRef'
+        db.create_table(u'things_thingtothingcrossref', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
             ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-            ('thing', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['things.Thing'])),
-            ('person', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['things.ThingPersonCrossRef'])),
-            ('ud_inventory_name', self.gf('django.db.models.fields.CharField')(max_length=45)),
-            ('thing_name', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('stock_level', self.gf('django.db.models.fields.PositiveIntegerField')(max_length=5)),
-            ('unit_name', self.gf('django.db.models.fields.CharField')(max_length=45)),
-            ('threshold', self.gf('django.db.models.fields.PositiveIntegerField')(max_length=5)),
+            ('thing_one', self.gf('django.db.models.fields.related.ForeignKey')(related_name='thing1', to=orm['things.Thing'])),
+            ('thing_two', self.gf('django.db.models.fields.related.ForeignKey')(related_name='thing2', to=orm['things.Thing'])),
+            ('relationship_type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['things.ThingToThingRelationshipType'])),
+            ('relationship_description', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
         ))
-        db.send_create_signal(u'things', ['InventoryThingSecondary'])
+        db.send_create_signal(u'things', ['ThingToThingCrossRef'])
+
+        # Adding model 'ThingToThingRelationshipType'
+        db.create_table(u'things_thingtothingrelationshiptype', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
+            ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+        ))
+        db.send_create_signal(u'things', ['ThingToThingRelationshipType'])
 
         # Adding model 'ThingSensorCrossRef'
         db.create_table(u'things_thingsensorcrossref', (
@@ -136,6 +142,29 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'things', ['ThingSensorRelationshipType'])
 
+        # Adding model 'SensorLocationCrossRef'
+        db.create_table(u'things_sensorlocationcrossref', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
+            ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+            ('sensor', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['things.Sensor'])),
+            ('location', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['locations.Location'])),
+            ('relationship_type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['things.ThingSensorRelationshipType'])),
+        ))
+        db.send_create_signal(u'things', ['SensorLocationCrossRef'])
+
+        # Adding model 'SensorLocationRelationshipType'
+        db.create_table(u'things_sensorlocationrelationshiptype', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('date_created', self.gf('django.db.models.fields.DateTimeField')()),
+            ('last_updated', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+        ))
+        db.send_create_signal(u'things', ['SensorLocationRelationshipType'])
+
         # Adding model 'Sensor'
         db.create_table(u'things_sensor', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
@@ -144,7 +173,7 @@ class Migration(SchemaMigration):
             ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('description', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('manufacturer', self.gf('django.db.models.fields.CharField')(max_length=45, null=True, blank=True)),
-            ('sensor_id', self.gf('django.db.models.fields.CharField')(default='0db4df5b-ae51-4185-81a5-099f33403a47', max_length=36)),
+            ('sensor_id', self.gf('django.db.models.fields.CharField')(default='ff87a455-22ca-4a06-b8eb-46c4750e230b', max_length=36)),
         ))
         db.send_create_signal(u'things', ['Sensor'])
 
@@ -219,14 +248,23 @@ class Migration(SchemaMigration):
         # Deleting model 'ThingProperty'
         db.delete_table(u'things_thingproperty')
 
-        # Deleting model 'InventoryThingSecondary'
-        db.delete_table(u'things_inventorythingsecondary')
+        # Deleting model 'ThingToThingCrossRef'
+        db.delete_table(u'things_thingtothingcrossref')
+
+        # Deleting model 'ThingToThingRelationshipType'
+        db.delete_table(u'things_thingtothingrelationshiptype')
 
         # Deleting model 'ThingSensorCrossRef'
         db.delete_table(u'things_thingsensorcrossref')
 
         # Deleting model 'ThingSensorRelationshipType'
         db.delete_table(u'things_thingsensorrelationshiptype')
+
+        # Deleting model 'SensorLocationCrossRef'
+        db.delete_table(u'things_sensorlocationcrossref')
+
+        # Deleting model 'SensorLocationRelationshipType'
+        db.delete_table(u'things_sensorlocationrelationshiptype')
 
         # Deleting model 'Sensor'
         db.delete_table(u'things_sensor')
@@ -279,6 +317,34 @@ class Migration(SchemaMigration):
             'app_label': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
+        },
+        u'locations.location': {
+            'Meta': {'object_name': 'Location'},
+            'address_line_1': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
+            'address_line_2': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
+            'city': ('django.db.models.fields.CharField', [], {'max_length': '64', 'null': 'True', 'blank': 'True'}),
+            'county': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
+            'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'height_from_sea_level': ('django.db.models.fields.IntegerField', [], {'max_length': '6', 'null': 'True', 'blank': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'indoor_information': ('django.db.models.fields.CharField', [], {'max_length': '256', 'null': 'True', 'blank': 'True'}),
+            'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'latitude': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '25', 'decimal_places': '5', 'blank': 'True'}),
+            'longitude': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '25', 'decimal_places': '5', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '512'}),
+            'number': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
+            'orientation': ('django.db.models.fields.CharField', [], {'max_length': '256', 'null': 'True', 'blank': 'True'}),
+            'postal_code': ('django.db.models.fields.CharField', [], {'max_length': '15', 'null': 'True', 'blank': 'True'}),
+            'type': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['locations.LocationType']"})
+        },
+        u'locations.locationtype': {
+            'Meta': {'object_name': 'LocationType'},
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
+            'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
         u'organisations.organisation': {
@@ -363,18 +429,23 @@ class Migration(SchemaMigration):
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'symbol': ('django.db.models.fields.CharField', [], {'max_length': '16', 'null': 'True'})
         },
-        u'things.inventorythingsecondary': {
-            'Meta': {'object_name': 'InventoryThingSecondary'},
+        u'system.unitrelationshiptype': {
+            'Meta': {'object_name': 'UnitRelationshipType'},
             'date_created': ('django.db.models.fields.DateTimeField', [], {}),
+            'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'person': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['things.ThingPersonCrossRef']"}),
-            'stock_level': ('django.db.models.fields.PositiveIntegerField', [], {'max_length': '5'}),
-            'thing': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['things.Thing']"}),
-            'thing_name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'threshold': ('django.db.models.fields.PositiveIntegerField', [], {'max_length': '5'}),
-            'ud_inventory_name': ('django.db.models.fields.CharField', [], {'max_length': '45'}),
-            'unit_name': ('django.db.models.fields.CharField', [], {'max_length': '45'})
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
+        },
+        u'system.unitthingpropertycrossref': {
+            'Meta': {'object_name': 'UnitThingPropertyCrossRef'},
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'is_current': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'relationship_type': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['system.UnitRelationshipType']"}),
+            'thing_property': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['things.ThingProperty']"}),
+            'unit_id': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['system.UnitOfMeasurement']"})
         },
         u'things.sensor': {
             'Meta': {'object_name': 'Sensor'},
@@ -384,7 +455,7 @@ class Migration(SchemaMigration):
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'manufacturer': ('django.db.models.fields.CharField', [], {'max_length': '45', 'null': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'sensor_id': ('django.db.models.fields.CharField', [], {'default': "'8e3018fd-29f7-4100-bc1d-7d0ba627346d'", 'max_length': '36'})
+            'sensor_id': ('django.db.models.fields.CharField', [], {'default': "'086e9b8b-552b-40c3-a92e-a087d12993b0'", 'max_length': '36'})
         },
         u'things.sensordata': {
             'Meta': {'ordering': "['-date_created']", 'object_name': 'SensorData'},
@@ -406,12 +477,31 @@ class Migration(SchemaMigration):
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
+        u'things.sensorlocationcrossref': {
+            'Meta': {'object_name': 'SensorLocationCrossRef'},
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
+            'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'location': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['locations.Location']"}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
+            'relationship_type': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['things.ThingSensorRelationshipType']"}),
+            'sensor': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['things.Sensor']"})
+        },
+        u'things.sensorlocationrelationshiptype': {
+            'Meta': {'object_name': 'SensorLocationRelationshipType'},
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
+            'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
+        },
         u'things.thing': {
             'Meta': {'object_name': 'Thing'},
             'brand': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'device_id': ('django.db.models.fields.CharField', [], {'default': "'01c396f6-6624-4a26-b244-72a8fa6831d4'", 'max_length': '36'}),
+            'device_id': ('django.db.models.fields.CharField', [], {'default': "'5e092ac4-d9f4-460b-b55d-e1c23f023f61'", 'max_length': '36'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'ip_address': ('django.db.models.fields.GenericIPAddressField', [], {'max_length': '39'}),
             'is_service': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
@@ -419,7 +509,6 @@ class Migration(SchemaMigration):
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'point_of_purchase_id': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True', 'blank': 'True'}),
             'purchase_date': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
-            'source_thing': ('django.db.models.fields.PositiveIntegerField', [], {'max_length': '5', 'null': 'True', 'blank': 'True'}),
             'supplier_id': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True', 'blank': 'True'}),
             'type': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['things.ThingType']"}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
@@ -452,7 +541,7 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'unit': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
+            'unit_id': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['system.UnitThingPropertyCrossRef']"}),
             'value': ('django.db.models.fields.PositiveIntegerField', [], {'max_length': '5', 'null': 'True', 'blank': 'True'})
         },
         u'things.thingpropertycrossref': {
@@ -486,6 +575,24 @@ class Migration(SchemaMigration):
         },
         u'things.thingsensorrelationshiptype': {
             'Meta': {'object_name': 'ThingSensorRelationshipType'},
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
+            'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
+        },
+        u'things.thingtothingcrossref': {
+            'Meta': {'object_name': 'ThingToThingCrossRef'},
+            'date_created': ('django.db.models.fields.DateTimeField', [], {}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'relationship_description': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
+            'relationship_type': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['things.ThingToThingRelationshipType']"}),
+            'thing_one': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'thing1'", 'to': u"orm['things.Thing']"}),
+            'thing_two': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'thing2'", 'to': u"orm['things.Thing']"})
+        },
+        u'things.thingtothingrelationshiptype': {
+            'Meta': {'object_name': 'ThingToThingRelationshipType'},
             'date_created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),

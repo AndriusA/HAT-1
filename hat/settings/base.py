@@ -15,11 +15,13 @@ import os
 # The name of this site.  Used for branding in the online admin area.
 from django.core.urlresolvers import reverse_lazy
 
-SITE_NAME = "HAT"
+SITE_NAME = "Hub of all Things"
 
-SITE_DOMAIN = "hat.onespace.media"
+SITE_DOMAIN = "hubofallthings.net"
 
-SERVER_IP = "178.62.49.164"
+# FORCE_SCRIPT_NAME = "/DP0_2"
+
+SERVER_IP = "54.229.72.194"
 
 PREPEND_WWW = False
 
@@ -28,7 +30,33 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 SUIT_CONFIG = {
-    'ADMIN_NAME': SITE_NAME
+    'ADMIN_NAME': SITE_NAME ,
+
+'MENU': (
+
+        # Rename app and set icon
+        {'app': 'auth', 'label': 'Authorization', 'icon':'icon-lock'},
+
+        {'app':'users' , 'label': 'My Connections'},
+
+        {'app':'things' , 'label': 'My Things'},
+
+        {'app':'locations' , 'label': 'My Locations'},
+
+        {'app':'events' , 'label': 'My Data Debits'},
+
+        {'label': 'My Mashups', 'models': [
+            {'label': 'Health'},
+            {'label': 'Energy',  'url': 'http://hat.smart-e.org/energy.html'},
+            {'label': 'Bathroom', 'url': 'http://hat.smart-e.org/bathroom.html'}
+        ]},
+
+        {'label': 'My Interactions', 'models': [
+            {'label': 'Emails'},
+            {'label': 'Messages'},
+            {'label': 'Social Media'}
+        ]},
+    )    
 }
 
 # Database settings.
@@ -36,9 +64,9 @@ SUIT_CONFIG = {
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "hat",
-        "USER": "hat",
-        "PASSWORD": "bn2qrb62To",
+        "NAME": "hat_dp0_02",
+        "USER": "hat_dp0_2",
+        "PASSWORD": "D>G*D0aQ4~4b0/U",
         "HOST": "",
         "PORT": ""
     }
@@ -46,18 +74,18 @@ DATABASES = {
 
 # Absolute path to the directory where all uploaded media files are stored.
 
-MEDIA_ROOT = "/var/www/hat_media"
+MEDIA_ROOT = "/var/www/hubofallthings.net/public_html/DP0_2/hat_media"
 
-MEDIA_URL = "/media/"
+MEDIA_URL = "/DP0_2/media/"
 
 FILE_UPLOAD_PERMISSIONS = 0644
 
 
 # Absolute path to the directory where static files will be collected.
 
-STATIC_ROOT = "/var/www/hat_static"
+STATIC_ROOT = "/var/www/hubofallthings.net/public_html/DP0_2/hat_static"
 
-STATIC_URL = "/static/"
+STATIC_URL = "/DP0_2/static/"
 
 
 # Email settings.
@@ -199,10 +227,12 @@ PUBLICATION_MIDDLEWARE_EXCLUDE_URLS = (
 )
 
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
-
+# SESSION_COOKIE_NAME = "cookie_DP0_2"
+# CSRF_COOKIE_NAME = "cookie_DP0_2"
+# CSRF_COOKIE_DOMAIN = "hubofallthings.net"
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
-SITE_ID = 1
+SITE_ID = 2
 
 
 # Absolute path to the directory where templates are stored.
@@ -227,6 +257,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.request",
     "hat.context_processors.pjax",
+    "django.core.context_processors.csrf",
 )
 
 # Namespace for cache keys, if using a process-shared cache.
@@ -310,6 +341,7 @@ LOGIN_REDIRECT_URL = reverse_lazy('site:welcome')
 LOGIN_WHITELIST = [
     reverse_lazy('login'),
     reverse_lazy('logout'),
+    '/DP0_2/api/v1/',
     '/api/v1/',
     '/accounts',
     # reverse_lazy('application:register'),
@@ -320,6 +352,15 @@ LOGIN_WHITELIST = [
     # '/password-reset-done/',
     # '/reset-password/',
     # '/reset/done/',
+]
+
+LOGIN_BLACKLIST = [
+    '/DP0_1/',
+    '/DP0_3/',
+    '/DP0_4/',
+    '/DP0_5/',
+    '/DP0_6/',
+    '/DP0_7/',
 ]
 
 # Set your DSN value
