@@ -87,8 +87,8 @@ class EventToEventCrossRef(CreateUpdateMixin):
         related_name='ev_two',
     )
 
-    relationship_type = models.ForeignKey(
-        'EventToEventRelationshipType',
+    relationship_type = models.CharField(
+        max_length=100,
         blank=True,
         null=True,
     )
@@ -100,14 +100,7 @@ class EventToEventCrossRef(CreateUpdateMixin):
     )
 
     class Meta:
-        verbose_name_plural = u'Relationships'
-
-
-class EventToEventRelationshipType(CreateUpdateMixin, NameDescMixin):
-    pass
-
-    class Meta:
-        verbose_name_plural = u'E2E Relationships'
+        verbose_name_plural = u'EventToEventRelationships'
 
 
 # EventSensorDataCrossReference is a link between Event and Sensor Data
@@ -123,16 +116,11 @@ class EventSensorDataCrossRef(CreateUpdateMixin):
         'things.SensorData'
     )
 
-    relationship_type = models.ForeignKey(
-        'EventSensorDataRelationshipType',
+    relationship_type = models.CharField(
+        max_length=100,
         blank=True,
         null=True,
     )
-
-
-class EventSensorDataRelationshipType(NameDescMixin, CreateUpdateMixin):
-    pass
-
 
 # EventLocationCrossReflinks the Event class and the Location class
 class EventLocationCrossRef(CreateUpdateMixin):
@@ -147,16 +135,11 @@ class EventLocationCrossRef(CreateUpdateMixin):
         'locations.Location'
     )
 
-    relationship_type = models.ForeignKey(
-        'EventLocationRelationshipType',
+    relationship_type = models.CharField(
+        max_length=100,
         blank=True,
         null=True,
     )
-
-
-class EventLocationRelationshipType(CreateUpdateMixin, NameDescMixin):
-    pass
-
 
 # EventUserCrossRef links the Event class and the User class
 class EventPersonCrossRef(CreateUpdateMixin):
@@ -177,15 +160,11 @@ class EventPersonCrossRef(CreateUpdateMixin):
         null=True,
     )
 
-    relationship_type = models.ForeignKey(
-        'EventPersonRelationshipType',
+    relationship_type = models.CharField(
+        max_length=100,
         blank=True,
         null=True,
     )
-
-
-class EventPersonRelationshipType(CreateUpdateMixin, NameDescMixin):
-    pass
 
 ################################################################
 # Code additions made after code handover from "One Space Media"
@@ -238,18 +217,12 @@ class DataDebitRecipientCrossRef(CreateUpdateMixin):
     Recipient = models.ForeignKey(
         'users.Recipient'
     )
-    #FK Data Debit recipient rel type
-    relationship_type = models.ForeignKey(
-        'DataDebitRecipientRelationshipType',
+
+    relationship_type = models.CharField(
+        max_length=100,
         blank=True,
         null=True,
     )
-
-
-#Data Debit Recipient relationship type
-class DataDebitRecipientRelationshipType(CreateUpdateMixin, NameDescMixin):
-    pass
-
 
 #Direct Debit and Recipient cross relationship class
 class DataDebitEventCrossRef(CreateUpdateMixin):
@@ -264,13 +237,8 @@ class DataDebitEventCrossRef(CreateUpdateMixin):
         'events.Event'
     )
 
-    relationship_type = models.ForeignKey(
-        'DataDebitEventRelationshipType',
+    relationship_type = models.CharField(
+        max_length=100,
         blank=True,
         null=True,
     )
-
-
-# Event Type class determines the relationship between direct debit and event
-class DataDebitEventRelationshipType(CreateUpdateMixin, NameDescMixin):
-    pass

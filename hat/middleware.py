@@ -16,6 +16,7 @@ class LoginRequiredMiddleware(object):
         # We have a number of whitelisted URLs which the user is not required
         # to be authenticated to see.
         whitelist = getattr(settings, 'LOGIN_WHITELIST', [])
+        blacklist = getattr(settings, 'LOGIN_BLACKLIST', [])
 
         if request.path not in whitelist:
 
@@ -30,4 +31,12 @@ class LoginRequiredMiddleware(object):
                     return None
 
             return redirect_to_login(request.path)
+
+            # Does the URL start with an allowed URL?
+            for path in blacklist:
+                if request.path.startswith(str(path)):
+                    return None
+
+            return redirect_to_login(request.path)
+
         return None

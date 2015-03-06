@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import (Person, PersonAddress, PersonContactMethod, AffiliateService,
-                     Emotion, EmotionType, PersonToPersonRelationshipType)
+                     PersonToPersonRelationshipType, PersonAddressLocationCrossRef, Recipient, PersonDataDebitCrossRef, PersonToPersonCrossRef)
 
 
 class PersonAdmin(admin.ModelAdmin):
@@ -32,15 +32,19 @@ class PersonContactMethodAdmin(admin.ModelAdmin):
     pass
 
 
-class PersonToPersonRelationshipAdmin(admin.ModelAdmin):
+class PersonToPersonCrossRefAdmin(admin.ModelAdmin):
     pass
 
 
-class EmotionAdmin(admin.ModelAdmin):
+class PersonToPersonRelationshipTypeAdmin(admin.ModelAdmin):
     pass
 
 
-class EmotionTypeAdmin(admin.ModelAdmin):
+class PersonAddressLocationCrossRefAdmin(admin.ModelAdmin):
+    pass
+
+
+class RecipientAdmin(admin.ModelAdmin):
     pass
 
 
@@ -49,5 +53,9 @@ admin.site.register(PersonToPersonRelationshipType)
 admin.site.register(PersonAddress)
 admin.site.register(PersonContactMethod)
 admin.site.register(AffiliateService)
-admin.site.register(Emotion)
-admin.site.register(EmotionType)
+admin.site.register(PersonAddressLocationCrossRef)
+admin.site.register(Recipient)
+admin.site.register(PersonToPersonCrossRef)
+# admin.site.register(Emotion)
+# admin.site.register(EmotionType)
+# Emotion, EmotionType,
