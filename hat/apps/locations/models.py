@@ -97,13 +97,11 @@ class LocationPersonCrossRef(CreateUpdateMixin):
         max_length=100,
     )
 
-    relationship_type = models.ForeignKey(
-        'LocationPersonRelationshipType'
+    relationship_type = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
     )
-
-
-class LocationPersonRelationshipType(CreateUpdateMixin, NameDescMixin):
-    pass
 
 
 class LocationThingCrossRef(CreateUpdateMixin):
@@ -124,15 +122,11 @@ class LocationThingCrossRef(CreateUpdateMixin):
         null=True,
     )
 
-    relationship_type = models.ForeignKey(
-        'LocationThingRelationshipType',
+    relationship_type = models.CharField(
+        max_length=100,
         blank=True,
         null=True,
     )
-
-
-class LocationThingRelationshipType(CreateUpdateMixin, NameDescMixin):
-    pass
 
 
 class LocationToLocationCrossRef(CreateUpdateMixin):
@@ -147,11 +141,7 @@ class LocationToLocationCrossRef(CreateUpdateMixin):
         related_name='loc_two',
     )
 
-    relationship_type = models.ForeignKey(
-        'LocationToLocationRelationshipType',
-    )
-
-    relationship_description = models.CharField(
+    relationship_type = models.CharField(
         max_length=100,
         blank=True,
         null=True,
@@ -159,13 +149,6 @@ class LocationToLocationCrossRef(CreateUpdateMixin):
 
     class Meta:
         verbose_name_plural = u'Relationships'
-
-
-class LocationToLocationRelationshipType(CreateUpdateMixin, NameDescMixin):
-    pass
-
-    class Meta:
-        verbose_name_plural = u'L2L Relationships'
 
 
 class LocationSensorCrossRef(CreateUpdateMixin):
@@ -185,13 +168,11 @@ class LocationSensorCrossRef(CreateUpdateMixin):
         max_length=100,
     )
 
-    relationship_type = models.ForeignKey(
-        'LocationSensorRelationshipType'
+    relationship_type = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
     )
-
-
-class LocationSensorRelationshipType(CreateUpdateMixin, NameDescMixin):
-    pass
 
 
 class InventoryLocationSecondary(CreateUpdateMixin):

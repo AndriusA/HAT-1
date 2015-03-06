@@ -95,17 +95,15 @@ class ThingPersonCrossRef(CreateUpdateMixin, NameDescMixin):
 		'Thing'
 	)
 
-	relationship_type = models.ForeignKey(
-		'ThingPersonRelationshipType'
-	)
+    relationship_type = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+    )
 
 	is_relationship_current = models.BooleanField(
 		default=False,
 	)
-
-
-class ThingPersonRelationshipType(CreateUpdateMixin, NameDescMixin):
-	pass
 
 
 class ThingPropertyCrossRef(CreateUpdateMixin):
@@ -119,17 +117,15 @@ class ThingPropertyCrossRef(CreateUpdateMixin):
 		'ThingProperty'
 	)
 
-	relationship_type = models.ForeignKey(
-		'ThingPropertyRelationshipType'
-	)
+    relationship_type = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+    )
 
 	is_current = models.BooleanField(
 		default=False,
 	)
-
-
-class ThingPropertyRelationshipType(CreateUpdateMixin, NameDescMixin):
-	pass
 
 
 
@@ -160,9 +156,11 @@ class ThingToThingCrossRef(CreateUpdateMixin):
 		related_name='thing2',
 	)
 
-	relationship_type = models.ForeignKey(
-		'ThingToThingRelationshipType',
-	)
+    relationship_type = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+    )
 
 	relationship_description = models.CharField(
 		max_length=100,
@@ -173,14 +171,7 @@ class ThingToThingCrossRef(CreateUpdateMixin):
 	class Meta:
 		verbose_name_plural = u'Relationships'
 
-
-class ThingToThingRelationshipType(CreateUpdateMixin, NameDescMixin):
-	pass
-
-	class Meta:
-		verbose_name_plural = u'T2T Relationship Types'
  
-
 class ThingSensorCrossRef(CreateUpdateMixin, NameDescMixin):
 
 		#FK to thing
@@ -192,13 +183,12 @@ class ThingSensorCrossRef(CreateUpdateMixin, NameDescMixin):
 		'Sensor'
 	)
 
-	relationship_type = models.ForeignKey(
-		'ThingSensorRelationshipType'
-	)
+    relationship_type = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+    )
 
-
-class ThingSensorRelationshipType(CreateUpdateMixin, NameDescMixin):
-	pass
 
 class SensorLocationCrossRef(CreateUpdateMixin, NameDescMixin):
 
@@ -211,13 +201,11 @@ class SensorLocationCrossRef(CreateUpdateMixin, NameDescMixin):
 		'locations.Location'
 	)
 
-	relationship_type = models.ForeignKey(
-		'ThingSensorRelationshipType'
-	)
-
-
-class SensorLocationRelationshipType(CreateUpdateMixin, NameDescMixin):
-	pass
+    relationship_type = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+    )
 
 
 class Sensor(CreateUpdateMixin, NameDescMixin):
